@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1
+	Assignment: Final Project
+	Language: HTML5
+	Purpose: An explanation of how to implement common increases.
+	Linked files: normalize.css, multi-column.css, slicknav.css, 
+rollover.js, jquery.slicknav.min.js, knit-stack.jpg, header-painted.png, favicon.ico, 
+increases.jpg, M1L(1).jpg, M1L(2).jpg, M1R(1).jpg,
+M1R(2).jpg, KFB(1).jpg, KFB(2).jpg, KFB(3).jpg, INV-L(1).jpg,
+INV-L(2).jpg, INV-R(1).jpg, INV-R(2).jpg, INV-R(3).jpg,
+YO(2).jpg, YO(1).jpg, Eyelet(1).jpg, Eyelet(2).jpg
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learn to Knit: Getting Started</title>
+		<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/multi-column.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+    <link rel="stylesheet" href="../styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+	<!--Slicknav function-->
+	<script type="text/javascript">
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+    	});
+    </script>
+	<!-- bxSlider Javascript file -->
+	<script src="../js/jquery.bxslider.min.js">
+	</script>
+	<!-- bxSlider CSS file -->
+	<link href="../styles/jquery.bxslider.css" rel="stylesheet">			
+	<script type="text/javascript">
+	  $(document).ready(function(){
+		$('#slider1').bxSlider({
+		  mode: 'fade',
+		});
+		$('#slider2').bxSlider({
+		  mode: 'fade',
+		});
+		$('#slider3').bxSlider({
+		  mode: 'fade',
+		});
+	  });
+	</script>
+</head>
+
+<body>
+	<header id="top">
+		<!--Header image and image map-->
+		<img src="../images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="../images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,120,120">
+		</map>
+		<map name="header2">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,120">
+		</map>
+	</header>
+	
+<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<nav id="nav_menu">
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+			<li><a>Getting Started</a>
+				<ul>
+					<li><a href="../basics/swatching.html">Swatching</a></li>
+					<li><a href="../basics/basics.html">Basics</a></li>
+					<li><a href="../basics/yarn_and_needles.html">Yarn and Needles</a></li>
+					<li><a href="../basics/terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="increases.html" class="current">Increases</a></li>
+					<li><a href="decreases.html" >Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="../finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="../finishing/blocking.html">Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="../extra/survey.html">Survey</a></li>
+					<li><a href="../extra/hat_pattern.html">Hat Pattern</a></li>
+					<li><a href="../extra/scarf_pattern.html">Scarf Pattern</a></li>
+					<li><a href="../extra/project_gallery.html">Examples</a></li>
+					<li><a href="../extra/resources.html">Resources</a><li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<main>
+	<!--Navigation menu for the page -->
+		<aside>
+			<nav id="nav_list">
+				<ul>
+					<li><a href="increases.html#top" >Increases</a>
+						<ul>
+							<li><a href="#M1">M1-R/M1-L</a></li>
+							<li><a href="#KFB">KFB</a></li>
+							<li><a href="#INV">INV-R/INV-L</a></li>
+							<li><a href="#YO">Yarn Over</a></li>
+							<li><a href="#Eyelet">Eyelet <br>Increase</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+<!--Main Page Content -->
+		<section>
+		<h1>Increases</h1>
+		<p>All increases insert one or more stitches into the knitting. The new stitch will push the 
+		stitches around it away from each other, shaping the knitting in the process. Increases serve a practical purpose, but also can 
+		be used with decreases to create lace and other decorative effects while keeping the total number 
+		of stitches the same.</p>
+		<!--Example image set-->
+		<figure class="multiImage">
+			<img src="../images/increases/increases.jpg" alt="Increases" class="medimg">
+			<img src="../images/increases/bar.jpg" alt="Bar between stitches" class="medimg">
+		</figure>
+			
+			<!--Instructions -->
+			<h3 id="M1">Make One Right / Make One Left</h3>
+				<p>This increase method makes a stitch between two pre-existing 
+				stitches by picking up the ‘bar’ of yarn between the most recently worked 
+				stitch on the right needle and the first stitch on the left needle. 
+				It will cause some distortion in the stitches on either side because it is 
+				pulling some of the yarn out of those stitches. </p>
+				<h4>To make one left</h4>
+				<!--Example image set-->
+					<figure class="multiImage">
+						<img src="../images/increases/M1L(1).jpg" alt="Make one left: Step one" class="medimg">
+						<img src="../images/increases/M1L(2).jpg" alt="Make one left: Step two" class="medimg">
+					</figure>
+				<!--Steps --> 
+				<ol>
+					<li>Insert the left needle from front to back under the strand of yarn between the stitches.</li>
+					<li>Knit this through the back loop (insert the right needle from right to left). </li>
+				</ol>
+				
+				<h4>To make one right</h4>	
+				<!--Example image set-->
+					<figure class="multiImage">
+						<img src="../images/increases/M1R(1).jpg" alt="Make one right: Step one" class="medimg">
+						<img src="../images/increases/M1R(2).jpg" alt="Make one right: Step two" class="medimg">
+					</figure>
+				<!--Steps --> 
+				<ol>
+					<li>Insert the left needle from back to front under the strand of yarn between the stitches. </li>
+					<li>Knit this normally.</li>
+				</ol>
+				<a href="increases.html" class="to_top">Back to the top</a>
+			
+			<!--Instructions -->
+			<h3 id="KFB">Knit Front and Back</h3>
+				<p>   This increase knits the increase into an existing stitch. 
+				It creates a small purl bump on the left of the knit stitch, so it is noticeable.</p>	
+				<!--Example image set-->
+				<ul id="slider1">
+					<li><img src="../images/increases/KFB(1).jpg" alt="Knit front and back: Step one" class="slideshowimg"></li>
+					<li><img src="../images/increases/KFB(2).jpg" alt="Knit front and back: Step two" class="slideshowimg"></li>
+					<li><img src="../images/increases/KFB(3).jpg" alt="Knit front and back: Step three" class="slideshowimg"></li>
+				</ul>
+				<!--Steps --> 
+				<ol>
+					<li>Knit the stitch, but leave it on the left needle. </li>
+					<li>While stitch you just worked is still on the left needle,
+					knit into the back loop of the stitch you just worked. </li>			
+					<li>Now drop the stitch off the left needle.</li>
+				</ol>
+				<a href="increases.html" class="to_top">Back to the top</a>
+			
+			<!--Instructions -->
+			<h3 id="INV">Invisible Increase</h3>
+				<p>This method lifts a previously worked stitch onto the needle and is 
+				then worked to create a new stitch.</p>
+				<h4>To create a left leaning invisible increase</h4>
+				<!--Example image set-->
+				<figure class="multiImage">
+					<img src="../images/increases/INV-L(1).jpg" alt="Invisible increase left: Step two" class="medimg">
+					<img src="../images/increases/INV-L(2).jpg" alt="Invisible increase left: Step three" class="medimg"> 
+				</figure>
+				<!--Steps --> 
+				<ol>
+					<li>Slip stitch purlwise with yarn in the back. </li>
+					<li>Insert the tip of the left needle from back to front into the 
+					stitch below the stitch you just slipped onto the right needle. </li>	
+					<li>Lift this stitch up onto the left needle and knit it through the back loop</li>
+				</ol>
+				<a href="increases.html" class="to_top">Back to the top</a>				
+				
+				<h4>To create a right leaning invisible increase</h4>
+				<!--Example image set-->
+				<ul id="slider2">
+					<li><img src="../images/increases/INV-R(1).jpg" alt="Invisible increase right: Step one" class="slideshowimg"></li>	
+					<li><img src="../images/increases/INV-R(2).jpg" alt="Invisible increase right: Step two" class="slideshowimg"></li>		
+					<li><img src="../images/increases/INV-R(3).jpg" alt="Invisible increase right: Step four" class="slideshowimg"></li>
+				</ul>
+				<!--Steps --> 
+				<ol>
+					<li>Insert the right needle from back to front into the stitch below the first stitch on the left needle. </li>
+					<li>Lift this stitch onto the left needle.</li>
+					<li>Knit this stitch </li>
+					<li>Slip the original first stitch on the left needle purlwise with yarn in back</li>
+				</ol>
+				<a href="increases.html" class="to_top">Back to the top</a>				
+			
+			<!--Instructions -->
+			<h3 id="YO">Yarn Over</h3>
+				<p>Yarn overs are very easy to do, and thus are often done accidently. If there is a
+				mystery hole in your knitting, it is probably because you worked a yarn over
+				and didn’t realize it. Yarn overs create a new stitch between two other stitches.
+				Yarn overs create a hole and are very often used in lace knitting. </p>
+				<!--Example image set-->
+				<figure class="multiImage">
+					<img src="../images/increases/YO(2).jpg" alt="Yarn over: Step one" class="medimg">
+					<img src="../images/increases/YO(1).jpg" alt="Yarn over: Step one" class="medimg">
+			    </figure>
+				<!--Steps --> 
+				<ol>
+					<li>Wrap the working yarn in front of and over the top of the right needle.</li>
+					<li>Keep working the row/round as usual. </li>
+					<li>On the next row/round work the yarn over wrap like normal stitch.</li>
+				</ol>
+				<a href="increases.html" class="to_top">Back to the top</a>				
+			
+			<!--Instructions -->
+			<h3 id="Eyelet">Eyelet Increase</h3>
+				<p>An eyelet increase makes a hole like a yarn over. The hole is smaller and is worked like a M1.</p>
+				<!--Example image set-->
+				<figure class="multiImage">
+					<img src="../images/increases/Eyelet(1).jpg" alt="Eyelet: Step one" class="medimg">
+					<img src="../images/increases/Eyelet(2).jpg" alt="Eyelet: Step two" class="medimg">
+				</figure>
+				<!--Steps --> 
+				<ol>
+					<li>Insert the left needle from front to back under the strand of yarn between the stitches.</li>
+					<li>Knit this normally.</li>
+				</ol>	
+				<a href="increases.html" class="to_top">Back to the top</a>				
+		</section>
+	</main>
+	
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>
+</html>

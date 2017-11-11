@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1
+	Assignment: Final Project
+	Language: HTML5
+	Purpose: An explanation of how to implement common decreases.
+	Linked files: normalize.css, multi-column.css, slicknav.css, 
+rollover.js, jquery.slicknav.min.js, knit-stack.jpg, header-painted.png,  favicon.ico, 
+decrease-swatch.jpg, R-slant-dec.jpg, L-slant-dec.jpg, k2tog(1).jpg, 
+k2tog(2).jpg, ssk(2).jpg, ssk(3).jpg, ssk(4).jpg, k2togtbl(1).jpg, 
+k2togtbl(2).jpg, k2togtbl(3).jpg, p2tog(1).jpg, p2tog(2).jpg, 
+p2tog(3).jpg, p2togtbl(1).jpg, p2togtbl(2).jpg, p2togtbl(3).jpg, 
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learn to Knit: Decreases</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/multi-column.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+    <link rel="stylesheet" href="../styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+	<!--Slicknav function-->
+	<script type="text/javascript">
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+    	});
+    </script>
+	<!-- bxSlider Javascript file -->
+	<script src="../js/jquery.bxslider.min.js">
+	</script>
+	<!-- bxSlider CSS file -->
+	<link href="../styles/jquery.bxslider.css" rel="stylesheet">			
+	<script type="text/javascript">
+	  $(document).ready(function(){
+		$('#slider1').bxSlider({
+		  mode: 'fade',
+		});
+		$('#slider2').bxSlider({
+		  mode: 'fade',
+		});
+		$('#slider3').bxSlider({
+		  mode: 'fade',
+		});
+		$('#slider4').bxSlider({
+		  mode: 'fade',
+		});
+		$('#slider5').bxSlider({
+		  mode: 'fade',
+		});
+		$('#slider6').bxSlider({
+		  mode: 'fade',
+		});
+	  });
+	</script>
+</head>
+
+<body>
+	<header id="top">
+		<!--Header image and image map-->
+		<img src="../images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="../images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,120,120">
+		</map>
+		<map name="header2">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,120">
+		</map>
+	</header>
+	
+<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<nav id="nav_menu">
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+			<li><a >Getting Started</a>
+				<ul>
+					<li><a href="../basics/swatching.html">Swatching</a></li>
+					<li><a href="../basics/basics.html">Basics</a></li>
+					<li><a href="../basics/yarn_and_needles.html">Yarn and Needles</a></li>
+					<li><a href="../basics/terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="increases.html">Increases</a></li>
+					<li><a href="decreases.html" class="current">Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="../finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="../finishing/blocking.html">Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="../extra/survey.html">Survey</a></li>
+					<li><a href="../extra/hat_pattern.html">Hat Pattern</a></li>
+					<li><a href="../extra/scarf_pattern.html">Scarf Pattern</a></li>
+					<li><a href="../extra/project_gallery.html">Examples</a></li>
+					<li><a href="../extra/resources.html">Resources</a><li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+    <main>		
+	<!--Navigation menu for the page-->
+		<aside>
+		<nav id="nav_list">
+			<ul>
+				<li><a href="decreases.html#top" >Decreases</a>
+					<ul>
+						<li><a href="#k2tog">K2tog</a></li>
+						<li><a href="#SSK">SSK</a></li>
+						<li><a href="#k2togtbl" >K2tog tbl</a></li>
+						<li><a href="#p2tog" >P2tog</a></li>
+						<li><a href="#p2togtbl">P2togtbl (SSP)</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		</aside>
+		
+<!--Main Page Content -->
+		<section>
+		<h1>Decreases</h1>
+		<p>All decreases remove one or more stitches from the knitting. Removing a stitch pulls the stitches on either side
+		towards each other, and this will shape the knitting. Decreases serve a practical purpose, but also can 
+		be used with increases to create lace and other decorative effects while keeping the total number 
+		of stitches the same.</p>
+		<!--Example image set-->
+				<ul id="slider1">
+					<li><img src="../images/decreases/decrease-swatch.jpg" alt="Decrease swatch" class="slideshowimg"></li>
+					<li><img src="../images/decreases/R-slant-dec.jpg" alt="Right Slanting Decreases" class="slideshowimg"></li>
+					<li><img src="../images/decreases/L-slant-dec.jpg" alt="Left Slanting Decreases" class="slideshowimg"></li>
+				</ul>
+			
+			<!--Knit Two Together Instructions -->
+			<h3 id="k2tog">Knit Two Together</h3>
+				<p>	This is the most basic decrease, and the one you see most often in patterns.
+				It removes one stitch and slants to the right.</p>
+				<!--Imageset --> 
+						<ul id="slider2">
+							<li><img src="../images/decreases/k2tog(1).jpg" alt="Knit two together: Step one" class="slideshowimg"></li>
+							<li><img src="../images/decreases/k2tog(3).jpg" alt="Knit two together" class="slideshowimg"></li>
+							<li><img src="../images/decreases/k2tog(2).jpg" alt="Knit two together: Step two" class="slideshowimg"></li>
+						</ul>
+					<!--Steps --> 
+					<ol>
+						<li>Insert the right needle tip into the first two stitches on the left needle, from left to right.</li>
+						<li>Knit these two stitches as though they were one stitch.</li>
+					</ol>
+				<a href="decreases.html#top" class="to_top">Back to the top</a>					
+			
+			<!--Slip Slip Knit Instructions -->
+			<h3 id="SSK">Slip Slip Knit</h3>
+				<p>	This decrease is not as common as K2TOG, 
+				but it is frequently used when you need the decrease to lean to the left. </p>	
+					<!--Example image set-->
+					<ul id="slider3">
+						<li><img src="../images/decreases/ssk(2).jpg" alt="Slip slip knit: step One" class="slideshowimg"></li>
+						<li><img src="../images/decreases/ssk(3).jpg" alt="Slip slip knit: step Two" class="slideshowimg"></li>
+						<li><img src="../images/decreases/ssk(4).jpg" alt="Slip slip knit: step Three" class="slideshowimg"></li>
+					</ul>			
+					<!--Steps --> 
+					<ol>	
+						<li>Slip the first two stitches knitwise from the left needle to the right needle.
+						Slip them back onto the left needle, you have essentially changed their orientation on the needle. </li>
+						<li>Insert the right needle tip into the first two stitches on the left needle, from right to left. </li>
+						<li>Knit these two stitches as though they were one stitch. </li>
+					</ol>
+				<a href="decreases.html#top" class="to_top">Back to the top</a>	
+			
+			<!--Knit Two Together Through the Back Loop Instructions -->		
+			<h3 id="k2togtbl">Knit Two Together Through the Back Loop</h3>
+				<p>	This is a decrease that you will not see as much, but still useful to know. 
+				It removes one stitch and slants to the left. </p>
+				<!--Example image set-->
+				<ul id="slider4">
+					<li><img src="../images/decreases/k2togtbl(1).jpg" alt="Knit two together through the back loop: Step one" class="slideshowimg"></li>
+					<li><img src="../images/decreases/k2togtbl(2).jpg" alt="Knit two together through the back loop: Step two" class="slideshowimg"></li>
+					<li><img src="../images/decreases/k2togtbl(3).jpg" alt="Knit two together through the back loop" class="slideshowimg"></li>
+				</ul>
+					<!--Steps --> 
+					<ol>
+						<li>Insert the right needle tip into the first two stitches on the left needle, from right to left. </li>
+						<li>Knit these two stitches as though they were one stitch. </li>
+					</ol>
+				<a href="decreases.html#top" class="to_top">Back to the top</a>	
+			
+			<!--Purl Two Together Instructions -->		
+			<h3 id="p2tog">Purl Two Together</h3>
+				<p>	Most patterns keep decreases on the right side, 
+				but purl decreases are still useful to know.  This decrease leans to the right.</p> 			
+				<!--Example image set-->
+				<ul id="slider5">
+					<li><img src="../images/decreases/p2tog(1).jpg" alt="Purl two together: Step one" class="slideshowimg"></li>
+					<li><img src="../images/decreases/p2tog(2).jpg" alt="Purl two together: Step two" class="slideshowimg"></li>
+					<li><img src="../images/decreases/p2tog(3).jpg" alt="Purl two together" class="slideshowimg"></li>
+				</ul>
+					<!--Steps --> 
+					<ol>
+						<li>Insert the right needle tip into the first two stitches on the left needle, from right to left. </li>
+						<li>Purl these two stitches as though they were one stitch.</li>
+					</ol>
+				<a href="decreases.html#top" class="to_top">Back to the top</a>
+		
+		<!--Purl Two Together Through the Back Loop Instructions-->
+			<h3 id="p2togtbl">Purl Two Together Through the Back Loop (Slip Slip Purl)</h3>
+				<p>	This decrease leans to the right.</p>
+				<!--Example image set-->
+				<ul id="slider6">
+					<li><img src="../images/decreases/p2togtbl(1).jpg" alt="Purl two together through the back loop: Step two" class="slideshowimg"></li>
+					<li><img src="../images/decreases/p2togtbl(2).jpg" alt="Purl two together through the back loop: Step three" class="slideshowimg"></li>
+					<li><img src="../images/decreases/p2togtbl(3).jpg" alt="Purl two together through the back loop" class="slideshowimg"></li>
+				</ul>
+					<!--Steps-->
+					<ol>
+						<li>Slip the first two stitches knitwise from the left needle to the right needle. 
+						Slip them back onto the left needle, you have essentially changed their orientation on the needle. </li>
+						<li>Now, take the right needle and from the knit side 
+						of the work and insert it through the two needles from left to right. </li>
+						<li>Purl these two stitches as though they were one. </li>
+					</ol>
+				<a href="decreases.html#top" class="to_top">Back to the top</a>	
+		</section>
+
+	</main>
+	
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>
+</html>
