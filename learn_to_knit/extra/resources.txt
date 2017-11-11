@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1 
+	Assignment: Final Project
+	Language: HTML5
+	Purpose: A collection of helpful links and resources. 
+	Linked files: normalize.css, main.css, slicknav.css, 
+rollover.js, jquery.slicknav.min.js, knit-stack.jpg, header-painted.png, favicon.ico, 
+-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learn to Knit: Resources</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/main.css">
+	<link rel="stylesheet" href="../styles/print.css" media="print">
+	<!--SlickNav-->
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="../styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+	<!--SlickNav-->
+	<script type="text/javascript">
+	<!--SlickNav-->
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+    	});
+    </script>
+</head>
+
+<body>
+
+	<header>
+	<!--Header image and image map-->
+		<img src="../images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="../images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,795,795">
+		</map>
+		<map name="header2">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,460">
+		</map>
+	</header>
+	
+	<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+		<nav id="nav_menu">
+		<ul>					
+			<li><a href="../index.html">Home</a></li>
+			<li><a>Getting Started</a>
+				<ul>
+					<li><a href="../basics/swatching.html">Swatching</a></li>
+					<li><a href="../basics/basics.html">Basics</a></li>
+					<li><a href="../basics/yarn_and_needles.html">Yarn and Needles</a></li>
+					<li><a href="../basics/terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="../shaping/increases.html">Increases</a></li>
+					<li><a href="../shaping/decreases.html">Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="../finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="../finishing/blocking.html" >Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="survey.html">Survey</a></li>
+					<li><a href="hat_pattern.html">Hat Pattern</a></li>
+					<li><a href="scarf_pattern.html" class="current">Scarf Pattern</a></li>
+					<li><a href="project_gallery.html">Examples</a></li>				
+					<li><a href=""></a>Resources<li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<main>
+		<section>
+
+		</section>
+		
+	</main>
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1
+	Assignment: Final Project
+	Language: HTML5
+	Purpose: An introduction to swatching.
+	Linked files: normalize.css, main.css, slicknav.css, 
+rollover.js, jquery.slicknav.min.js, knit-stack.jpg, header-painted.png, favicon.ico,
+fingering-weight-swatch(1).jpg, fingering-weight-swatch(2).jpg, fingering-weight-swatch(3).jpg, 
+fingering-weight-swatch(4).jpg, worsted-weight-swatch(4).jpg, worsted-weight-swatch(3).jpg,
+worsted-weight-swatch(2).jpg, worsted-weight-swatch(1).jpg , swatches(4).jpg, swatches(5).jpg,
+swatches(6).jpg, swatches(7).jpg, swatches(8).jpg, swatches(9).jpg, swatches(10).png, swatches(11).png,
+swatch&Fo(1).jpg, swatch&Fo(2).jpg, swatch&Fo(3).jpg, swatch&Fo(4).jpg, swatch&Fo(5).jpg, swatch&Fo(6).jpg, 
+swatch&Fo(7).jpg, swatch&Fo(8).jpg
+-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learn to Knit: Swatching</title>
+	<link rel="shortcut icon" href="../images/favicon.ico" >
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="../styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+	<!--SlickNav Function-->
+	<script type="text/javascript">
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+    	});
+    </script>	
+</head>
+
+<body>
+
+	<header>
+	<!--Header image and image map-->
+		<img src="../images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="../images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,120,120">
+		</map>
+		<map name="header2">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,120">
+		</map>
+	</header>
+	
+	<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<nav id="nav_menu">
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+			<li><a>Getting Started</a>
+				<ul>
+					<li><a href="swatching.html" class="current">Swatching</a></li>
+					<li><a href="basics.html">Basics</a></li>
+					<li><a href="yarn_and_needles.html">Yarn and Needles</a></li>
+					<li><a href="terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="../shaping/increases.html">Increases</a></li>
+					<li><a href="../shaping/decreases.html">Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="../finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="../finishing/blocking.html">Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="../extra/survey.html">Survey</a></li>
+					<li><a href="../extra/hat_pattern.html">Hat Pattern</a></li>
+					<li><a href="../extra/scarf_pattern.html">Scarf Pattern</a></li>
+					<li><a href="../extra/project_gallery.html">Examples</a></li>
+					<li><a href="../extra/resources.html">Resources</a><li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+<!--Page Content -->
+	<main>
+	<section>
+		<h1>Swatching</h1>
+		<p> Before starting any knitting project it is important to first knit a <b>gauge swatch</b>.
+		A gauge swatch is a square of knitted fabric that tells you a great deal of information about the yarn and the fabric it will create. 
+		Think of it as a trial run or small prototype for your project. <b>Gauge</b> is the number of stitches and rows in a unit of measurement, 
+		usually four square inches or ten square centimeters. Stitch gauge measures the width of the work and row gauge measures its height.
+		Different yarns and knitters can produce vastly different gauges with same needle size. </p>
+		 <!--Animation of swatches. Each figure is a slide-->
+		 <div class="slideshow">
+				<figure>
+					<figcaption>A selection of swatches</figcaption>
+					<img src="../images/basics/swatching/swatches(4).jpg" alt="Swatches">
+				</figure>
+				<figure>
+					<figcaption>Two swatches knit on the same needles in the same pattern
+					but with different yarns</figcaption>
+					<img src="../images/basics/swatching/swatches(5).jpg" alt="Two swatches">
+				</figure>
+				<figure>
+					<figcaption>Two swatches knit in different patterns with the same needles
+					and the same yarn</figcaption>
+					<img src="../images/basics/swatching/swatches(6).jpg" alt="Two swatches">
+				</figure>
+				<figure>
+					<figcaption>Three swatches knit from the same weight of yarn.</figcaption>
+					<img src="../images/basics/swatching/swatches(7).jpg" alt="Three Swatches">
+				</figure>
+				<figure>
+					<figcaption>Some yarns show stitch patterns and cables better than others</figcaption>
+					<img src="../images/basics/swatching/swatches(8).jpg" alt="Stitch comperison">
+				</figure>
+				<figure>
+					<figcaption>It is helpful to tie knots in the yarn tail to help you remember which 
+					needle size you used. I used a US size 4 for this swatch and tied 4 knots to indicate this.</figcaption>
+					<img src="../images/basics/swatching/swatches(9).jpg" alt="Knots in the yarn tail">
+				</figure>
+				<figure>
+					<figcaption>A circularly knit swatch in progress. The yarn was held double.</figcaption>
+					<img src="../images/basics/swatching/swatches(10).png" alt="A swatch in progress">
+				</figure>
+				<figure>
+					<figcaption>A swatch that was knit flat</figcaption>
+					<img src="../images/basics/swatching/swatches(11).png" alt="A finished swatch, knit flat">
+				</figure>
+			</div>
+		 
+		 <p>To knit a gauge swatch you simply knit a square in your intended stitch pattern about 4” by 4”. 
+		If your stitch pattern requires a certain multiple of stitches be sure to use that for your cast on number.
+		A swatch that it slightly larger than 4 inches will be easier to measure, and often will give you a better indication of how the knitting is going to 
+		behave on a larger scale.  It is crucial that you use the exact yarn and needles you plan to use for the project.
+		It is also worth mentioning that you need to knit your swatch slightly differently depending on if the project will be knit
+		flat or in the round.</p>
+		<p> When you swatch 'in the round' you do not flip your swatch over and knit back the other way. Instead, you slide it back 
+		to the other end of a needle, pull the working yarn across the back loosely, and start knitting back across. The best way I can describe it is 
+		to think of the way a typewriter works. I usually hold my hand flat against the back of the swatch and use the extra depth created by my hand 
+		to add the slack to the yarn pulled across the back. When you block the swatch you can either just leave the stands there or cut them down the 
+		middle like I have in the pictures. I would not suggest cutting the strands unless you are sure you are not going to rip your swatch back.</p>
+			<!--Animation of swatches and finished project-->
+			<div class="slideshow">
+				<figure>
+					<figcaption>Finished Sweater</figcaption>
+					<img src="../images/basics/swatching/swatch&FO(2).jpg" alt="A finished sweater">
+				</figure>
+				<figure>
+					<figcaption>Swatch</figcaption>
+					<img src="../images/basics/swatching/swatch&FO(1).jpg" alt="The sweater's swatch">
+				</figure>
+				<figure>
+					<figcaption>Finished Hat</figcaption>
+					<img src="../images/basics/swatching/swatch&FO(3).jpg" alt="A finished hat">
+				</figure>
+				<figure>
+					<figcaption>Swatch</figcaption>
+					<img src="../images/basics/swatching/swatch&FO(4).jpg" alt="The hat's swatch">
+				</figure>
+				<figure>
+					<figcaption>Finished Hat</figcaption>
+					<img src="../images/basics/swatching/swatch&FO(5).jpg" alt="A finished hat">
+				</figure>
+				<figure>
+					<figcaption>Swatch</figcaption>
+					<img src="../images/basics/swatching/swatch&FO(6).jpg" alt="The hat's swatch">
+				</figure>
+				<figure>
+					<figcaption>Finished Socks</figcaption>
+					<img src="../images/basics/swatching/swatch&FO(8).jpg" alt="Finished Socks">
+				</figure>
+				<figure>
+					<figcaption>Swatch</figcaption>
+					<img src="../images/basics/swatching/swatch&FO(7).jpg" alt="The sock swatch">
+				</figure>
+			</div>
+		
+		<p>When you finish your swatch you must wash and block it in the same way you plan on washing and blocking your finished project. 
+		I generally like to measure the swatch before <a href="../finishing/blocking.html" title="How to block knits">blocking</a> as well, just to make note of how the blocking changes the fabric.
+		To measure the swatch, lay it on a flat surface and place a ruler on top of it. Make sure that the ruler is parallel to the row or column
+		of stitches you want to measure. Often it is helpful to place a pin at the start and end points so that it is easier to keep 
+		track of where you are. Then count the number of stitches in your desired measurement. Be sure to count partial stitches too! </p>
+			<!--Animation of swatch measuring-->
+			<div class="slideshow">
+				<figure>
+					<figcaption>Measuring stitch gauge on a fingering weight swatch</figcaption>
+					<img src="../images/basics/swatching/fingering-weight-swatch(4).jpg" alt="A swatch being measured">
+				</figure>
+				<figure>
+					<figcaption>Measuring stitch gauge on a fingering weight swatch</figcaption>
+					<img src="../images/basics/swatching/fingering-weight-swatch(1).jpg" alt="A swatch being measured">
+				</figure>
+				<figure>
+					<figcaption>Measuring row gauge on a fingering weight swatch</figcaption>
+					<img src="../images/basics/swatching/fingering-weight-swatch(2).jpg" alt="A swatch being measured">
+				</figure>
+				<figure>
+					<figcaption>Measuring row gauge on a fingering weight swatch</figcaption>
+					<img src="../images/basics/swatching/fingering-weight-swatch(3).jpg" alt="A swatch being measured">
+				</figure>
+				<figure>
+					<figcaption>Measuring stitch gauge on a worsted weight swatch</figcaption>
+					<img src="../images/basics/swatching/worsted-weight-swatch(4).jpg" alt="A swatch being measured">
+				</figure>
+				<figure>
+					<figcaption>Measuring stitch gauge on a worsted weight swatch</figcaption>
+					<img src="../images/basics/swatching/worsted-weight-swatch(3).jpg" alt="A swatch being measured">
+				</figure>
+				<figure>
+					<figcaption>Measuring row gauge on a worsted weight swatch</figcaption>
+					<img src="../images/basics/swatching/worsted-weight-swatch(2).jpg" alt="A swatch being measured">
+				</figure>
+				<figure>
+					<figcaption>Measuring row gauge on a worsted weight swatch</figcaption>
+					<img src="../images/basics/swatching/worsted-weight-swatch(1).jpg" alt="A swatch being measured">
+				</figure>
+			</div>
+		<p>Most knitting patterns will specify a <b>pattern gauge</b> and if your gauge is different, your project will end up with different 
+		measurements than those given in the pattern. If you have <i>more</i> stitches/rows per inch than the pattern gauge your project will be smaller. 
+		If you have <i>fewer</i> stitches/rows per inch than the pattern gauge your project will be larger. By swatching before you begin the project itself,
+		you can account for any differences in gauge.</p>
+		<p>If you do end up with a different gauge, don’t be disheartened. Simple fixes are to go up or down a needle size or two and then swatch again. 
+		If you simply cannot get gauge, some simple algebra will solve the problem. For projects like hats or scarves perfect gauge isn’t crucial, 
+		but for garments it is more important. Different yarns will behave differently in the same stitch pattern. By swatching beforehand, 
+		you will know if the yarn produces the desired look and feel in a given stitch pattern. </p>
+	</section>
+	</main>
+	
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>
+</html>

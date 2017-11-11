@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.Section: CGS1821.CM1
+	Assignment: Final Project
+	Language: HTML5
+	Purpose: A page that collects user information and provides an option to sign up for updates
+	Linked files: main.css, normalize.css, slicknav.css, 
+jquery.slicknav.min.js, knit-stack.jpg, header-painted.png, favicon.ico, sub_Form.php,
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learn to Knit: Survey</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="../styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+	<script type="text/javascript">
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+    	});
+	</script>
+	<!--Form JS-->	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="../js/JavaScript.js"></script>
+</head>
+
+<body>
+	<header>
+	<!--Header image and image map-->
+		<img src="../images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="../images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,120,120">
+		</map>
+		<map name="header2">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,120">
+		</map>
+	</header>
+	
+	<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<nav id="nav_menu">
+		<ul>					
+			<li><a href="../index.html">Home</a></li>
+			<li><a>Getting Started</a>
+				<ul>
+					<li><a href="../basics/swatching.html">Swatching</a></li>
+					<li><a href="../basics/basics.html">Basics</a></li>
+					<li><a href="../basics/yarn_and_needles.html">Yarn and Needles</a></li>
+					<li><a href="../basics/terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="../shaping/increases.html">Increases</a></li>
+					<li><a href="../shaping/decreases.html">Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="../finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="../finishing/blocking.html" >Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="survey.html" class="current">Survey</a></li>
+					<li><a href="hat_pattern.html">Hat Pattern</a></li>
+					<li><a href="scarf_pattern.html">Scarf Pattern</a></li>
+					<li><a href="project_gallery.html">Examples</a></li>
+					<li><a href="resources.html">Resources</a><li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<main>
+	<!--Main content-->
+	<section>
+		<h1>Survey</h1>
+		<p>I would greatly appreciate it if you would take a few moments to answer the following set of questions.
+		Your feedback will not only satisfy my curiosity, but also help guide any future updates. Of course, 
+		the entire survey is completely optional. Your responses are for my eyes only, and they will not be shared 
+		with anyone else. Required fields are denoted by a *.</p>
+		
+		<!--Form-->
+	<form action="sub_form.php" method="post" name="survey_form" id="survey_form" target="_blank" onsubmit="return validateReq();">
+		<!--Name-->
+		<div class="leftField">
+			<fieldset>
+				<legend>*What is your name?</legend>
+				<!--text entry-->
+					<label for="name" id="nameLabel">Name: </label>
+					<input type="text" name="name" id="name" onChange="validateName()">
+			</fieldset>
+		</div>
+		
+		<!--Age range-->
+		<div class="rightField">
+			<fieldset>		
+				<legend>*What is your age range?</legend>
+				<!--Number input-->
+				<input type="text" name="age" id="age" value="10-19" onChange="validateAge()">
+				<label for="age" id="ageLabel">Select with the slider</label>
+				<div id="slidervisual"> </div>
+			</fieldset>
+		</div>
+		
+		<!--Knitting experience level-->
+		<div class="leftField">
+			<fieldset>
+				<legend>*How would you rate your knitting experience level?</legend>
+				<!--text input-->
+				<input type="text" name="experience" id="experience" onChange="validateExperience()">
+			</fieldset>
+		</div>
+		
+		<!--How long they have been knitting-->
+		<div class="rightField">
+			<fieldset id="timeKnitting">
+				<legend>*How long have you been knitting?</legend>
+				<!--Number entry-->
+				<div id="time1">
+					<input type="number" name="knittime" id="knittime" value="0" onChange="validateTime()">
+				</div>
+				<!--Radio selection-->
+				<div id="time2">
+					<input type="radio" name="time" id="months" value="months" checked>
+					<label for="months">Months</label><br>
+					<input type="radio" name="time" id="years" value="years">
+					<label for="years">Years</label>
+				</div>
+			</fieldset>
+		</div>
+
+		<!--Informative page drop down-->
+		<div class="leftField">
+		<fieldset class="normal">	
+			<legend>*Which page did you find the most informative or interesting?</legend>
+			<!--Dropbox with pages-->
+			<select name="informativePage" id="informativePage">
+				<optgroup label="Pages">
+					<option value="swatching">Swatching</option>
+					<option value="basics">Basics</option>
+					<option value="yarn&needles">Yarn and Needles</option>
+					<option value="terms">Terms</option>
+					<option value="increases">Increases</option>
+					<option value="decreases">Decreases</option>
+					<option value="bindingoff">Binding off/Weaving In Ends</option>
+					<option value="blocking">Blocking</option>
+					<option value="patterns">The Patterns</option>
+				</optgroup>
+			</select><br>
+		</fieldset>
+		</div>
+		
+		<!--Informative rating-->
+		<div class="rightField">
+			<fieldset>		
+				<legend>*On a scale of 1 - 10 how informative did you find the content?</legend>
+				<!--Number input-->
+				<label for="informative" id="informativeLabel">Please rate</label>
+				<input type="number" name="informative" id="informative" min="1" max="10" value="5" onChange="validateNum()">
+			</fieldset>
+		</div>
+		
+		<!--Two Columns of radios, asking what they knit the most-->
+		<div class="leftField">
+		<fieldset id="objects">
+			<legend>*Of the following which do you (or would you) knit the most?</legend>
+			<div class="column1Radio">
+				<!--Accessories-->
+				<input type="radio" name="objects" value="Accessories" id="Accessories"><label for="Accessories" >Accessories</label>
+				<br>
+				<!--Garments-->
+				<input type="radio" name="objects" value="Garments" id="Garments"><label for="Garments">Garments</label>
+				<br>
+			</div>
+			<div class="column2Radio">
+				<!--Homewares (blankets, etc.)-->
+				<input type="radio" name="objects" value="Homewares" id="Homewares"><label for="Homewares">Homewares</label>
+				<br>
+					<!--Other-->
+				<input type="radio" name="objects" value="Other" id="Other" checked><label for="Other" >Other</label>
+				<br>
+			</div>
+		</fieldset>
+		</div>
+		
+		<!--Text entry of their knitting habits-->
+		<div class="rightField">
+		<fieldset >
+			<legend>*Do you (or would you) knit more for yourself or for others?</legend>
+			<!--text input-->
+			<input type="text" name="selfish" id="selfish" onChange="validateSelfish()">
+		</fieldset>
+		</div>
+	<!--Ravelry Familiarity. Radio and conditionally revealed text entry-->
+		<div class="leftFieldLrg">
+			<fieldset id="Ravelry">
+				<legend>*Are you familiar with Ravelry?</legend>
+				<!--radio-->
+					<!--yes-->
+				<fieldset class="innerFieldSet">
+					<input type="radio" name="Ravelry" value="yes" id="yesRav" onclick="yesnoCheckUser()">
+					<label class="YNLabel" >Yes</label><br>
+					
+						<!--no-->
+					<input type="radio" name="Ravelry" value="no" id="noRav" onclick="yesnoCheckUser()" checked>
+					<label class="YNLabel" >No</label>
+				</fieldset>
+				<div id="userop">
+				<!--(Optional) username show if 'yes' with JS-->
+					<label for="username">*Username</label><br>
+					<input type="text" name="username" id="username" onChange="validateUsername()">
+				</div>
+			</fieldset>
+		</div>
+		
+		<!--Email update, conditionally revealed email entry-->
+		<div class="rightFieldLrg">
+			<fieldset id="updates">
+				<legend>*Would you like to receive updates and pattern releases?</legend>
+				<!--Radio buttons-->
+				<fieldset class="innerFieldSet">
+					<!--yes-->
+				<input type="radio" name="updates" value="yes" id="yesEmail" onclick="yesnoCheckEmail()" >
+				<label class="YNLabel" >Yes</label><br>
+					<!--no-->
+				<input type="radio" name="updates" value="no"  id="noEmail" onclick="yesnoCheckEmail()" checked>
+				<label class="YNLabel">No</label>
+				</fieldset>
+				<div id="emailop">
+				<!--(Optional)e-mail entry show is 'yes'-->
+				<label for="email">*E-mail</label> <br>
+				<input type="text" name="email" id="email" onChange="validateEmail()">
+				</div>
+			</fieldset>
+		</div>
+		
+		<!--Other fiber crafts-->
+		<fieldset class="normal">
+			<legend>*Do you do any other fiber based crafts? Weaving, crochet, spinning, etc.</legend>
+			<textarea name="othercraftstext" placeholder="Please enter your comments here." id="othercrafts"></textarea>
+		</fieldset>
+		<div class="normal">
+		
+		<!--General Suggestions-->
+		<fieldset >
+			<legend>*Do you have any suggestions?</legend>
+			<!--(Optional)text area-->
+			<textarea name="comments" placeholder="Please enter your comments here." id="suggestions"></textarea>
+		</fieldset>
+		
+		<!--Buttons-->
+		<fieldset id="buttons">
+			<input type="submit" name="button" value="Submit" id="button">
+			<input type="reset" name="reset" value="Reset" id="reset">
+		</fieldset>
+		</div>
+	</form>
+		<p id="privacy">Your information will not be shared with anyone other than myself.</p>
+	</section>
+	</main>
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>

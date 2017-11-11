@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1
+	Assignment: Final Project
+	Language: HTML5
+	Purpose: An overview of yarn sizes/types and needle types.
+	Linked files: normalize.css, multi-column.css, slicknav.css, 
+jquery.slicknav.min.js, knit-stack.jpg, header-painted.png, favicon.ico, circular-needles.jpg, 
+interchangeable.jpg, dpns.jpg
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learn to Knit: Yarns and Needles</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/multi-column.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+    <link rel="stylesheet" href="../styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+	<!--Slicknav function-->
+	<script type="text/javascript">
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+    	});
+    </script>
+	<!-- bxSlider Javascript file -->
+	<script src="../js/jquery.bxslider.min.js">
+	</script>
+	<!-- bxSlider CSS file -->
+	<link href="../styles/jquery.bxslider.css" rel="stylesheet">			
+	<script type="text/javascript">
+	  $(document).ready(function(){
+		$('#slider1').bxSlider({
+		  mode: 'fade',
+		});
+	  });
+	  </script>
+</head>
+
+<body>
+	<header id="yarn">
+		<!--Header image and image map-->
+		<img src="../images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="../images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,120,120">
+		</map>
+		<map name="header2">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,120">
+		</map>
+	</header>
+	
+<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<nav id="nav_menu">
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+			<!--basics drop down menu-->
+			<li><a>Getting Started</a>
+				<ul>
+					<li><a href="swatching.html">Swatching</a></li>
+					<li><a href="basics.html">Basics</a></li>
+					<li><a href="yarn_and_needles.html" class="current">Yarn and Needles</a></li>
+					<li><a href="terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="../shaping/increases.html">Increases</a></li>
+					<li><a href="../shaping/decreases.html">Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="../finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="../finishing/blocking.html">Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="../extra/survey.html">Survey</a></li>
+					<li><a href="../extra/hat_pattern.html">Hat Pattern</a></li>
+					<li><a href="../extra/scarf_pattern.html">Scarf Pattern</a></li>
+					<li><a href="../extra/project_gallery.html">Examples</a></li>
+					<li><a href="../extra/resources.html">Resources</a><li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<main>
+	<!--Page Navigation Menu-->
+		<aside>
+			<nav id="nav_list">
+				<ul>
+					<li><a href="#yarn">Yarn</a></li>
+					<li><a href="#needles">Needles</a></li>
+				</ul>
+			</nav>
+		</aside>
+<!--Main Page Content -->
+		<section>	
+			<h2>Yarn</h2>
+			<p>Yarns come in multiple weights and fiber compositions. Yarn size and fiber type have a direct effect 
+			on the way the fabric responds and behaves while it is being used. The production process, species, breed, 
+			and blend all influence the look and feel of a yarn. Yarn choice should be carefully considered 
+			when beginning a project. The needle sizes below are a general guideline. You should use the needle size 
+			that gives you the needed gauge or desired look for your project.</p>
+			<!--Table for the yarn weights and needle sizes-->
+			<table>
+				<caption>Yarn weights, recommended needle sizes, and categories</caption>
+				<thead>
+					<tr>
+						<th id="hdr_weight" scope="col">Weight</th>
+						<th id="hdr_needle" scope="col">Recommended US Needle Size</th>
+						<th id="hdr_category" scope="col">Category*</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--Lace section-->
+					<tr>
+						<td headers="hdr_weight">Thread</td>
+						<td headers="hdr_needle">000-1</td>
+						<td headers="hdr_category" rowspan= "3">0: Lace</td>
+					</tr>
+					<tr>
+						<td headers="hdr_weight">Cobweb</td>
+						<td headers="hdr_needle">000-1</td>
+					</tr>
+					<tr>
+						<td headers="hdr_weight">Lace</td>
+						<td headers="hdr_needle">000-1</td>
+					</tr>
+					<!--Super Fine section-->
+					<tr>
+						<td headers="hdr_weight">Fingering</td>
+						<td headers="hdr_needle">1-3</td>
+						<td headers="hdr_category" rowspan="2">1: Super Fine</td>
+					</tr>
+					<tr>
+						<td headers="hdr_weight">Sport</td>
+						<td headers="hdr_needle">3-5</td>
+					</tr>
+					<!--Light section-->
+					<tr>
+						<td headers="hdr_weight">DK</td>
+						<td headers="hdr_needle">5-7</td>
+						<td headers="hdr_category">3: Light</td>
+					</tr>
+					<!--Worsted section-->
+					<tr>
+						<td headers="hdr_weight">Worsted</td>
+						<td headers="hdr_needle">7-9</td>
+						<td headers="hdr_category" rowspan="2">4: Medium</td>
+					</tr>
+					<tr>
+						<td headers="hdr_weight">Aran</td>
+						<td headers="hdr_needle">7-9</td>
+					</tr>
+					<!--Bulky section-->
+					<tr>
+						<td headers="hdr_weight">Bulky</td>
+						<td headers="hdr_needle" >9-11</td>
+						<td headers="hdr_category">5: Bulky</td>
+					</tr>
+					<!--Super Bulky section-->
+					<tr>
+						<td headers="hdr_weight">Super Bulky</td>
+						<td headers="hdr_needle">11-17</td>
+						<td headers="hdr_category">6: Super Bulky</td>
+					</tr>
+					<!--Jumbo section-->
+					<tr>
+						<td headers="hdr_weight">Jumbo</td>
+						<td headers="hdr_needle">17+</td>
+						<td headers="hdr_category">7: Jumbo</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3">*These codes are generally found on the 
+						ball bands wrapped around skeins of yarn. They can sometimes 
+						be misleading because they span multiple yarn weights.</td>
+					</tr>
+				</tfoot>
+			</table>
+			
+		<!-- Yarn types-->
+		<section id="yarntypes">
+			<h3>Common Yarns</h3>	
+			<!--Left column of yarn types-->
+			<div id="yarnTypesColumn1">
+				<h4>Artificial  fiber</h4>
+					<ul>		
+						<li>Acrylic</li>
+						<li>Nylon</li>
+						<li>Polyester</li>
+					</ul>
+				<h4>Plant Fiber</h4>
+					<ul>
+						<li>Cotton</li>
+						<li>Linen</li>
+						<li>Bamboo</li>
+					</ul>
+			</div>
+			<!--Right column of yarn types-->
+			<div id="yarnTypesColumn2">
+				<h4>Animal Fiber</h4>	
+					<ul>
+						<li>Wool</li>
+						<li>Alpaca</li>
+						<li>Mohair (Goat)</li>
+						<li>Cashmere (Goat)</li>
+						<li>Angora (Rabbit)</li>
+					</ul>
+				<h4>Protein Fiber</h4>
+					<ul>
+						<li>Silk</li>
+					</ul>
+			</div>		
+		</section>	
+		<br>
+			<a href="yarn_and_needles.html" class="to_top">Back to the top</a>
+
+		<!-- Needle Types-->
+		<h2 id="needles">Types of Needles</h2>	
+			<p>Needles can be made of different materials, the most widely available being metal, wood, 
+			bamboo, and plastic. Wood and bamboo needles don’t let the yarn slip around as much and can 
+			be more comfortable to work with, but the points can wear down over time. Needle material is 
+			mostly a matter of preference.</p>
+			<!--Example image set-->
+			<ul id="slider1">
+				<li><img src="../images/basics/circular-needles.jpg" alt="Circular needles"  class="slideshowimg"></li>
+				<li><img src="../images/basics/interchangeable.jpg" alt="Interchangeable circular needles"  class="slideshowimg"></li>
+				<li><img src="../images/basics/dpns.jpg" alt="Circular-needles" class="slideshowimg"></li>
+			</ul>
+			<!--Descriptive List with the needle types-->
+			<dl>
+				<dt>Straight Needles</dt>
+					<dd>A pair of needles with one pointed end and one end with a stopper.
+					Used for knitting things flat. When knitting larger objects, they can cause wrist strain. 
+					When you think of knitting needles, this is probably what you are thinking of.</dd>
+				<dt>Circular Needles</dt>	
+					<dd>A pair of needles that are connected by a cable. They can be a single size 
+					or have interchangeable tips. Circular needles can be used for knitting objects 
+					in the round or flat. When knitting larger objects, the cable supports the weight
+					and help prevent wrist strain. </dd>				
+				<dt>Double Pointed Needles</dt>
+					<dd>Needles that each have two pointed ends. They are generally used for knitting 
+					things in the round, such as socks, that have a small circumference. DPNs come in 
+					packages of 5-6 individual needles of the same size.</dd>
+			</dl>			
+			<a href="yarn_and_needles.html" class="to_top">Back to the top</a>	
+		</section>
+	</main>
+
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>
+</html>

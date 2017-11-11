@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1 
+	Assignment: Final Project
+	Language: HTML5
+	A collection of project examples.
+	Linked files: normalize.css, main.css, slicknav.css, scrollMagic.css
+rollover.js, jquery.slicknav.min.js, knit-stack.jpg, header-painted.png, favicon.ico,
+-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<title>Learn to Knit: Example Gallery</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/main.css">
+	<link rel="stylesheet" href="../styles/scrollMagic.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="../styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+		<!--SlickNav function-->
+	<script type="text/javascript">
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+    	});
+    </script>
+	<!--ScrollMagic-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script> 
+	<script src= "../js/ScrollMagic.min.js"></script>
+	<script src= "../js/animation.gsap.js"></script>
+		<!--ScrollMagic function-->
+	<script>
+		$(function (){
+			//make a controller for the effects
+			var controller = new ScrollMagic.Controller({
+				globalSceneOptions: {triggerHook: "onLeave"}			  //The trigger for the controller is the element leaving the viewport
+				});
+			//Make each project div into a 'slide'
+			var slides = document.querySelectorAll(".wrapper");     
+			//A for loop that iterates for each div in the slides variable
+			for(var i=0;i<slides.length; i++){
+				new ScrollMagic.Scene({
+					triggerElement: slides[i],									//The trigger for the controller is the element leaving the viewport
+					offset: 40															//The animation has a 40 px delay
+				})
+				.setPin(slides[i])														//The slide is pinned in place, allowing the next slide to cover it.
+				.addTo(controller);													//The scene is added to the controller
+			}
+		});
+	</script>
+	<!--Image rollovers-->
+	<script src= "../js/rollover.js"></script>
+</head>
+
+<body>
+<header>
+	<!--Header image and image map-->
+		<img src="../images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="../images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,120,120">
+		</map>
+		<map name="header2">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,120">
+		</map>
+	</header>
+	
+	<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<nav id="nav_menu">
+		<ul>					
+			<li><a href="../index.html">Home</a></li>
+			<li><a>Getting Started</a>
+				<ul>
+					<li><a href="../basics/swatching.html">Swatching</a></li>
+					<li><a href="../basics/basics.html">Basics</a></li>
+					<li><a href="../basics/yarn_and_needles.html">Yarn and Needles</a></li>
+					<li><a href="../basics/terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="../shaping/increases.html">Increases</a></li>
+					<li><a href="../shaping/decreases.html">Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="../finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="../finishing/blocking.html">Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="survey.html">Survey</a></li>
+					<li><a href="hat_pattern.html" >Hat Pattern</a></li>
+					<li><a href="scarf_pattern.html">Scarf Pattern</a></li>
+					<li><a href="project_gallery.html" class="current">Examples</a></li>
+					<li><a href="resources.html">Resources</a><li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+<main>		
+	<!--Project: Slade-->
+	<section>
+	<h1>Examples</h1>
+	<p> Knitting is very versatile, and not just for warm scarves, hats, and sweaters. I personally have two knit shirts that can be worn in warm weather. 
+			Although I do tend to end up knitting cozy accessories, blankets, pillows, and stuffed toys frequently make their way into my knitting queue.
+			I have also become very fond of knitting socks, which make excellent gifts. The following are a few of my favorite projects, which I hope will 
+			give you an idea of the flexibility of the craft and how yarn choice can affect the look and behavior of your project. </p>
+<!--Beginning of the scrollmagic slides-->
+	<!--Project: Slade Cardigan-->
+		<div class="wrapper"  id="slade">
+		<!--Project Text-->
+			<div id="sladetext" class="text">
+					<h4>Slade</h4>
+					<p>This may be my favorite thing I have ever knit. 
+				I saved up for the yarn for a while, and it took me nearly a year and a half
+				to knit because I had to start over two or three times due to absentminded mistakes. 
+				This sweater got dragged around all kinds of places with me and has a bunch of 
+				memories attached to it. I finished it just in time for my vacation to Colorado 
+				last year and then added pockets once I got back. I wear it around the house any 
+				chance I can get, and it is my default movie theater sweater. </p>
+			</div>
+			<!--Project Images in a rollover-->
+			<div id="sladeimgs">
+				<div class="sladeimg">
+					<ul class="image_rollovers">
+						<li><img src="../images/project_gallery/slade(1)edited.jpg" alt="Cardigan" id="../images/project_gallery/slade(2).jpg" class = "singleImage" ></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!--Project: Capra Socks-->
+		<div class="wrapper" id ="capra">
+		<!--Project Text-->
+			<div id="capratext" class="text">
+				<h4>Cabled Socks</h4>
+				<p>I designed and knit these so I could have some socks to wear in my snow boots during 
+					my Colorado trip. I mostly just wore them while knitting by the fireplace and making baked goods. 
+					These have the distinction of being the only thing that I have ever knit by candlelight, as I was working
+					on them when Hurricane Matthew was pummeling Saint Augustine. These are knit from a cashmere blend 
+					and are my preferred socks to wear around the house. As an aside, socks are not nearly as hard to knit as they seem.</p>
+			</div>	
+			<!--Project Images in a rollover-->
+			<div id="capraimg" >
+				<ul class="image_rollovers">
+				<li><img src="../images/project_gallery/capra(2).jpg" alt="Slade Sweater" id ="../images/project_gallery/capra(3).jpg" class = "images" ></li>
+				</ul>
+			</div>
+		</div>	
+		
+		<!--Project Harbor Sweater-->
+		<div class="wrapper" id ="harbor">
+		<!--Project Text-->
+			<div id="harbortext" class="text">
+				<h4>Baby Sweater</h4>
+				<p>I knit this this little cardigan for a friend’s baby from a heavily modified pattern. 
+					Even though it had so many tiny stitches I really enjoyed knitting it 
+					and it didn’t take nearly as long as I had thought it would. I used a cashmere blend 
+					so it is very soft and warm. In fact, it's simply a lighter weight of the same exact yarn as my socks.
+					It was knit completely flat from the bottom up and then seamed, which worked much better than I thought it would.
+				up and then seamed. </p>
+			</div>
+			<!--Project Image-->
+			<div id="harborimg">
+				<img src="../images/project_gallery/harbor_sweater.jpg" alt="Baby Sweater" class="singleImage">
+			</div>
+		</div>
+		
+		<!--Project: Mitts-->
+		<div class="wrapper" id ="mitts">	
+		<!--Project Text-->
+			<div id="mittstext" class="text">
+				<h4>Fingerless Mitts</h4>
+				<p>Initially, I designed and knit these as a birthday gift for one 
+				of my sisters (the grey version), but I ended up liking them so much 
+				that I knit another version from a yarn that shows off the stitch 
+				pattern better and is more hard wearing. The palms are textured so 
+				that they produce a little bit more grip. Both versions use an alpaca blend, 
+				so they are nice and soft.</p>
+			</div>
+			<!--Project Images in a rollover-->
+			<div id="mittsimg">
+				<ul class="image_rollovers">
+					<li><img src="../images/project_gallery/Imperium1.jpg" alt="Fingerless Mitts" id="../images/project_gallery/imperium2.jpg" class="singleImage"></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--Project: Octopus-->
+		<div class="wrapper" id ="octo">	
+		<!--Project Text-->
+			<div id="octotext" class="text">
+				<h4>Dumbo Octopus</h4>	
+				<p>This one is another favorite, which was made as a Christmas gift for my nephew. 
+					It is a heavily modified version of <a href="https://www.purlsoho.com/create/2013/05/19/whits-knits-knit-octopus/" title="Knit Octopus Pattern">this pattern</a> made to 
+					look like a dumbo octopus. The umbrella-like portion took a few attempts 
+					and a lot of guessing to get right. The bottom sides of the little tentacles 
+					are even textured to look like suckers.</p>
+			</div>
+			<!--Project Image-->
+			<div id="octoimg">
+				<img src="../images/project_gallery/Octopus.jpg" alt="Stuffed octopus" class="singleImage">
+			</div>
+		</div>
+		
+		<!--Project: Blanket Animals-->
+		<div class="wrapper" id ="animals">
+			<!--Project Text-->
+			<div id="animaltext" class="text">
+				<h4>Blanket Animals</h4>
+				<p>Over the past year or so I have ended up knitting a 
+					small variety of these little guys. The bunnies were the first ones I attempted. 
+					The current roster also includes lambs, foxes, deer, and an elephant.
+					I currently have a cat in the works. The heads are knit 
+					like modified sock heels, and to get the faces to look right I 
+					always start by studying and sketching the skull of the animal I 
+					am working on.</p>
+			</div>
+			<!--Project Images-->
+			<div id="animalimgs">
+				<!--Image column one-->
+				<div id="animalimg1">
+					<img src="../images/project_gallery/bunnies.jpg" alt="Knit rabbits">
+					<img src="../images/project_gallery/elephant.jpg" alt="Knit Elephant">
+				</div>
+				<!-- Image column two-->
+				<div id="animalimg2">
+					<img src="../images/project_gallery/lamb(2).jpg" alt="Knit lamb">
+					<img src="../images/project_gallery/Deer.jpg" alt="Knit deer">
+					<img src="../images/project_gallery/Fox(2).jpg" alt="Knit fox">
+				</div>
+			</div>
+		</div>
+		
+		<!--Project: Vault-->
+		<div class="wrapper" id ="vault">
+			<!--Project Text-->
+			<div id="vaulttext" class="text">
+				<h4>Vault</h4>
+				<p>The first version of this hat is pretty much the only one I wear during 
+				Florida’s very limited winter. It was one of the first things I designed 
+				from scratch and it took me a while to work out how to get it to look the 
+				way I wanted. There are four columns of garter stitch that come together 
+				near the crown to imitate a gothic vault. The second version doesn’t have 
+				the alpaca content of the first, so it is a bit more structured and shows off 
+				the pattern a bit better. </p>
+			</div>			
+			<!--Project Images in a rollover-->
+			<div id="vaultimg" class="">
+				<ul class="image_rollovers">
+					<li><img src="../images/project_gallery/vault(1).jpg" alt="Hat" id="../images/project_gallery/vault(2).jpg" class="singleImage"></li>
+				</ul>
+			</div>
+		</div>
+	</section> 
+</main>
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>

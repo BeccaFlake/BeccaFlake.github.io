@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1
+	Assignment: Final Project
+	Language: HTML5
+	Purpose: A basic hat pattern.
+	Linked files: normalize.css, main.css, slicknav.css, 
+rollover.js, jquery.slicknav.min.js, knit-stack.jpg, header-painted.png, favicon.ico, swatch&FO(3).jpg
+-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learn to Knit: Basic Hat Pattern</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="../styles/normalize.css">
+	<link rel="stylesheet" href="../styles/main.css">
+	<link rel="stylesheet" href="../styles/print.css" media="print">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="../styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+	<!--SlickNav and Print functions-->
+	<script type="text/javascript">
+	<!--SlickNav-->
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+    	});
+	<!--Print-->
+	$(function printFunction(){
+		var $ = function (id) {
+		return document.getElementById(id);
+			}
+
+		var printPage = function(){
+		window.print();
+		}
+		window.onload = function(){
+		$("printButton").onclick = printPage;
+		}
+	});
+    </script>	
+</head>
+
+<body>
+
+	<header>
+	<!--Header image and image map-->
+		<img src="../images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="../images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,120,120">
+		</map>
+		<map name="header2">
+		<Area href="../index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,120">
+		</map>
+	</header>
+	
+	<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<nav id="nav_menu">
+		<ul>					
+			<li><a href="../index.html">Home</a></li>
+			<li><a>Getting Started</a>
+				<ul>
+					<li><a href="../basics/swatching.html">Swatching</a></li>
+					<li><a href="../basics/basics.html">Basics</a></li>
+					<li><a href="../basics/yarn_and_needles.html">Yarn and Needles</a></li>
+					<li><a href="../basics/terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="../shaping/increases.html">Increases</a></li>
+					<li><a href="../shaping/decreases.html">Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="../finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="../finishing/blocking.html">Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="survey.html">Survey</a></li>
+					<li><a href="hat_pattern.html" class="current">Hat Pattern</a></li>
+					<li><a href="scarf_pattern.html">Scarf Pattern</a></li>
+					<li><a href="project_gallery.html">Examples</a></li>
+					<li><a href="resources.html">Resources</a><li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<main>
+		<section>
+		<h1>Basic Hat</h1>
+		<!--Intro-->
+		<p>This is a very basic ribbed hat. Hats are a great first project because they allow you to practice decreases.</p>
+		<!-- Image of hat-->
+		<figure class="singleImg"><img src="../images/basics/swatching/swatch&FO(3).jpg" alt="Knit hat" class="medImg"></figure>
+		<ul>
+			<li>Yarn: Either a single strand of sport weight yarn, or a strand each of fingering weight and lace weight (held double). </li>
+			<li>Measurements: 52cm (relaxed) in circumference, 29cm in length</li>
+			<li>Gauge: 3 st x 3.5rnds = 1sq cm </li>
+			<li>Needles: US Size 2 (or size needed to obtain gauge) circular needles + DPNS</li>
+		</ul>
+		</section>
+		<!--Terms used-->
+		<section id="terms">
+		<h3>Terms:</h3>
+				<ul >
+					<li><a href="../basics.html#cast_on" title="Casting on">CO:</a> Cast On</li>
+					<li><a href="../basics.html#knit" title="How to knit">K1:</a> Knit one</li>
+					<li><a href="../basics.html#purl" title="How to purl">P1:</a> Purl one</li>
+					<li>pm: Place marker</li>
+					<li>sm: Slip marker</li>
+					<li><a href="../decreases.html#k2togtbl" title="How to decrease">k2togtbl:</a> Knit two together through the back loop</li>
+				</ul>	
+		</section>
+		<!--Pattern-->
+		<section id="method">
+		<h3>Method:</h3>
+			<p>CO 156<br>
+			Join for working in the round: </p>
+			
+			<p>Once you finish casting on, make sure the stitches are not twisted on the needles 
+			before placing a marker on the needle with the last stitch you cast on. Make a circle with your needles, the first
+			stitch on the left-hand needle and the last stitch on the right-hand needle. Knit the first stitch you cast on, 
+			joining the row of stitches into a ring. You will knit in a continuous spiral from right to left. </p>
+
+			<ul>
+				<li>-*K1, P1* to the marker</li>
+				<li>Repeat this round until the work measures about 20cm</li>
+				<li>-*(K1, P1)x13, pm* 5 times. You should have 5 sections with 26 stitches in each</li>
+			</ul>
+			<br>
+			<ol>
+				<li> *k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around<br>
+					Repeat these 2 rounds 4 times. (-24st, 132 st remain). <br>
+					In the following section, switch to the DPNS whenever things get too tight on the circular needle. <br></li>
+				<li> *k2togtbl, work 7, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (120st)</li>
+				<li> *k2togtbl, work 6, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (108st)</li>
+				<li> *k2togtbl, work 5, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (96st)</li>
+				<li> *k2togtbl, work 4, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (84st)</li>
+				<li> *k2togtbl, work 3, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (72st)</li>
+				<li> *k2togtbl, work 2, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (60st)</li>
+				<li> *k2togtbl, work 2, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (48st)</li>
+				<li> *k2togtbl, work 1, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (36st)</li>
+				<li> *k2togtbl, k2togtbl, work to marker, sm* around</li>
+				<li> *K1, P1* around (24st)</li>
+				<li> *k2togtbl, k1*, sm* around (18st)</li>
+			</ol>
+			<p>Break the yarn, leaving an 8 inch tail. Use a crochet hook or tapestry needle to
+			pull the tail through the remaining loops, taking them off the needles as you go.
+			Block and weave in the tail. </p>
+		<div id="patternpagebutton">
+			<input type="button" id="printButton" value="Print this page">
+		</div>
+	</section>
+	</main>
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>
