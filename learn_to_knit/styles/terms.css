@@ -1,0 +1,265 @@
+/*
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1
+	Assignment: Final Project 
+	Language: CSS3
+	Purpose: Stylesheet for the term page on the site
+	Linked to: terms.html, resources.html
+*/
+
+/*the styles for the elements*/
+html{background-color: #E5E5E4;}
+
+* {margin: 0;
+	padding: 0; }
+	
+/*styles for the body*/
+body {
+	font-family: Jaldi, Arial, Helvatica, sans-serif;
+	font-size: 100%;
+	margin: .5em auto;
+	width: 98%;
+	max-width: 950px; 
+	background-color: #FAFAFA;
+}
+
+/*styles for the links*/
+a {color: #20768A; line-height: 1em;}
+a:focus, a:hover {color: #74C4B0;}
+
+/******************************/
+/*styles for the header*/
+header{
+	background-color: #FAFAFA;
+	height: 120px;
+}
+#header1 {
+	width: 15%;
+	height: 100%;
+	display: block;
+	float: left;
+}
+#header2{
+	width: 85%;
+	height: 100%;
+	display: block;
+	float: left;
+}
+header h1 {
+	font-family: "Spectral";
+	font-size: 320%;
+	color: #EDEDEC;
+	padding: .65em 0 0 2.8em;
+	line-height: .4em;
+	text-shadow: .04em .04em #194152;
+ }
+ header h2 {
+	font-family: "Spectral";
+	font-size: 125%;
+	color: #194152;
+	padding: 0 9em;
+	line-height: .4em;
+	font-style: italic;
+	text-shadow: .03em .03em #28698A;}
+/*styles for the navigation menu*/
+#nav_menu ul {
+	list-style-type: none;
+	position: relative;
+	width: 100%
+}
+#nav_menu ul li {
+	width: 20%;
+	float: left;
+}	
+#nav_menu ul li a {
+    display: block;
+    text-align: center;
+	padding: .5em 0;
+    text-decoration: none;
+    background-color: #318578;
+    font-weight: normal;
+	color: white;
+	width: 100%;
+}
+
+#nav_menu ul ul {
+	width: 100%;
+    overflow: hidden;
+	max-height: 0;
+    position: absolute;
+	top: 100%;
+	z-index: 999;
+		/*transition so the dropdown menus appear gradually*/
+	-webkit-transition: max-height 1s ease-in-out;
+    -moz-transition: max-height 1s ease-in-out;
+    -o-transition: max-height 1s ease-in-out;
+    transition: max-height 1s ease-in-out;
+}
+#nav_menu ul ul li {float: none;}
+#nav_menu a.current {color: #85EDCA;}
+#nav_menu ul li:hover > ul, #nav_menu ul li:focus > ul{max-height: 600%;}
+#nav_menu > ul::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+#nav_menu ul li a:hover, #nav_menu ul li a:focus {background-color: #74C4B0;}
+
+/******************************/
+main{
+	clear: left;
+	padding: .5em 2em .5em 2em;
+}
+/*styles for the section*/
+section{
+	border-radius: 3px;
+	margin: 1.5em auto;
+}
+section h1{
+	text-align: center;
+	font-size: 140%;
+	font-family: "Spectral";
+}
+section h2{
+	font-size: 120%;	
+	padding: 1em 0 .5em 0;
+	font-family: "Spectral";
+}
+section h3{
+	text-align: center;
+	font-size: 105%;
+	padding-top: 1em;
+	font-family: "Spectral";
+}
+section p {
+	text-indent: 1em;
+	padding: 1.5em;
+	font-size: 95%;
+}
+#container{
+	border-radius: 2px;
+	background-color: #F1F7FF;
+	padding: .5em 1em; 
+	float; none;
+}
+#container ul {list-style-type: none; padding: .5em 1em;}
+#container ul li {padding: .5em;	font-size: 95%; }
+#container h3{padding-top: 2em; clear: both;}
+#floatedList {width: 50%; float: left;}
+#yarnFig {width: 50%; float: right; margin-bottom: 3em;}
+
+/*styles for the list*/
+section dl{
+	background-color: #F1F7FF;
+	padding: .5em 1em;
+	border-radius: 2px;
+}
+section dt{
+	font-family: "Spectral";
+	font-weight: bold;
+	font-size: 95%;
+}
+section dd{
+	padding: .2em 1em 1em;
+	font-style: italic;
+	font-size: 90%;
+}
+/*Media */
+section figure img {
+	display: block;
+	width: 400px;
+	margin: auto;
+	border: 1px solid #157A6E;
+}
+#yarnImg{width: 85%; margin: 5% auto 0;}
+
+/******************************/
+/*styles for the footer*/
+footer{
+	padding: .5em 0;
+	margin-top: .2em;
+	border-top: 1px solid #318578;
+	}
+footer p{
+	font-family: "Spectral";
+	font-size: 70%;
+	color: #030D11;	
+	text-align: center;
+	border-top: 1px ;
+}
+	
+.slicknav_menu {display: none;}
+
+/*************************************
+*styles for the responsive web design*
+**************************************/
+/* tablet portrait to standard */
+@media only screen and (max-width: 800px) {
+	body {font-size: 100%;}	
+	header h1 {
+	font-size: 280%;
+	padding: .7em 0 .2em 3.2em;
+	}	
+	main {margin: .5em 0;}	
+	section {
+	float: none;		
+	margin-left: 0;
+	}
+	section p {padding: 1.5em 0;}
+}
+/* iPad and iPad mini portrait */
+@media only screen and (max-width: 768px){
+	header{height: 100px;}
+	#header1 {width: 15%;}
+	#header2{width: 85%;}
+	#nav_menu {display: none;}
+	.slicknav_menu {
+	display: block;
+	background-color: #417463 !important;}
+	#floatedList {width: 100%; float: none;}
+	#yarnFig {width: 100%; float: none; margin-bottom: 1em;}
+	}
+}
+/* iPhone 6 & Galaxy S6 landscape */
+@media only screen and (max-width: 667px){
+	header h1 {
+	font-size: 280%;
+	padding: .8em 0 .2em 3.2em;
+	}
+
+	/*Media*/
+	section figure img {width: 300px;}
+	#yarnImg{width: 300px;}
+}
+@media only screen and (max-width: 414px) {
+	#header1 {display: none;}
+	#header2{
+	width: 100%;
+	height: 75%;
+	margin-top: .5em;
+	}
+}
+/* iPhone 6 & Galaxy S6 portrait */
+@media only screen and (max-width: 375px) {
+	header{height: 80px;}
+	#header1 {display: none;}
+	#header2{
+	width: 100%;
+	height: 75%;
+	margin-top: .5em;
+	}
+	/*Media*/
+	section figure img {width: 250px;}
+	#yarnImg{width: 250px;}
+}
+
+
+
+
+
+
+
+
+
+
