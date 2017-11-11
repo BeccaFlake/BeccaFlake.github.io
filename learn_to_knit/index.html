@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1 
+	Assignment: Final Project
+	Language: HTML5
+	Purpose: An introduction to knitting and myself.
+	Linked files: normalize.css, main.css, slicknav.css, parallax.css, 
+rollover.js, jquery.slicknav.min.js, knit-stack.jpg, header-painted.png, favicon.ico, knit-loops.png
+-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learn to Knit: Introduction</title>
+	<link rel="shortcut icon" href="images/favicon.ico" >
+	<link rel="stylesheet" href="styles/normalize.css">
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/parallax.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+		<!--SlickNav Function-->
+	<script type="text/javascript">
+		$(document).ready(function(){
+				$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+			});
+    </script>
+	<!--ScrollMagic-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+		<!--ScrollMagic function-->
+	<script>
+	$(function (){
+	//Make a controller for the effect
+	var controller = new ScrollMagic.Controller({
+			globalSceneOptions: {triggerHook: "onLeave"}		//The trigger for the controller is the element leaving the viewport
+			});
+		// Parallax background scene 
+		var scene1= new ScrollMagic.Scene({
+		triggerElement: '.bcg-parallax', 								//The trigger for the effect is the container element
+		triggerHook: 1, 														//The bottom of the container
+		duration: '80%'														//The animation occurs over 80% of the scroll
+		})
+			//The animation acts on the bcg div, over one second, and the div is offset 15%. The div moves from the offset to the location specified in the CSS.
+			//This makes the background image move separately from the content div that is positioned on top of it.
+			.setTween(TweenMax.from('.bcg', 1, {y:'-15%', ease:Power0.easeNone}))
+			.addTo(controller);											   //The scene is added to the controller
+		});
+	</script>
+</head>
+
+<body>
+	<header>
+	<!--Header image and image map-->
+		<img src="images/knit-stack.jpg" alt="Header Image" usemap="#header" id="header1">
+		<img src="images/header-painted.png" alt="Header Image" usemap="#header2" id="header2">
+		<map name="header">
+		<Area href="index.html" alt="Header" title="Home" shape="rect" coords="0,0,120,120">
+		</map>
+		<map name="header2">
+		<Area href="index.html" alt="Header" title="Home" shape="rect" coords="0,0,3244,120">
+		</map>
+	</header>
+	
+	<!-- Main Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<nav id="nav_menu">
+		<ul>					
+			<li><a href="index.html" class="current">Home</a></li>
+			<li><a>Getting Started</a>
+				<ul>
+					<li><a href="basics/swatching.html">Swatching</a></li>
+					<li><a href="basics/basics.html">Basics</a></li>
+					<li><a href="basics/yarn_and_needles.html">Yarn and Needles</a></li>
+					<li><a href="basics/terms.html">Terms</a></li>
+				</ul>
+			</li>
+			<li><a>Shaping</a>	
+				<ul>
+					<li><a href="shaping/increases.html">Increases</a></li>
+					<li><a href="shaping/decreases.html">Decreases</a></li>
+				</ul>
+			</li>
+			<li><a>Finishing</a>
+				<ul>
+					<li><a href="finishing/bind_off.html">Binding Off / Weaving in Ends</a></li>
+					<li><a href="finishing/blocking.html">Blocking</a></li>
+				</ul>
+			</li>
+			<li><a>Extra</a>
+				<ul>
+					<li><a href="extra/survey.html">Survey</a></li>
+					<li><a href="extra/hat_pattern.html">Hat Pattern</a></li>
+					<li><a href="extra/scarf_pattern.html">Scarf Pattern</a></li>
+					<li><a href="extra/project_gallery.html">Examples</a></li>
+					<li><a href="extra/resources.html">Resources</a><li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+<!--Page Content -->
+	<main>
+	<div class="bcg-parallax">
+	<div class="bcg"></div>
+		<section>
+		<div class="contentSection">
+			<!--Intro-->
+			<h1 class="pulse">Hello!</h1>
+			<p>I'm Rebecca, an avid knitter and gamer. I also dabble in sewing clothes and quilting. 
+			I've been knitting for about 5 years, after starting out with crochet and hating knitting with a passion. 
+			Now, knitting is one of my favorite activities and provides a nice change of pace from my other tech-based interests.
+			I have taught both my mom and best friend to knit, and I have also done commission work including stuffed toys,
+			a dress, hats, and scarves. About 80% of the things I knit at this point are my own designs.</p>
+			</div>
+			<div class="contentSection">
+			<p>My goal with this site is to introduce knitting as a craft and teach you the skills needed to knit your first project. 
+			I am always encouraging everyone around me to pick it up as a hobby and it really isn't as hard as it might seem! It is a meditative 
+			activity that produces something useful in the end. Generally speaking, knitting is a very portable craft so it is a great 
+			way to fill in awkward timeslots with something productive, like waiting for class to start. I also use it to keep my hands 
+			busy when watching shows or movies, even in a dark theater. Knitting can also be a great social activity, and it is not just for grandmas.</p>
+			</div>
+					
+			<div class="contentSection">		
+					<!--Knitting-->
+			<h2> What is knitting?</h2>
+			<p>Knitting is simply creating a series of connected loops in thread/yarn. By manipulating these loops, different patterns and
+			shapes can be created. Knitting is worked in horizontal rows or a spiral of rounds. You can think of a stitch as a cell in a grid of rows and columns. 
+			Knitting creates knitted fabric, which stretches easily due to its structure, and it is used for all kinds of applications beyond sweaters and socks.
+			You can knit just about anything. It is a very old craft, and in many cases has an intimate connection to certain cultures: Shetland, Iceland, and 
+			Norway are just a few examples. Knitting kind of blurs the line between art and craft.</p>
+			</div>
+			<!--Picture-->
+			<div class="contentSection">
+				<figure>
+					<figcaption>Knitting's basic structure</figcaption>
+					<img src="images/knit-loops.png" alt="Knitted Loops" id="indeximg">
+				</figure>
+				<br>
+			</div>
+			<div class="contentSection">
+			<p> Although you can find yarn made from just about anything, sheep's wool is still a mainstay. Not all wools are created equal and fiber properties vary 
+			between sheep breeds. Alpacas, the smaller and nicer cousin of the llama, are also common fiber animals that produce soft and airy fiber. I personally avoid 
+			artificial fibers, especially acrylic, but that certainly doesn't mean you need to. My favorite non-animal fibers are bamboo and silk, which usually
+			are blended in with other fibers. Yarn can get very expensive, especially when you are knitting larger pieces. Don't let that dissuade you though! It doesn't 
+			need to be an expensive hobby, and there certainly are affordable, nice yarns. Also remember that if you take care of your knits, they can last a long time 
+			and become heirloom pieces.</p>
+			</div>
+			<div class="contentSection">
+			<p>All you need to knit are <a href="basics/yarn_and_needles.html" title="Yarn and Needles Page">yarn and needles</a>, yet stitch markers, measuring tapes, 
+			and project bags are some welcome additions to any knitter’s arsenal. My basic suggestion for your first project is to start with either DK or worsted weight 
+			yarn, just because they aren't big enough to be unwieldy but knitting something like a hat still will not take you all that long. The most important thing is that
+			you can <i>see</i> your stitches, so try and avoid very dark yarns and very fuzzy 'novelty' yarns. However, the best advice I can give is <i> do not 
+			be afraid to rip everything out and start over as many times as you need to.</i> That is by far the piece of information I found early on in my foray into knitting. 
+			It may seem insignificant at first, but if you instill that in yourself from the beginning you will be a better knitter. I promise. You will be more likely to go
+			back and fix things (even if it means starting your entire sweater over three times) so that in the end your project is better.</p>
+			</div >
+		</section>
+		</div>
+	</main>
+	
+	<footer>
+	<p>&copy; 2017 Rebecca Flake || rebecca.c.rebecca@my.sfcollege.edu</p>
+	</footer>
+</body>
+</html>
