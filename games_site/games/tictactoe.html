@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>Greg's Gambits | Tic Tac Toe</title>
+	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran"><script type="text/javascript">
+	//Function that checks the input and changes the box color depending on which character is entered.
+	function checkInput(boxid)
+	{	var box = boxid;
+		//define variables and get the input
+		var input = document.getElementById(box).value;
+		//If the value is x 
+		if((input == 'X')||(input == "x"))
+			//change the color to green
+			{document.getElementById(box).style.background = "#284024";}
+		else if((input == "O")||(input == "o"))
+			//change the color to purple
+			{document.getElementById(box).style.background = "#5E2D48";}
+			//the input was not 'x' or 'o' 
+		else 
+		{alert("Please enter either X or O and try again.")}
+		runGame();
+	}
+	
+	//Function that runs the game by getting the inputs and checking for matches
+	function runGame()
+	{
+		//Get the input from everybox and set them to variables
+		//Variables for row one
+		var r1b1= document.getElementById('r1b1').value;    
+		var r1b2= document.getElementById('r1b2').value;	  
+		var r1b3= document.getElementById('r1b3').value;	  
+		//Variables for row two
+		var r2b1= document.getElementById('r2b1').value;
+		var r2b2= document.getElementById('r2b2').value;
+		var r2b3= document.getElementById('r2b3').value;
+		//Variables for row three
+		var r3b1= document.getElementById('r3b1').value;
+		var r3b2= document.getElementById('r3b2').value; 
+		var r3b3= document.getElementById('r3b3').value;
+		
+		//convert all of the variables to lowercase so that inputs with different cases will still be a match
+		r1b1 = r1b1.toLowerCase();
+		r1b2 = r1b2.toLowerCase();
+		r1b3 = r1b3.toLowerCase();
+		
+		r2b1= r2b1.toLowerCase();
+		r2b2= r2b2.toLowerCase();
+		r2b3= r2b3.toLowerCase();
+		
+		r3b1= r3b1.toLowerCase();
+		r3b2=r3b2.toLowerCase();
+		r3b3=r3b3.toLowerCase();
+		
+		//Only check for matches if there are empty boxes. Call the emptyCheck function
+		if (emptyCheck() == true) 
+		{
+			/*Check if three boxes in a horizontal row are the same 
+			Call checkForMatch with the variables holding the values for each horizontal combo*/
+			if ((checkForMatch(r1b1, r1b2, r1b3) == true) || (checkForMatch(r2b1, r2b2, r2b3) == true) || (checkForMatch(r3b1, r3b2, r3b3) == true))
+				{
+					alert("Game over! Thank you for playing!");
+				}
+				
+			/*Check if three boxes in a column are the same	
+			Call checkForMatch with the variables holding the values for each vertical combo*/
+			else if ((checkForMatch(r1b1, r2b1, r3b1) == true) || (checkForMatch(r1b2,r2b2,r3b2) == true) || (checkForMatch(r1b3,r2b3,r3b3) == true))
+				{
+					alert("Game over! Thank you for playing!");
+				}
+			/*Check if three boxes on a diagonal are the same
+			Call checkForMatch with the variables holding the values for each diagonal combo*/
+			else if ((checkForMatch(r1b1, r2b2, r3b3) == true) || (checkForMatch(r3b1, r2b2, r1b3) == true))
+				{
+					alert("Game over! Thank you for playing!");
+				}
+		}
+	}
+
+	//Function that checks for empty boxes
+	function emptyCheck()
+	{	
+		var emptyFlag;
+		//A box in row 1 is empty
+		if ( ( document.getElementById('r1b1').value == "") ||  (document.getElementById('r1b2').value == "") || (document.getElementById('r1b3').value == ""))
+		{	
+			emptyFlag = true;
+			return emptyFlag;
+		}
+		//A box in row 2 is empty
+		else if ( (document.getElementById('r2b1').value  == "") || (document.getElementById('r2b2').value =="") || (document.getElementById('r2b3').value  == ""))
+		{	
+			emptyFlag = true;
+			return emptyFlag;
+		}
+		//A box in row 3 is empty
+		else if ( (document.getElementById('r3b1').value  == "") || (document.getElementById('r3b2').value  == "") || (document.getElementById('r3b3').value  == ""))
+		{	
+			emptyFlag = true;
+			return emptyFlag;
+		}
+		//There are no empty boxes
+		else
+		{	 alert("No Empty boxes. Game over.");
+			emptyFlag = false;
+			return emptyFlag;
+		}
+	}
+	
+	//Function that checks for a matching set of three inputs
+	function checkForMatch(box1, box2, box3)
+	{  
+		var match = false;
+
+			//no match if there are empty boxes
+		if ((box1 == "") || (box2 == "") || (box3 ==""))
+			{
+				match = false;
+				return match;
+			}
+		//All three passed values are equal, there is a match
+		else if ((box1 == box2) && (box2 == box3))
+			{
+				match = true;
+				return match;
+			}
+		//The three values do not match
+		else	
+			{
+				match = false;
+				return match;
+			}
+	}	
+	
+	//Function that clears all of the inputs when the reset button is clicked. 
+	function clearGame()
+	{	//Clear the input boxes
+		document.getElementById('r1b1').value = "";
+		document.getElementById('r1b2').value = "";
+		document.getElementById('r1b3').value = "";
+		
+		document.getElementById('r2b1').value = "";
+		document.getElementById('r2b2').value = "";
+		document.getElementById('r2b3').value = "";
+		
+		document.getElementById('r3b1').value = "";
+		document.getElementById('r3b2').value = "";
+		document.getElementById('r3b3').value = "";
+		
+		//Revert input box color to white
+		document.getElementById('r1b1').style.background = "white";
+		document.getElementById('r1b2').style.background = "white";
+		document.getElementById('r1b3').style.background = "white";
+		
+		document.getElementById('r2b1').style.background = "white";
+		document.getElementById('r2b2').style.background = "white";
+		document.getElementById('r2b3').style.background = "white";
+		
+		document.getElementById('r3b1').style.background = "white";
+		document.getElementById('r3b2').style.background = "white";
+		document.getElementById('r3b3').style.background = "white";
+		
+	}
+</script>
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+</head>
+
+<body>
+	<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+		<div id="content">
+			<p>This game is for two players. One player is green (X) and the other is purple (O). 
+			The goal is to get three boxes in a row (across, down, or diagonal). When you enter your letter
+			into the box and click 'OK', the box will change to your color. The game ends when a player has 
+			three in a row or all of the boxes are filled.</p>
+		<form name="ticTacToe">
+		  <table width = "90%" cellspacing="0" border = "0" id="ticTacToeGame">
+			 
+			 <tbody>
+			 <!--Row 1-->
+			 <tr>
+				 <!--Row 1 Box 1-->
+				  <td class="nobdr" >
+					<input type="text" id="r1b1" />
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r1b1')"/>
+				  </td>
+				  <!--Row 1 Box 2-->
+				  <td class="nobdr" >
+					<input type="text" id="r1b2" />
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r1b2')"/>
+				  </td>
+				  <!--Row 1 Box 3-->
+				  <td class="nobdr" >
+					<input type="text" id="r1b3" />
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r1b3')"/>
+				  </td>
+			 </tr>
+			 		 <!--Row 2-->
+			 <tr >
+				 <!--Row 2 Box 1-->
+				  <td class="nobdr" >
+					<input type="text" id="r2b1" />
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r2b1')"/>
+				  </td>
+				  <!--Row 2 Box 2-->
+				  <td class="nobdr" >
+					<input type="text" id="r2b2" />
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r2b2')"/>
+				  </td>
+				  <!--Row 2 Box 3-->
+				  <td class="nobdr" >
+					<input type="text" id="r2b3"/>
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r2b3')"/>
+				  </td>
+			 </tr>
+			 
+			 		 <!--Row 3-->
+			 <tr >
+				 <!--Row 3 Box 1-->
+				  <td class="nobdr" >
+					<input type="text" id="r3b1" />
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r3b1')"/>
+				  </td>
+				  <!--Row 3 Box 2-->
+				  <td class="nobdr" >
+					<input type="text" id="r3b2" />
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r3b2')"/>
+				  </td>
+				  <!--Row 3 Box 3-->
+				  <td class="nobdr" >
+					<input type="text" id="r3b3" />
+					<input type="button" value="Ok" class="okButton" onClick="checkInput('r3b3')"/>
+				  </td>
+			 </tr>
+			 </tbody>
+		</table>
+		<input type="reset" id="tttReset" value="Reset and play again" onclick="clearGame()" /> 
+		</form>
+		</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+		</div>
+	</div>
+</body>
+</html>

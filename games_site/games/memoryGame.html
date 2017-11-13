@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>Greg's Gambits | Matching Game</title>
+<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran"><script>
+// variables
+var correct = 0; var incorrect =0; var clicked = 0;
+var img1; var img2;
+//show the images
+function showImages()
+{
+	// 'flip the images'
+	document.getElementById("cell00").innerHTML = ("<img src='../images/castle.jpg'/>");
+	document.getElementById("cell01").innerHTML = ("<img src='../images/horse.jpg'/>");
+	document.getElementById("cell02").innerHTML = ("<img src='../images/smallWizard2.jpg'/>");
+	document.getElementById("cell03").innerHTML = ("<img src='../images/elf.jpg'/>");
+	
+	document.getElementById("cell10").innerHTML = ("<img src='../images/ghost.jpg'/>");
+	document.getElementById("cell11").innerHTML = ("<img src='../images/lich.jpg'/>");
+	document.getElementById("cell12").innerHTML = ("<img src='../images/ghost.jpg'/>");
+	document.getElementById("cell13").innerHTML = ("<img src='../images/smallWizard1.jpg'/>");
+	
+	document.getElementById("cell20").innerHTML = ("<img src='../images/flowers.jpg'/>");
+	document.getElementById("cell21").innerHTML = ("<img src='../images/smallWizard2.jpg'/>");
+	document.getElementById("cell22").innerHTML = ("<img src='../images/horse.jpg'/>");
+	document.getElementById("cell23").innerHTML = ("<img src='../images/castle.jpg'/>");
+	
+	document.getElementById("cell30").innerHTML = ("<img src='../images/smallWizard1.jpg'/>");
+	document.getElementById("cell31").innerHTML = ("<img src='../images/flowers.jpg'/>");
+	document.getElementById("cell32").innerHTML = ("<img src='../images/elf.jpg'/>");
+	document.getElementById("cell33").innerHTML = ("<img src='../images/lich.jpg'/>");
+	
+//give the player 15 seconds minute to memorize the layout	
+	setTimeout('hideImages()', 5000); 	
+}
+//hide the images after revealing them
+function hideImages()
+{
+	for (var i = 0; i < 4; i++)
+		{
+			document.getElementById("cell0" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+			document.getElementById("cell1" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+			document.getElementById("cell2" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+			document.getElementById("cell3" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+		}
+}
+
+//get the image from the clicked cell
+function getImage(x, y)
+{	
+	var pictures = new Array(["castle", "horse", "smallWizard2", "elf"],
+									  ["ghost", "lich", "ghost", "smallWizard1"],
+									  ["flowers", "smallWizard2", "horse", "castle"],
+									  ["smallWizard1", "flowers", "elf", "lich"]);
+
+	//if first of two clicked
+	if (clicked == 0)
+	{	
+		//set img1 to the contents of the cell
+		img1 = pictures[x][y];
+		document.getElementById("cell" + x + y).innerHTML = ("<img src='../images/" + img1 + ".jpg'/>");
+		x1 = x;
+		y1 = y;
+		clicked++;
+	}	
+	//if the second of two clicked 
+	else if (clicked == 1)
+	{	//set img 2 to the contents of the cell
+		img2 =  pictures[x][y];
+		document.getElementById("cell" + x + y).innerHTML = ("<img src='../images/" + img2 + ".jpg'/>"); 
+		x2= x; 
+		y2= y;
+		//compare
+		compareThem(img1, img2, x1, x2, y1, y2);
+		clicked = 0;
+	}	
+}
+
+//compare the two clicked images
+function compareThem(img1, img2)
+{	
+	var flag = false;	//flag to check if the images need to be re-hidden
+	//compare and display
+	//guess was right
+	if (img1 == img2)
+	{	alert("Great job!");
+		//update score
+		correct ++;
+		//check if the game has been won
+		checkWin(correct);
+		
+		flag = true;
+	}
+	//guess was wrong
+	else if (img1 != img2)
+	{			
+		//update guess count
+		incorrect++;
+		alert("Try again. You have " + (5-incorrect) + " incorrect guesses left.");
+		//check if the guess limit has been exceeded
+		checkLose(incorrect);
+		flag = false;
+	}
+	//hide the images if the guess was wrong
+	if (flag == false)
+	{
+		document.getElementById("cell" + x1 + y1).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+		document.getElementById("cell" + x2 + y2).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+	}
+}
+
+function checkWin(count)
+{
+	//check if game was won is ended
+	if(count == 8)
+	{
+		var endIt = document.createElement("H3");
+		var endMessage = document.createTextNode("Congratulations! You have a great memory!");
+		endIt.appendChild(endMessage);
+		document.getElementById("the_end").appendChild(endIt);
+	}
+}
+
+function checkLose(count)
+{
+	//check if guess limit exceded
+	if(count == 5)
+	{
+		var endIt = document.createElement("H3");
+		var endMessage = document.createTextNode("You ran out of guesses.");
+		endIt.appendChild(endMessage);
+		document.getElementById("the_end").appendChild(endIt);
+		hideImages();
+	}
+}
+</script>
+</head>
+<body>
+<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+	<div id="content">
+	<h3>Test your memory! </h3>
+	<p><input type="button" value = "Begin the game" onClick="showImages()" /></p>
+	
+	
+	<div id ="pictures">
+	<table align = "center" border = "1" id="matchingGame">
+	<tr><td colspan = "4">You will have 15 seconds to memorize the locations of the cards, and then they will flip back over. 
+		To match cards: Click the two cards you think match. You have 5 free guesses. </td></tr>
+		<tr>
+			<!-- place images and buttons -->
+			<td id = "cell00" onclick="getImage(0,0)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell01" onclick="getImage(0,1)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell02" onclick="getImage(0,2)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell03" onclick="getImage(0,3)"><img src="../images/mazeBackGround.jpg" /></td>
+		</tr>		
+		<tr>	
+			<td id = "cell10" onclick="getImage(1,0)" ><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell11" onclick="getImage(1,1)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell12" onclick="getImage(1,2)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell13" onclick="getImage(1,3)"><img src="../images/mazeBackGround.jpg" /></td>
+		</tr>
+		<tr>			
+			<td id = "cell20" onclick="getImage(2,0)" ><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell21" onclick="getImage(2,1)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell22" onclick="getImage(2,2)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell23" onclick="getImage(2,3)"><img src="../images/mazeBackGround.jpg" /></td>
+		</tr>
+		<tr>			
+			<td id = "cell30" onclick="getImage(3,0)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell31" onclick="getImage(3,1)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell32" onclick="getImage(3,2)"><img src="../images/mazeBackGround.jpg" /></td>
+			<td id = "cell33" onclick="getImage(3,3)"><img src="../images/mazeBackGround.jpg" /></td>
+		</tr>
+		</table>
+	</div>
+
+		</table>
+	</div>
+	<div id = "the_end">&nbsp;</div>
+
+
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+	</div></body>
+</html>

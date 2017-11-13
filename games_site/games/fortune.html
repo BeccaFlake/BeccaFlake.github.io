@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<title>Greg's Gambits | Madame Vadoma Sees All</title>
+<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+<script type="text/javascript">
+function startFortune()
+{
+ 	//initialize variables
+	var num = 0;
+	var question = " ";
+	var fortune1 = "Absolutely!";
+	var fortune2 = "No way!";
+	var fortune3 = "Probably.";
+	var fortune4 = "Doubtful";
+	var fortune5 = "You will need to purchase a big fortune for that question.";
+	var fortune6 = "Madame Vadoma cannot answer such a question. Do not be silly.";
+	var fortune7 = "You must find the answer within yourself. It is not for me to reveal.";
+	var fortune8 = "Yes, of course! ";
+	var fortune9 = "You don't really believe this works, do you?";
+	var fortune10 = "Madame Vadoma wonders about that too.";
+	
+	num = (Math.floor(Math.random() * 10)) + 1;
+	question = prompt("What is your question? ", " ");
+	switch(num)
+	{
+	 //Case 1
+		case 1: 
+			document.getElementById("MVcontent").innerHTML = fortune1;
+			break;
+	 //Case 
+	 case 2: 
+			document.getElementById("MVcontent").innerHTML = fortune2;
+			break;
+	 //Case 3
+	 case 3: 
+			document.getElementById("MVcontent").innerHTML = fortune3;
+			break;
+	 //Case 4
+	 case 4: 
+			document.getElementById("MVcontent").innerHTML = fortune4;
+			break;
+	 //Case 5
+	 case 5: 
+			document.getElementById("MVcontent").innerHTML = fortune5;
+			break;
+	 //Case 6
+	 case 6: 
+			document.getElementById("MVcontent").innerHTML = fortune6;
+			break;
+	 //Case 7
+	 case 7: 
+			document.getElementById("MVcontent").innerHTML = fortune7;
+			break;
+	 //Case 8
+	 case 8: 
+			document.getElementById("MVcontent").innerHTML = fortune8;
+			break;
+	 //Case 9
+	 case 9: 
+			document.getElementById("MVcontent").innerHTML = fortune9;
+			break;
+	 //Case 10
+	 case 10: 
+			document.getElementById("MVcontent").innerHTML = fortune10;
+			break;
+	}
+}
+</script>
+</head>
+<body>
+	<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+	<!--Main content of the page-->
+	<div id="MVcontent">
+		 <p class="floatright">Madame Vadoma<br /><br />
+		 <img src ="../images/madame.jpg" /></p>
+		 <p>&nbsp;</p>
+		 <p><input type="button" value = "Ask your question." onclick="startFortune();" id="MVButton"/></p>
+		 <p>&nbsp;</p>
+	</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+</body>
+</html>

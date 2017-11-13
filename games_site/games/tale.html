@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>Greg's Gambits | Greg's Tales</title>
+	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+	<script type="text/javascript">
+	//function that starts the game
+	function startGame()
+	{
+		// initialize variables and prompt for information
+		var years = " "; 			//A variable to hold the number of years
+		var gender= "boy";		//A variable to hold the gender
+		var name  = " ";			//A variable to hold the hero's name
+		var pronoun = " ";			//A variable to hold the hero's pronoun
+		var profession = " ";		//A variable to hold the hero's profession
+		var adj1 = " ";				//A variable to hold the adjective that describes the trip
+		var loot = " ";				//A variable to hold the thing(s) they are looking for
+		var monster = " ";			//A variable to hold the main monster
+		var num= " "; 				//A variable to hold the number of underling monsters
+		var monster2 = " ";		//A variable to hold the underling monsters
+		var verb1 = " ";			//A variable to hold the verb that describes what the underling monsters are doing
+		var place = " ";				//A variable to hold the place that the hero is from
+		var adj2 = " ";				//A variable to hold the adjective that describes how the hero enters the room
+		var offering = " ";			//A variable to hold the peace offering
+		var name2 = " ";			//A variable to hold the name of the main monster
+		var meal = " ";				//A variable to hold the meal the trio is invited to
+
+			//get the number of years
+		years = prompt("Enter a number greater than 0: ");
+		while (years <0)
+		{
+			years = prompt("Enter a number greater than 0: ");
+		}
+			//get the gender and pronoun
+		gender = prompt("Is the story about a boy or a girl? ");
+		letter = gender.charAt(0);
+		gender = (letter == "b" ||  letter=="B")?"boy":"girl";
+		pronoun=(gender =="boy")?"he":"she";
+		
+			//get the name
+		name = prompt("Enter the hero's name: ");
+		
+			//get the profession
+		profession = prompt("Enter a fantasy profession: ");	
+		
+			//adjective describing the trip
+		adj1 = prompt("Enter an adjective that describes a trip: ");
+		
+			//get the loot
+		loot = prompt("Enter something you search for: ");
+		
+			//get the type of monster
+		monster = prompt("Enter a type of monster: ");	
+		
+			//get the type of monster
+		monster2= prompt("Enter another type of monster (plural): ");	
+		
+			//get the number of monster2
+		num = prompt("Enter a number between 5 and 25: ");
+		while ((num <5) || (num >25))
+		{
+			num = prompt("Enter a number between 5 and 25: ");
+		}
+			//get the verb
+		verb1 = prompt("Enter a verb that ends with 'ing': ");
+		
+			//get a place
+		place = prompt("Where did the hero set out from? ");	
+		
+			//get another adjective
+		adj2=prompt("Enter an adjective that ends with 'ly'");
+		
+			//get a peace offering
+		offering = prompt("A peace offering: ");
+		
+			//get another name
+		name2 = prompt("Enter another name: ");
+		
+			//get a meal
+		meal = prompt("Enter a meal: ");	
+			
+			//create the story
+		document.getElementById('storyBox').style.border = "1px solid #479889";	
+		document.getElementById("storyPart1").innerHTML =("<p>About " + years + " years ago, there was a " + gender +
+		" named " + name + ". " + name + " was a " + profession + ", who was on a(n) " + adj1 +
+		" adventure with two companions. After spending some time on the main path, they followed a trail through the" + 
+		"  forest until they found the mouth of a cave. The trio ventured into the cave, searching for the " 
+		+ loot + " that was/were rumored to be hidden inside.</p> <p> The companions began exploring the cave, and after " + 
+		"a few mishaps they discovered a chamber that was inhabited by a(n) " + monster + " lounging on a throne. Nearby was a table with the "
+		+ loot +" on it, and there were " + num + " " + monster2 + " " + verb1 + " around the room." +
+		" The trio paused outside the room and decided what to do. </p> <br />");
+		
+		// Create the button
+		var button = document.createElement("button");
+		button.innerHTML = "Continue";
+
+		// Append somewhere
+		var body = document.getElementById("storyButton");
+		body.appendChild(button);
+
+		//Add event handler
+		button.addEventListener ("click", function()
+		{
+			var choice = prompt("What do they do? A) Attacked the "+ monster +" and tried to take the " + loot  + " by force.   B) Tried to convince the " + monster + " to give it to them.");
+			if ((choice == "A") || (choice =="a"))
+			{
+			option = "The trio rushed into the room, trying to intimidate the " + monster + " and its companions. The " + 
+			monster2 + " immediately took up defensive positions around the dais. The  " + monster +
+			" raised itself up to its full height and moved to attack the trio. The companions tried to put up a fight, but were forced to retreat without the " + 
+			loot +  ". They headed back to " + place +  " to recuperate and decide their next move. ";
+			}
+			else ((choice == "B") || (choice =="b"))
+			{
+			option = name + "  " + adj2 + " stepped into the chamber and announced that the party had come in peace. Then " + pronoun +  " asked that the " + monster + 
+			" give them the " + loot + " in exchange for a(n) " + offering + ". After a conversation the "+  monster + " told the " + monster2 + 
+			" to stand down, and considered the offer. The "  + monster + ", who the trio now knew was named " + name2 + ", agreed to their terms. "+
+			name2 +  " cheerfully asked them to stay to " + meal +", complaining that the " + monster2 + " were not very good company.</p>";
+			}
+			/**/
+		document.getElementById("storyPart2").innerHTML =(option);});
+	}
+	</script>
+</head>
+	
+	<!--Main content of the page-->
+	<body>
+		<div id="container">
+
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+		<div id="content">	
+		<!--main content of the page-->
+		<h3>For this game, you will create a story by entering words as prompted. The story will change each time you run this game, as you enter different words.</h3>
+			<!-- code here to start game -->
+			<input type="button" value="click to begin" onclick="startGame()" class="centralButton"/>
+			<div id="storyBox">
+				<div id="storyPart1">
+					<p>&nbsp;</p>
+				</div>
+				<div id="storyButton">&nbsp;</div>
+				<div id="storyPart2">
+					<p>&nbsp;</p>
+				</div>
+			</div>
+		</div>		
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+		</div>
+	</body>
+</html>

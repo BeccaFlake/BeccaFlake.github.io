@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Greg's Gambits | Games Menu</title>
+<link href="main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script  type="text/javascript">
+	
+	function getURL()
+	{
+		var num; var url; var game;
+		
+		//get a random number between 1 and 13
+		num =  (Math.floor(Math.random()*13) +1);
+		//switch statement that gets the url based on the random number
+		switch(num)
+		{
+		case 1:
+			{
+			game = "tale";
+			break;
+			}
+		case 2:
+			{
+			game = "monster_battle";
+			break;
+			}
+		case 3:
+			{
+			game = "fortune2";		
+			break;
+			}
+		case 4:
+			{
+			game = "fortune";		
+			break;
+			}
+		case 5:
+			{
+			game = "encoder";		
+			break;
+			}
+		case 6:
+			{
+			game = "encoder2";		
+			break;
+			}
+		case 7:
+			{
+			game = "game21";		
+			break;
+			}
+		case 8:
+			{
+			game = "betTheRoll";		
+			break;
+			}
+		case 9:
+			{
+			game = "hangman";		
+			break;
+			}
+		case 10:
+			{
+			game = "tictactoe";		
+			break;
+			}
+		case 11:
+			{
+			game = "maze";		
+			break;
+			}
+		case 12:
+			{
+			game = "boggle";		
+			break;
+			}
+		case 12:
+			{
+			game = "memoryGame";		
+			break;
+			}
+		}
+
+	 url = "games/" + game + ".html";
+		//open the url
+	 window.open(url, "_blank");
+	
+	}
+	
+</script> 
+</head>
+<body>
+	<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="play_games.html">Games</a>
+		  <li><a href="signin.html">Sign In</a></li>
+		  <li><a href="aboutyou.html">Sign Up</a></li>
+		  <li><a href="contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+			<!--Main content of the page-->
+	<div id="content">
+		<h2> Games</h2>
+		<p style="text-align: center;">Menu of Available Games </p>
+		<table width="60%"  border="0" cellpadding="5" style="text-align: center;" id="gamesTable">
+			  <tr>
+				<td width="50%"> <a href="games/tale.html">Write a Story</a> </td>
+				<td width="50%"><a href="games/monster_battle.html">Battle a Monster</a></td>
+			  </tr>
+			  <tr>
+				<td width="50%"><a href="games/fortune2.html">Visit the Fortune Teller</a></td>
+				<td width="50%"><a href="games/fortune.html">Ask the Fortune Teller a Question</a> </td>				
+			  </tr>
+			  <!--Rows for later games-->
+			  <tr>
+			  <td width="50%"><a href="games/encoder.html">Use Thieves' Cant</a></td>
+			<td width="50%"><a href="games/encoder2.html">Use a Better Thieves' Cant</a></td>
+			</tr>
+			<tr>
+				<td width="50%"><a href="games/game21.html">Game of 21</a></td>
+				<td width="50%"><a href="games/betTheRoll.html">Play a Dice Game</a></td>			
+			  </tr>
+			  <tr>
+				<td width="50%"><a href="games/hangman.html">Game of Hangman</a></td>
+				<td width="50%"><a href="games/tictactoe.html">Play Tic Tac Toe</a></td>
+			  </tr>
+			  <tr>
+				<td width="50%"><a href="games/maze.html">Escape a Maze</a></td>
+				<td width="50%"><a href="games/boggle.html">Play a Game of Boggle</a></td>
+			  </tr>
+			   <tr>
+				<td width="100%" colspan="2" ><a href="games/memoryGame.html">Play a Memory Game</td>
+			  </tr>
+		</table>
+		<input type= "button" name="surpriseMe" id="supriseButton" value="Surprise me" onclick="getURL()">
+	</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+</body>
+</html>

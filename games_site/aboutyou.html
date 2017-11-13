@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+
+<head>
+	<title>Greg's Gambits | Sign Up</title>
+	<link href="main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+	//function that sets the avatar
+	function pickAvatar(picked)
+	{
+		var avatar = document.getElementById(picked).value;
+		document.getElementById('my_avatar').innerHTML = avatar;
+		avatar = avatar.toLowerCase();
+		document.getElementById('avatar_img').innerHTML = ("<img src='images/" + avatar + ".jpg'/>"); 
+	}
+	//function that sets the real name
+	function getRealName(realname)
+	{
+		var real = document.getElementById(realname).value;
+		document.getElementById('real_name').innerHTML = real;
+	}
+	//function that sets the username
+	function getUsername(username)
+	{
+		var user = document.getElementById(username).value;
+		document.getElementById('user_name').innerHTML = user;
+	}
+	//function that sets the user points
+	function getPoints(points)
+	{
+		var pts = document.getElementById(points).value;
+		document.getElementById('user_points').innerHTML = pts;
+	}
+
+	//functions that sets the three weapons
+	function pickWeapons()
+	{
+		var i = 0; var j = 0; var k=0;
+		var weapon1 = ""; var weapon2 = "";  var weapon3 = ""; 
+		//set the first weapon
+		for (i=0; i <=9; i++)
+		{
+			if (document.getElementById("w"+ i).checked==true)
+			{
+				weapon1 = document.getElementById("w"+i).value;
+				document.getElementById('weapon_one').innerHTML = weapon1;
+				break;
+			}
+		}
+		//set the second weapon
+		for (j=(i+1); j<=9; j++)
+		{
+			if (document.getElementById("w"+ j).checked==true)
+			{
+				weapon2 = document.getElementById("w"+j).value;
+				document.getElementById('weapon_two').innerHTML = weapon2;
+				break;
+			}
+		}
+		//set the third weapon
+		for (k=(j+1); k <=9; k++)
+		{
+			if (document.getElementById("w"+ k).checked==true)
+			{
+				weapon3 = document.getElementById("w"+k).value;
+				document.getElementById('weapon_three').innerHTML = weapon3;
+				break;
+			}
+		}
+	}
+	//function that sets the five supplies
+	function pickSupplies()
+	{
+		var i = 0; var j = 0; var k=0; var m=0; var p = 0; 
+		var supply1 = ""; var supply2 = "";  var supply3 = "";   var supply4 = "";  var supply5 = "";
+		//Get the first item
+		for (i =0; i <=9; i++)
+		{
+			if (document.getElementById("s" + i).checked == true)
+			{
+				supply1 = document.getElementById("s"+i).value;
+				document.getElementById('supply_one').innerHTML = supply1;
+				break;
+			}
+		}
+		//get the second item
+		for (j =(i +1); j <=9; j++)
+		{
+			if (document.getElementById("s" + j).checked == true)
+			{
+				supply2 = document.getElementById("s"+j).value;
+				document.getElementById('supply_two').innerHTML = supply2;
+				break;
+			}
+		}
+		//get the third item
+		for (k =(j+1); j <=9; j++)
+		{
+			if (document.getElementById("s" + k).checked == true)
+			{
+				supply3 = document.getElementById("s"+k).value;
+				document.getElementById('supply_three').innerHTML = supply3;
+				break;
+			}
+		}
+		
+		for (m =(k +1); j <=9; j++)
+		{
+			if (document.getElementById("s" + m).checked == true)
+			{
+				supply4 = document.getElementById("s"+m).value;
+				document.getElementById('supply_four').innerHTML = supply4;
+				break;
+			}
+		}
+		
+		for (p =(m +1); j <=9; j++)
+		{
+			if (document.getElementById("s" + p).checked == true)
+			{
+				supply5 = document.getElementById("s"+p).value;
+				document.getElementById('supply_five').innerHTML = supply5;
+				break;
+			}
+		}
+
+	}
+	//Function that clears the entered information from the display when the reset button is clicked
+	function resetInfo()
+	{
+	document.getElementById('my_avatar').innerHTML = "";
+	document.getElementById('avatar_img').innerHTML = "";
+	document.getElementById('real_name').innerHTML = "";
+	document.getElementById('user_name').innerHTML = "";
+	document.getElementById('user_points').innerHTML = "";
+	
+	document.getElementById('weapon_one').innerHTML = "";
+	document.getElementById('weapon_two').innerHTML = "";
+	document.getElementById('weapon_three').innerHTML = "";
+	
+	document.getElementById('supply_one').innerHTML = "";
+	document.getElementById('supply_two').innerHTML = "";
+	document.getElementById('supply_three').innerHTML = "";
+	document.getElementById('supply_four').innerHTML = "";
+	document.getElementById('supply_five').innerHTML = "";
+	}
+	</script>
+</head>
+
+<body>
+	<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="play_games.html">Games</a>
+		  <li><a href="signin.html">Sign In</a></li>
+		  <li><a href="aboutyou.html">Sign Up</a></li>
+		  <li><a href="contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+		<!--Main content of the page-->
+		<div id="content">
+			<h2><br/>Tell Us About You</h2>
+			<h3>Your Information and Inventory</h3>
+			<div>
+			<!--Form-->
+					<div></div>
+					<!--Avatar selection-->
+					<div>
+					<fieldset id="avatar">
+					<table  width ="45% "border="2" class="sInAvatar" id="avatarTable"> <br/>
+					<!--Header-->
+					<tr> 
+						<td colspan="5" class="nobdr" id="headerRow"><h3>Your Avatar:</h3></td>
+					</tr>
+					<!--Images-->
+					<tr> 
+						<!--Bunny -->
+						<td class="nobdr"><img src="images/bunny.jpg"/></td>
+						<!--Elf-->
+						<td class="nobdr"><img src="images/elf.jpg"/></td>
+						<!--Ghost-->
+						<td class="nobdr"><img src="images/ghost.jpg"/></td>
+						<!--Princess-->
+						<td class="nobdr"><img src="images/princess.jpg"/></td>
+						<!--Wizard-->
+						<td class="nobdr"><img src="images/wizard.jpg"/></td>
+					</tr>
+					<!--Radio buttons-->
+					<tr>
+						<!--Bunny -->
+						<td class="nobdr"><input type="radio" name="avatar" id="bunny" value="Bunny" onclick="pickAvatar('bunny')"></td>
+						<!--Elf-->
+						<td class="nobdr"><input type="radio" name="avatar" id="elf" value="Elf" onclick="pickAvatar('elf')"></td>
+						<!--Ghost-->
+						<td class="nobdr"><input type="radio" name="avatar" id="ghost" value="Ghost" onclick="pickAvatar('ghost')"></td>
+						<!--Princess-->
+						<td class="nobdr"><input type="radio" name="avatar" id="princess" value="Princess" onclick="pickAvatar('princess')"></td>
+						<!--Wizard-->
+						<td class="nobdr"><input type="radio" name="avatar" id="wizard" value="Wizard" onclick="pickAvatar('wizard')"></td>
+					</tr>
+					</table>
+					</fieldset>
+					
+					</div>
+				<div>
+				<form name = "inventory">
+					<!--basic information-->
+					<fieldset id="basicInfo">
+					<h3> Enter the following information: </h3>
+						<!--Name-->
+						<p>
+							<label for="realname"> Your name:<br/></label>
+							<input type="text" id="realname" size="40" value=""/>
+							<input type="button" onclick="getRealName('realname')" value="ok"></button>
+						</p>
+						<!--username-->
+						<p>
+							<label for="username"> Your username:<br/></label>
+							<input type="text" id="username" size="40" value=""/>
+							<input type="button"  onclick="getUsername('username')" value="ok"></button>
+						</p>
+						<!--points-->
+						<p>
+							<label for="realname"> Points to date:<br/></label>
+							<input type="text" id="points" size="10" value=""/>
+							<input type="button"onclick="getPoints('points')" value="ok"></button>
+						</p>
+					</fieldset></div>
+				<!--Weapon Selection-->
+					<div style="width:32%; float:left;" id="weaponsDiv"><fieldset id="weapons">
+						<h3>Select three weapons to help you in your quest: </h3>
+						<!--Sword-->
+						<input type="checkbox" name="weapons" id="w0" value="Sword"/> Sword<br/>
+						<!--Slingshot-->
+						<input type="checkbox" name="weapons" id="w1" value="War Hammer"/> Slingshot<br/>
+						<!--Shield-->
+						<input type="checkbox" name="weapons" id="w2" value="Shield"/> Shield <br/>
+						<!--Bow and 10 arrows-->
+						<input type="checkbox" name="weapons" id="w3" value="Bow and 10 Arrows"/> Bow and 10 Arrows<br/>
+						<!--Magic Rocks-->
+						<input type="checkbox" name="weapons" id="w4" value="Axe" /> Axe<br/>
+						<!--Knife-->
+						<input type="checkbox" name="weapons" id="w5" value="Daggers (2)"/> Daggers (2)<br/>
+						<!--Staff-->
+						<input type="checkbox" name="weapons" id="w6" value="Umbrella-Staff"/> Umbrella-Staff<br/>
+						<!--Wizard's Wand-->
+						<input type="checkbox" name="weapons" id="w7" value="Wizard's Wand"/> Wizard's Wand<br/>
+						<!--Extra arrows-->
+						<input type="checkbox" name="weapons" id="w8" value="Whip"/> Whip <br/>
+						<!--Cloak of Invisibility-->
+						<input type="checkbox" name="weapons" id="w9" value="Lance"/> Lance<br/>
+						<input type="button" onclick="pickWeapons()" value="Enter my selections"></button>
+					</fieldset></div>
+					<!--Item selection-->
+					<div style="width:32%; float:left;" id="itemsDiv"><fieldset id="items">
+						<h3>Select five items to carry with you on your journey: </h3>
+						<!--Supplies-->
+						<input type="checkbox" name="weapons" id="s0" value="3-Day Food and Water Supply"/> 3-Day Food and Water Supply<br/>
+						<!--Slingshot-->
+						<input type="checkbox" name="weapons" id="s1" value="Bag of Holding"/> Bag of Holding<br/>
+						<!--Shield-->
+						<input type="checkbox" name="weapons" id="s2" value="Leather Armor"/> Leather Armor <br/>
+						<!--Bow and 10 arrows-->
+						<input type="checkbox" name="weapons" id="s3" value="Spyglass"/> Spyglass<br/>
+						<!--Magic Rocks-->
+						<input type="checkbox" name="weapons" id="s4" value="Lantern" /> Lantern<br/>
+						<!--Knife-->
+						<input type="checkbox" name="weapons" id="s5" value="Tent"/> Tent<br/>
+						<!--Staff-->
+						<input type="checkbox" name="weapons" id="s6" value="Thieves' Tools"/> Thieves' Tools<br/>
+						<!--Wizard's Wand-->
+						<input type="checkbox" name="weapons" id="s7" value="Cloak of Invisibility"/> Cloak of Invisibility<br/>
+						<!--Extra arrows-->
+						<input type="checkbox" name="weapons" id="s8" value="3 Potions"/> 3 Potions<br/>
+						<!--Cloak of Invisibility-->
+						<input type="checkbox" name="weapons" id="s9" value="Book of Spells"/> Book of Spells<br/>
+						<input type="button" onclick="pickSupplies()" value="Enter my selections"></button>
+					</fieldset></div>	
+					</div><div style = "clear:both;"></div>
+					<!--selecton reset-->
+					<div><input type="reset" id="infoReset" value=" Reset all fields" onclick="resetInfo()"><br/></div>
+				</form>
+				<!--display the information-->
+				<div style="width:90%; float:left;">
+					<h3>Your Information: <br/><br/>
+					Your Name: <span id="real_name">&nbsp;</span> <br/>
+					Username: <span id="user_name">&nbsp;</span> <br/>
+					Player Points: <span id="user_points">&nbsp;</span> <br/>
+					Avatar: <span id="my_avatar">&nbsp;</span> <span id="avatar_img">&nbsp;</span><br/><br/>
+					
+					Weapons: <br/>
+						<span id="weapon_one">&nbsp;</span> <br/>
+						<span id="weapon_two">&nbsp;</span> <br/>
+						<span id="weapon_three">&nbsp;</span> <br/><br/>
+					Supplies: <br/>
+						<span id="supply_one">&nbsp;</span> <br/>
+						<span id="supply_two">&nbsp;</span> <br/>
+						<span id="supply_three">&nbsp;</span> <br/>
+						<span id="supply_four">&nbsp;</span> <br/>
+						<span id="supply_five">&nbsp;</span> <br/><br/>
+
+					</h3>
+				</div>
+				
+		</div><div style = "clear:both;"></div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+	</div>
+</body>
+</html>

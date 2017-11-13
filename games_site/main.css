@@ -1,0 +1,218 @@
+html {background-color: #479889;}
+body { 
+	background-color: #f5f4fc;
+    background-image: url(background.gif);
+    color: #1C1F24;
+    font-family: "Catamaran", Arial, sans-serif;
+	border-radius: 3px;
+	width: 90%;
+	margin: 1em auto;
+	}
+header{background-color: #c9c9ba;
+padding: 0;
+height: 100px;
+}
+
+header h2{padding-bottom: 0; margin-bottom: 0; }
+#container { margin: auto;    
+       width:100%;
+	   border-radius: 3px;
+      }
+#logo {
+	text-align:center;
+	margin: 0;
+	font-family: "Philosopher", Georgia, Helvetica, sans-serif;
+	padding-bottom: .1%;
+	padding-left: 0;
+	margin-left: 0;
+}
+#nav_menu {
+	float: left;
+	width: 100%;
+	text-align:left;
+	color: #074C24;
+	font-size: 12px;	
+	background-color: #A3C48A;
+	height: 2.5em;
+}
+#nav_menu ul {margin: 0; padding: 0 .5em; list-style-type: none; height: 100%;}
+#nav_menu ul li {float: left; width: 16.6%; margin: 0 auto;}
+#nav_menu a {
+	float: left;
+	text-decoration:none;
+	text-align: center;
+	margin: .7em 4em;
+	display: block;
+	color: #20536D;
+	font-size: 1.3em;
+	padding: 0;
+	line-height: .5em;
+}
+#nav_menu a:hover {
+	color:  #7F3649;
+}
+#content {
+	margin: auto;
+	width: 90%;
+	padding: .2em 2em;
+	overflow:auto;
+	/*border: medium solid #637d37;*/
+	line-height: 135%;
+}
+#content p {margin: 1em;}
+/*#content input[type="button"]{
+	width: 25%;
+	margin-left: 37.2%;
+	margin-top: 20px;
+}*/
+.centralButton {margin: .5em 40%; width: 20%;}
+#battleButton {margin-top: 2%; margin-left: 40%; width: 20%;}
+#content .battleButton {margin-left: 0%; width: 20%;}
+#battle, #return {margin-left: 0%; width: 60%;}
+#infoReset {margin-left: 42%; margin-top: 2%;}
+#storyButton {width: 14%; padding: auto; margin-left: 43%;}
+#storyButton button{width: 100%; margin: auto; padding: auto;}
+.floatright {
+	padding-left:20px;
+      float:right;
+}
+.floatleft {
+	float:left;
+	padding: 30px 0px 20px;
+}
+#MVcontent {
+	margin-left: 50px;
+	padding: 30px 100px;
+	overflow:auto;
+	/*border: medium solid #637d37;*/
+	line-height: 135%;
+}
+#MVButton {
+	float: left;
+	width: 35%;
+	padding: 1% 2%;} 
+/*styles for the footer*/
+footer{
+	height: 1.5em;
+	padding: 0 0 .1em;
+	margin-top: 0;
+	border-top: 1px solid #479889;
+}
+footer p{
+	font-family: "Catamaran", Spectral, Arial;
+	font-size: 70%;
+	color: #030D11;	
+	text-align: center;
+	border-top: 1px ;
+	padding: .2em;
+	margin: 0;
+}
+footer a{
+margin: 0; display: inline;
+}	
+/*#footer { font-size: .60em;
+        font-style: italic;
+        text-align: center;
+		line-height: 1em;
+		width: 100%;
+}*/
+h1 {color: #114E4A; padding-top: 1%; font-family: "Philosopher", Georgia;}
+h2 {
+     color: #7F3649;
+     font-size: 1.2em;
+     border-bottom: 1px none;
+	 font-family: "Philosopher", "Georgia";
+}
+h3 {
+	color: #3A404A;
+	font-size: 1em;
+	/*border-bottom: 1px solid #000000;*/
+	margin-right: auto;
+	text-align: left;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	line-height: 120%;
+	font-family: "Philosopher", Georgia;
+}
+.details { padding-left:20%;
+           padding-right:20%; 
+}
+
+
+img {border:0;}
+#aboutMain {width: 60%; float: left;}
+#aboutImg {width: 40%; float: left;}
+#aboutImg img {width: 70%; margin: 1em 5em; padding: 0; border:2px solid #479889; border-radius: 2px;}
+     
+#content h2 {text-align: center;}
+a {text-decoration:none;
+                  display: inline;
+				  color: #20536D;
+				  font-size: 95%;
+}
+a:hover {
+	color:  #C4455D;
+}
+span {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "Catamaran", Arial, Courier, mono;
+	color: #6B6B63;
+	background-position: center center;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#storyPart2 {padding: 1em;}
+#contactForm{width: 80%; margin: 1em auto;}
+#contactForm label {margin: 1em;}
+#contactText{width: 98%; height: 10em; padding: .5em;}
+#contactName{margin: .5em 0;}
+#formSubmit {width: 20%; margin: 2% 40%; font-size: 1.05em; padding: .2em; border-radius: 2px; background-color: #584b57;}
+
+
+table { 
+	border-collapse: collapse; margin: auto;
+}
+tr {color: #3A404A;}
+td {
+	border: 2px solid #114E4A;
+	width: 50%;
+	color: #2c3518;
+}
+td img{width: 30%; margin: 0 35%;}
+td a {height: 1em; color: #20536D; margin-top: 0; margin-bottom: .2em; font-size: 1em; } 
+#gamesTable {background-color: #AED6C1;}
+#supriseButton {width: 16%; margin: 2% 42%; font-size: .9em; padding: .2em; border-radius: 2px; background-color: #584b57;}
+
+.sInAvatar td img{max-width: 100px;}
+.sInAvatar td input {width: 100%; magin: auto;}
+
+form {width: 100%;}
+#itemsDiv, #weaponsDiv {margin-left: 2.65em; margin-top: 1em;}
+
+#basicInfo { width: 25%; padding-left: 1em; float: left; padding-top: 0;  margin-top: 1em;}
+#items {padding-left: 1em; float: left; padding-top: 0;}
+#weapons {padding-left: 1em; float: left; padding-top: 0;}
+#avatarTable { border: none;}
+#avatarTable td{margin:1em; padding: .2em 2em;}
+#avatarTable img{width: 100px;}
+#headerRow {height: 1em;}
+#headerRow h3 {padding: 0; margin:0;}
+
+#basicInfo input[type="text"]{width: 80%;}
+#ticTacToeGame {margin: auto;}
+.nobdr {
+	border: none;
+	padding: 2em;
+}
+#ticTacToeGame input[type="text"]{width: 4em; height: 2em;}
+#tttReset {width: 20%; margin-left:40%;}
+
+#matchingGame td {width: 100px; height: 120px;}
+#matchingGame img {max-height: 120px; width: 120px; padding:0;}
+
+#maze td {width: 100px; height: 100px;}
+#maze img {max-width: 120px; padding:0;}

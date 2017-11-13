@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--There is an issue with Chrome where it will not update the document while the function is running. 
+I tried to find a solution, but everything I saw said that it is a thing that Chrome does and that I would 
+need to use timing events to get around it. I wasn't sure if you would want me to do that so I added
+alerts that would tell the user the information that would normally be updated with innerHTML.
+Both Firefox and Edge update the information on the page as the game is played.-->
+<html>
+<head>
+	<title>Greg's Gambits | Game of 21</title>
+	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+<script type="text/javascript">
+	function beginGame()
+	{
+			//initialize variables
+			var playerSum= 0; var  playerScore= 0;
+			var dealerSum= 0; var dealerScore= 0;
+			var playerCard = 0; var choice = "yes";
+			//Clear the output cells if a game has aready been played
+			document.getElementById("playerSum").innerHTML= (playerSum);
+			document.getElementById("dealerSum").innerHTML= (dealerSum);
+			document.getElementById("playerScore").innerHTML= (playerScore);
+			document.getElementById("dealerScore").innerHTML= (dealerScore);
+			
+		//run the game while the scores are less than 200 and the choice is yes	
+		while ((playerScore < 200) && (dealerScore <200) && ((choice.charAt(0)== 'y') || (choice.charAt(0)== 'Y')))
+	    {	// get player's cards
+				//get a number between 2 and 11
+			playerCard = Math.floor(Math.random()*(10)+2);
+			alert("Your first card is " + playerCard);
+			playerSum += playerCard;
+			document.getElementById("playerSum").innerHTML= (playerSum);
+				//get a number between 2 and 11
+			playerCard = Math.floor(Math.random()*(10)+2);
+			alert("Your second card is " + playerCard);
+			playerSum += playerCard;
+				//sum
+			document.getElementById("playerSum").innerHTML= (playerSum);
+			alert("Your current sum is: " + playerSum);
+			
+			// get dealers cards
+				//get a number between 2 and 11
+			dealerSum += Math.floor(Math.random()*(10)+2);
+				//get a number between 2 and 11
+			dealerSum+= Math.floor(Math.random()*(10)+2);
+			document.getElementById("dealerSum").innerHTML= ("???");
+
+			//loop that allows player to get more cards
+			while ((choice.charAt(0)== 'y') || (choice.charAt(0)== 'Y'))
+			{
+				choice = (prompt("Would you like another card? (y/n)"));
+				//if yes
+				if ((choice.charAt(0)== 'y') || (choice.charAt(0)== 'Y'))
+					{
+					//get a new card
+					playerCard = Math.floor(Math.random()*(10)+2);
+					//show the player the card
+					alert("Your new card is " + playerCard);
+					//add the card to the sum
+					playerSum += playerCard;
+					alert("Your current sum is: " + playerSum);
+					document.getElementById("playerSum").innerHTML= (playerSum);
+						//stop the loop if the new score is over 21
+					if (playerSum >= 21)
+					{break;}
+					continue;
+					}
+				//if no
+				else 
+				{break;}
+					//exit this loop
+			}	
+			
+			//show the sums
+			alert("End of round!");
+			document.getElementById("playerSum").innerHTML= (playerSum);
+			document.getElementById("dealerSum").innerHTML= (dealerSum);
+			
+			//find the winner
+				//playerSum >21 && dealerSum >21
+				if ((playerSum > 21 ) && (dealerSum > 21))
+					{
+						//no one wins
+						document.getElementById("winner").innerHTML= ("No one wins this round.");
+						alert("No one wins this round.");
+					}
+				//playerSum >21 && dealerSum <21
+				else if ((playerSum > 21 ) && (dealerSum < 21))
+					{
+						//dealer wins
+						document.getElementById("winner").innerHTML= ("Your sum was over 21. The dealer wins.");
+						alert("Your sum was over 21. The dealer wins.");
+					}
+				//dealerSum >21 && playerSum <21
+				else if ((dealerSum > 21 ) && (playerSum < 21))
+					{
+						//player wins
+						document.getElementById("winner").innerHTML= ("You win!");
+						alert("You win!");
+					}
+				
+				//playerSum < 21 && dealerSum < 21
+				else if ((playerSum <= 21) && (dealerSum <= 21))
+					{//playerSum > dealerSum	
+						if(playerSum > dealerSum)
+						//player wins
+						{document.getElementById("winner").innerHTML= ("You won this round!");
+						alert("You won this round!");}
+					//dealerSum > playerSum
+						else if(dealerSum > playerSum)
+						//dealer wins
+						{document.getElementById("winner").innerHTML= ("The dealer wins this round.");
+						alert("The dealer wins this round.");}
+					//playerSum ==dealerSum
+						else
+						//tie
+						{document.getElementById("winner").innerHTML= ("It's a tie!");
+						alert("It's a tie!");}
+					}
+					//add the sums to the scores
+					playerScore += playerSum;
+					document.getElementById("playerScore").innerHTML= (playerScore);
+					dealerScore += dealerSum;
+					document.getElementById("dealerScore").innerHTML= (dealerScore);
+					
+					//clear the sums 
+					playerSum = 0;
+					dealerSum = 0;
+					
+					//if a score is 200 or more end the game and do not ask if they want to play another round
+				if ((playerScore>= 200)|| (dealerScore >=200))
+					{break;}
+					//neither score is 200 or more, ask if they want to play another round
+				else {choice = (prompt("Would you like to play another round? (y/n)"));}			
+		}
+			
+			//display the final winner
+		if (playerScore > dealerScore)
+			{
+				//player wins
+				document.getElementById("winner").innerHTML= ("Congratulations! You won the game!");
+			}
+		else if (playerScore < dealerScore)
+			{
+				//dealer wins
+				document.getElementById("winner").innerHTML= ("The dealer won this game. Better luck next time!");
+			}
+	
+	}
+</script>
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+</head>
+
+<body>
+	<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+		<div id="content">
+			<p>Each player is given 2 cards to begin with, and you can draw more cards if you would like.
+				   The player with a sum closer to 21 wins the round, but don't go over 21! After each round the sum from that round
+				   is added to your score. The first player to a score of 200 wins the game.</p>
+		  <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+			 <tr>
+			  <td><span class="style1">Player Sum: </span></td>
+			  <td><span class="style1">Dealer Sum: </span></td>
+			 </tr>
+			 <tr><td id = "playerSum" span class="style1">0</span></td>
+			  <td id = "dealerSum" span class="style1">0</span></td></tr>
+			 <tr>
+				<td><span class="style1">Player Score: </span></td> 
+				<td><span class="style1">Dealer Score:</span></td>
+			</tr>  
+			<tr><td class="style1" id = "playerScore">0</td> <td class="style1" id = "dealerScore">0</td></tr>
+			<tr><td colspan = 2><span class="style1">The winner is:</span></td></tr>
+			<tr><td colspan = 2 id="winner" align = "center" class="style1">&nbsp;</td></tr>
+			<tr>
+			<td colspan = 2><input type="button" id="21button" value="Start the game" class="battleButton" onclick="beginGame();" /> </td></tr>	
+			
+		</table>
+		</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--There is an issue with Chrome where it will not update the document while the function is running, 
+I tried to find a solution, but everything I saw said that it is a thing that Chrome does and that I would 
+need to use timing events to get around it. I wasn't sure if you would want me to do that so I added
+alerts that would tell the user the information that would normally be updated with innerHTML.
+Both Firefox and Edge update the information on the page as the game is played.-->
+<html>
+<head>
+	<title>Greg's Gambits | The Battleground</title>
+	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+<script type="text/javascript">
+	function battleIt()
+	{
+			//initialize variables
+			var heroPlay= 0; var trollPlay = 0;
+			var heroPts= 100; var trollPts= 100;
+			var tome = "tome"; var sword= "sword"; var arrow= "bow and arrow";
+			var heroChoice = " "; var trollChoice= " ";
+
+			//fill HTML page
+			document.getElementById("trollPts").innerHTML = (trollPts);
+			document.getElementById("heroPts").innerHTML = (heroPts);
+			document.getElementById("playerWeapon").innerHTML = ("Your weapon: ");
+			document.getElementById("trollWeapon").innerHTML = ("The troll's weapon: ");
+			document.getElementById("winner").innerHTML = ("&nbsp;");
+			//loop repeats until troll or player get 130 points
+			while ((trollPts < 130) && (heroPts < 130)) 
+			{
+				// get player's weapon
+				heroPlay = parseInt(prompt("What weapon would you like to use? Enter the number for your choice. (1: Tome)  (2: Sword) (3: Bow and Arrows)  (4: Exit the game)", " "));
+				if (heroPlay == 4) 
+				{
+					document.getElementById("winner").innerHTML=("Sometimes a tactical retreat is best.");
+					break;
+				}
+				
+				// get troll's weapon
+				trollPlay = Math.floor(Math.random() * 3 + 1);
+				// assign weapon to player and troll
+				if (trollPlay==1)
+					{trollChoice = tome;}
+				if (trollPlay==2)
+					{trollChoice = sword;}
+				if (trollPlay==3)
+					{trollChoice = arrow;}
+				if (heroPlay==1)
+					{heroChoice = tome;}
+				if (heroPlay==2)
+					{heroChoice = sword;}
+				if (heroPlay==3)
+					{heroChoice = arrow;}
+				//display weapon selections
+				document.getElementById("playerWeapon").innerHTML= ("Your weapon: " + heroChoice);
+				document.getElementById("trollWeapon").innerHTML= ("The Troll's weapon: " + trollChoice);
+				alert("Battle round begin! The Wizard has chosen " + heroChoice + " and the troll has chosen " + trollChoice);
+				//find the winner
+				
+				//Troll wins
+				if(((trollPlay==1)&&(heroPlay==3)) || ((trollPlay==2)&&(heroPlay==1)) || ((trollPlay==3)&&(heroPlay==2)))
+				{
+					document.getElementById("winner").innerHTML=("<img src='../images/troll.jpg' alt='troll'/>");
+					trollPts = trollPts + 10;
+					heroPts = heroPts -10;
+					document.getElementById("trollPts").innerHTML=(trollPts);
+					document.getElementById("heroPts").innerHTML=(heroPts);
+					alert("The troll won this round. The points are: " + heroPts + " to " + trollPts);
+				}
+				//hero Wins
+				if(((heroPlay==1)&&(trollPlay==3)) || ((heroPlay==2)&&(trollPlay==1)) || ((heroPlay==3)&&(trollPlay==2)))
+				{
+					document.getElementById("winner").innerHTML=("<img src='../images/wizard' alt='wizard'/>");
+					trollPts = trollPts - 10;
+					heroPts = heroPts +10;
+					document.getElementById("trollPts").innerHTML=(trollPts);
+					document.getElementById("heroPts").innerHTML=(heroPts);
+					alert("The Hero wins this round! The points are: " + heroPts + " to " + trollPts);
+				}
+				//Tie
+				if(((trollPlay==1)&&(heroPlay==1)) || ((trollPlay==2)&&(heroPlay==2)) || ((trollPlay==3)&&(heroPlay==3)))
+				{
+					document.getElementById("winner").innerHTML=("This round was a tie. Please choose your weapon again.");
+					alert("It was a tie, please choose your weapon again. The points are: " + heroPts + " to " + trollPts);
+				}
+			}
+			//display the final winner
+			if (trollPts >= 130)
+			{
+				document.getElementById("winner").innerHTML=("You faught well, but the troll bested you. Go home and nurse your wounds.");
+			}
+			if (heroPts >= 130)
+			{
+				document.getElementById("winner").innerHTML=("Congratulations! You bested the troll. ");
+			}
+	}
+</script>
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+</head>
+
+<body>
+	<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+	<div id="content">
+		  <table width = "80%" cellpadding="5" cellspacing="0" border = "0">
+			 <tr>
+				  <td><img src="../images/wizard.jpg" width="100" height="140" /></td>
+				  <td><img src="../images/troll.jpg" width="100" height="140" /></td>
+			 </tr>
+			 <tr>
+			  <td><span class="style1">Wizard uses: </span></td>
+			  <td><span class="style1">Troll uses: </span></td>
+			 </tr>
+			 <tr><td id = "playerWeapon" span class="style1">???</span></td>
+			  <td id = "trollWeapon" span class="style1">???</span></td></tr>
+			 <tr><td colspan = 2><span class="style1">The winner is:</span></td></tr>
+			 <tr><td colspan = 2 id="winner" align = "center" class="style1">&nbsp;</td></tr>
+			 <tr>
+				<td><span class="style1">Wizard points: </span></td> 
+				<td><span class="style1">Troll points:</span></td>
+			</tr>  
+			<tr><td class="style1" id = "heroPts">100</td> <td class="style1" id = "trollPts">100</td></tr>
+			<tr>
+				<td><input type="button" id="battle" value="Let the battle begin!"  onclick="battleIt();" /> </td>
+				<td><input type="button" id="return" value="Return to battle instructions"  onclick="location.href = 'greg_battle.html';" /></td><tr/>
+		</table>
+		</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+	</div>
+	
+</body>
+</html>

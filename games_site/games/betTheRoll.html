@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--There is an issue with Chrome where it will not update the document while the function is running. 
+I tried to find a solution, but everything I saw said that it is a thing that Chrome does and that I would 
+need to use timing events to get around it. I wasn't sure if you would want me to do that so I added
+alerts that would tell the user the information that would normally be updated with innerHTML.
+Both Firefox and Edge update the information on the page as the game is played.-->
+<html>
+<head>
+	<title>Greg's Gambits | Rolling Dice</title>
+	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+<script type="text/javascript">
+	function rollDice() 
+	{
+				//get a number between 1 and 6
+			var die1 = Math.floor(Math.random()*(6)+1);	
+			var die2 = Math.floor(Math.random()*(6)+1);	
+			roll  = (die1 + die2);
+			return roll;
+	}
+			
+	function beginGame()
+	{
+		
+			//initialize variables
+			 var  playerScore= 0;
+			var compScore= 0;
+			var choice = "yes";
+			
+			
+			//Clear the output cells if a game has aready been played
+			document.getElementById("playerRoll").innerHTML= 0;
+			document.getElementById("compRoll").innerHTML= 0;
+			document.getElementById("kitty").innerHTML= "$0";
+			document.getElementById("playerScore").innerHTML= 0;
+			document.getElementById("compScore").innerHTML= 0;
+	
+	
+		//run the game while the scores are less than 100 and the choice is yes	
+		while ((playerScore < 100) && (compScore <100) && ((choice.charAt(0)== 'y') || (choice.charAt(0)== 'Y')))
+	    {	var playerRoll= 0; var compRoll= 0; 
+			var playerFold = false; var compFold = false; 
+			var compRaise = 0; var pRaise = 0;
+			
+			var pChoice = ""; var compChoice = "";
+			var roll = 0; var kitty = 0;
+			var proceed = false;
+		
+		//start the betting
+			do {playerBet = parseInt(prompt("How much would you like to bet on winning the round?"));} while (playerBet <= 0);
+			kitty = playerBet;
+			document.getElementById("kitty").innerHTML= ("$" + kitty);
+			
+			do{
+				//get the computer choice
+				var compChoice = Math.floor(Math.random()*(3)+1);
+				
+				//computer matches
+				if (compChoice == 1)
+				{	kitty += playerbet;
+					alert("The computer matches your bet. The kitty is now: " + kitty);
+					document.getElementById("kitty").innerHTML= ("$" + kitty);
+					proceed = true;
+				}
+				//computer folds 
+				else if (compChoice == 2)
+				{
+					alert("The computer folds.");
+					proceed = true;
+					compFold = true; 
+				}
+				//if the computer raises
+				else if (compChoice == 3)
+				{	
+					//get the rase amount
+					compRaise= Math.floor(Math.random()*(20)+1);
+					kitty += compRaise;
+					alert("The computer raised by "+ compRaise + ". The kitty is now " + kitty);				
+					document.getElementById("kitty").innerHTML= ("$" + kitty);
+					proceed = false;
+					//get the player choice 
+					do {pChoice = parseInt(prompt("What would you like to do? 1: Match the bet, 2: Fold, or 3: Raise the bet?"));} while (pChoice <= 0);
+						if (pChoice == 1)
+					{	kitty += compRaise;
+						alert("You have matched the bet. The kitty is now: " + kitty);
+						document.getElementById("kitty").innerHTML= ("$" + kitty);
+						proceed = true;
+					}
+					//computer folds 
+					else if (pChoice == 2)
+					{
+						alert("You fold.");
+						proceed = true;
+						playerFold = true; 
+					}
+					//if the computer raises
+					else if (pChoice == 3)
+					{	
+						do{playerBet = parseInt(prompt("How much would you like to raise by?"));} while (playerBet <= 0);
+						kitty += playerBet;
+						alert("You raised by "+ playerBet + ". The kitty is now " + kitty);		
+						document.getElementById("kitty").innerHTML = ("$" + kitty);
+						proceed = false;
+					}
+				}
+			}while (proceed == false);
+
+			//only roll if no one folds
+			if ((playerFold != true) && (compFold != true))
+			{
+				playerRoll = rollDice();
+				alert("Your roll:  " + playerRoll);
+				document.getElementById("playerRoll").innerHTML= playerRoll;
+				
+				compRoll = rollDice();
+				alert("Computer roll:  " + compRoll);
+				document.getElementById("compRoll").innerHTML= compRoll;
+			}
+			alert("End of round!");
+			//find the winner
+			 
+				//player wins
+				if((compFold == true) || (playerRoll > compRoll) )
+					{
+						playerScore += kitty;
+						document.getElementById("playerScore").innerHTML= playerScore;
+						document.getElementById("compScore").innerHTML= compScore;
+						//player wins
+						document.getElementById("winner").innerHTML= ("You win this round!");
+						alert("You win!");
+					}
+			 //Computer wins
+				else if( (playerFold == true) || (compRoll > playerRoll))
+				//dealer wins
+				{
+				compScore += kitty;
+				document.getElementById("playerScore").innerHTML= playerScore;
+				document.getElementById("compScore").innerHTML= compScore;
+				document.getElementById("winner").innerHTML= ("The computer wins this round.");
+				alert("The computer wins this round.");
+				}
+			//Tie
+				else if (playerRoll == compRoll)
+					{
+						//no one wins
+						document.getElementById("playerScore").innerHTML= playerScore;
+						document.getElementById("compScore").innerHTML= compScore;
+						document.getElementById("winner").innerHTML= ("No one wins this round.");
+						alert("No one wins this round.");
+					}
+	
+			//if a score is 200 or more end the game and do not ask if they want to play another round
+			if ((playerScore >= 100) || (compScore >=100))
+				{break;}
+				//neither score is 200 or more, ask if they want to play another round
+			else {choice = (prompt("Would you like to play another round? (y/n)"));}	
+		}
+
+	
+		
+			
+			//display the final winner
+		if (playerScore > compScore)
+			{
+				//player wins
+				document.getElementById("winner").innerHTML= ("Congratulations! You won the game!");
+			}
+		else if (playerScore < compScore)
+			{
+				//dealer wins
+				document.getElementById("winner").innerHTML= ("The computer won this game. Better luck next time!");
+			}
+		else if (playerScore == compScore)
+		{
+			//tie
+				document.getElementById("winner").innerHTML= ("It's a tie!");
+		}	
+	}
+
+</script>
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+-->
+</style>
+</head>
+
+<body>
+	<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+		<div id="content">
+
+			<p>The first player will player will make a bet on the roll before it occurs. The second player (computer) will then
+			choose if they will match the bet, fold, or raise the bet. If the second player raises the bet, the first player must decide 
+			to match, fold, or raise. If the player raises the process repeats.</p>
+			<p>If a player folds, their current bet goes to the other player, who wins that round.</p>	
+			<p>Each player will roll two 6 sided die to get a total. The player with a higher roll wins that round. 
+			The game will end when a player gets $100 or the player chooses to end the game.</p>
+		  <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+			 <tr>
+			  <td><span class="style1">Player Roll: </span></td>
+			  <td><span class="style1">Computer Roll: </span></td>
+			 </tr>
+			 
+			 <tr><td id = "playerRoll" span class="style1"> 0 </span></td>
+			  <td id = "compRoll" span class="style1">0</span></td></tr>
+				<tr>
+			  <tr><td colspan = 2><span class="style1">The kitty is:</span></td></tr>
+			<tr><td colspan = 2 id="kitty" align = "center" class="style1">$0 </td></tr>
+			 <tr>
+				<td><span class="style1">Player Score: </span></td> 
+				<td><span class="style1">Computer Score:</span></td>
+			</tr>  
+			<tr><td class="style1" id = "playerScore">0</td> 
+			<td class="style1" id = "compScore">0</td></tr>
+			
+			<tr><td colspan = 2><span class="style1">The winner is:</span></td></tr>
+			<tr><td colspan = 2 id="winner" align = "center" class="style1">&nbsp;</td></tr>
+			<tr>
+			<td colspan = 2><input type="button" id="21button" value="Start the game" class="battleButton" onclick="beginGame();" /> </td></tr>	
+			
+		</table>
+		</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+		</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+css notes
+
+dark dark blue 0D3B45
+
+
+Black: #070a0d
+White: #f5f4fc
+Grey: #c9c9ba
+light grey: CADCF0
+light green: A3C48A
+blue: 479889
+green: #074C24
+
+
+purple: #584b57
+Green: #637d37
+
+pink: #9c3343

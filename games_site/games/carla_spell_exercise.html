@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Carla's Classroom | Spelling Test</title>
+<link href="carla.css" rel="stylesheet" type="text/css" />
+<script>
+// variables
+var imgCompare = ""; var spellCompare = ""; var count = 0;
+function getImage(x)
+{
+	//get an image
+	var iLgth =x.length;
+	imgCompare = x.substr(1, iLgth - 1);
+}
+function getSpell(x)
+{
+	//compare spelling with student's selection
+	var sLgth = x.length;
+	spellCompare = x.substr(1, sLgth - 1);
+	compareThem(imgCompare, spellCompare);
+}
+function compareThem(imgCompare, spellCompare)
+{
+	//compare and display
+	if (imgCompare == spellCompare)
+	{
+		var newStuff = document.createElement("P");
+		var newMessage = document.createTextNode("CORRECT");
+		newStuff.appendChild(newMessage);
+		document.getElementById("s" + spellCompare).appendChild(newStuff);
+		count ++;
+		checkEnd(count);
+	}
+	else
+	{alert("wrong... Try again");}
+}
+function checkEnd(count)
+{
+	//check if spelling exercise is ended
+	if(count == 12)
+	{
+		var endIt = document.createElement("H3");
+		var endMessage = document.createTextNode("Congratulations! You are a great speller!");
+		endIt.appendChild(endMessage);
+		document.getElementById("the_end").appendChild(endIt);
+	}
+}
+</script>
+</head>
+<body>
+<div id="container">
+	<img src="images/owl_logo.jpg" class="floatleft" />  
+	<h1><em>Carla's Classroom</em></h1>
+	<p>&nbsp; </p>
+	<div align="left">
+		<blockquote>
+		<a href="index.html"><img src="../images/owl_button.jpg" />Home</a>
+        <a href="carla.html"><img src="../images/carla_button.jpg" />Meet Carla </a>
+        <a href="reading.html"><img src="../images/read_button.jpg" />Reading</a>
+        <a href="writing.html"><img src="../images/write_button.jpg" />Writing</a>
+        <a href="math.html"><img src="../images/arith_button.jpg" />Arithmetic</a><br />               
+        </blockquote>
+	</div>
+	<div id="content">
+	<h3>Match the picture with the correct spelling of its name.</h3>
+	<div id ="pictures">
+	<table align = "center" border = "1">
+	<tr><td colspan = "6">Click on the little button below a picture</td></tr>
+		<tr>
+			<!-- place images and buttons -->
+			<td id = "ibananas" ><img src="../images/bananas.jpg"/><button onclick="getImage('ibananas')"/></td>
+			<td id = "iwizard" ><img src="../images/wizard.jpg"/><button onclick="getImage('iwizard')"/></td>
+			<td id = "isword" ><img src="../images/sword.jpg"/><button onclick="getImage('isword')"/></td>
+			<td id = "ibracelet" ><img src="../images/bracelet.jpg"/><button onclick="getImage('ibracelet')"/></td>
+			<td id = "ihorse" ><img src="../images/horse.jpg"/><button onclick="getImage('ihorse')"/></td>
+			<td id = "ilawnmower" ><img src="../images/lawnmower.jpg"/><button onclick="getImage('ilawnmower')"/></td>
+		</tr>
+		<tr>
+						<!-- place images and buttons -->
+			<td id = "ighost" ><img src="../images/ghost.jpg"/><button onclick="getImage('ighost')"/></td>
+			<td id = "icastle" ><img src="../images/castle.jpg"/><button onclick="getImage('icastle')"/></td>
+			<td id = "irabbit" ><img src="../images/rabbit.jpg"/><button onclick="getImage('irabbit')"/></td>
+			<td id = "inecklace" ><img src="../images/necklace.jpg"/><button onclick="getImage('inecklace')"/></td>
+			<td id = "icelery" ><img src="../images/celery.jpg"/><button onclick="getImage('icelery')"/></td>
+			<td id = "iflowers" ><img src="../images/flowers.jpg"/><button onclick="getImage('iflowers')"/></td>
+		</tr>
+		</table>
+	</div>
+	<div id ="spellings">
+	<table align = "center" cellpadding = "10" border = "1">
+	<tr><td colspan = "6">Now click on the spelling that matches the picture</td></tr>
+		<tr>
+			<!-- place words and buttons -->
+			<td id = "scelery" >Celery<button onclick="getSpell('scelery')"/></td>
+			<td id = "slawnmower" >Lawnmower<button onclick="getSpell('slawnmower')"/></td>
+			<td id = "scastle" >Castle<button onclick="getSpell('scastle')"/></td>
+			<td id = "shorse" >Horse<button onclick="getSpell('shorse')"/></td>
+			<td id = "sbananas" >Bananas<button onclick="getSpell('sbananas')"/></td>	
+			<td id = "sflowers" >Flowers<button onclick="getSpell('sflowers')"/></td>
+		</tr>
+		<tr>
+			<!-- place words and buttons -->
+
+			<td id = "swizard" >Wizard<button onclick="getSpell('siwizard')"/></td>
+			<td id = "snecklace" >Necklace<button onclick="getSpell('snecklace')"/></td>	
+			<td id = "sbracelet" >Bracelet<button onclick="getSpell('sbracelet')"/></td>			
+			<td id = "sghost" >Ghost<button onclick="getSpell('sghost')"/></td>			
+			<td id = "srabbit" >Rabbit<button onclick="getSpell('srabbit')"/></td>
+			<td id = "ssword" >Sword<button onclick="getSpell('issword')"/></td>		
+
+			
+
+		</tr>
+		</table>
+	</div>
+	<div id = "the_end">&nbsp;</div>
+	</div>
+	</div>
+	<div id="footer">  <h3>*Carla's Motto: Never miss a chance to teach -- and to learn!</h3>
+	</div>
+</body>
+</html>

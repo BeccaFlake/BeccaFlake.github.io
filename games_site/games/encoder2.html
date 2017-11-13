@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Greg's Gambits | Unbreakable Secret Message Encoder</title>
+	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+<script type="text/javascript">
+function encodeIt()
+{
+ 		 document.getElementById("message").innerHTML  = ("<h2>&nbsp;</h2>");
+		 //initialize variables
+		 var msg = prompt("Enter your message." , " ");
+		 var newmsg= " " ;
+		 var upCaseCode= 155;
+		 var newCode= 0;
+		 var lowCaseCode= 219;
+		 var specialCode= 3;
+		 var key = 0;
+		 //get the randomly generated key between 4 and 13
+		 key = (Math.floor(Math.random() * 10)) + 4;
+		 
+		 /*the encryption algorithm is :     charCode + key - 1
+			if the new code is greater than 122, then subtract the key from the original code
+		 */
+		
+		 //the loop encodes each letter in the message string
+		 for (var j = 0; j < msg.length; j++)
+		 {
+		  	 //check for uppercase letters and encode them
+			 if ((msg.charCodeAt(j) >=65) && (msg.charCodeAt(j) <=90))
+			 {
+				newCode = (msg.charCodeAt(j) + key - 1);
+			 }
+		 
+			//check for lowercase letters and encode them
+				 else if ((msg.charCodeAt(j) >=97) && (msg.charCodeAt(j) <=122))
+				 {
+						newCode = (msg.charCodeAt(j) - key);
+				 }
+				
+			//check for numbers and special characters and encode them
+				else if ((msg.charCodeAt(j) > 90) && (msg.charCodeAt(j) <97) || (msg.charCodeAt(j) <65))
+				{
+						newCode = (msg.charCodeAt(j) + key - 1);
+				}
+			//add each encoded character to the new message
+			newmsg = newmsg + " " + String.fromCharCode(newCode);
+		 }
+		 //display the encoded message on the web page
+		 document.getElementById("secret").innerHTML = ("<h2>" + newmsg + "</h2>");
+		 //decide if original message should be shown
+		 var choice = prompt("Do you want to see the encryption algorithm and key? Yes or No?", " ");
+		 if ((choice.charAt(0)== 'y') || (choice.charAt(0)== 'Y') )
+		 {
+			document.getElementById("message").innerHTML = ("<p> The encryption algorithm is: <br><i> charCode + key - 1. </i><br>" + 
+			"If the original code is greater than 96, then: <i> charCode - key. </i> <br> The key is: " +  key + "</p>");
+		 }
+}
+</script>
+</head>
+
+<body>
+<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+	<div id="content">
+		 <h2>Write A Message and Encode It</h2>
+		<p><input type="button" id="encode" value="Enter your message" onclick="encodeIt();" /></p>
+	  <table cellpadding="2" width = "90%" align = "center" border="1">
+		<tr> <td align="center" id="secret"><p>encoded message</p></td> </tr> 
+		<tr> <td align="center" id="message">&nbsp;</td> </tr>  </table>
+	</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<html>
+<head>
+<title>Greg's Gambits | Greg's Maze</title>
+<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran"><script type = "text/javascript">
+	//declare and initialize variables
+	
+	var cells; var pitfalls = new Array();
+	var swapped;	
+	var playerLoc; var companionLoc;
+	/**Functions that set up the game**/
+	function setup()
+	{
+	// create function to load array and call placeNumbers()
+		cells = new Array( [document.getElementById("cell00"),
+		document.getElementById("cell01"),
+		document.getElementById("cell02"),
+		document.getElementById("cell03"),
+		document.getElementById("cell04")],
+		[document.getElementById("cell10"),
+		document.getElementById("cell11"),
+		document.getElementById("cell12"),
+		document.getElementById("cell13"),
+		document.getElementById("cell14")], 
+		[document.getElementById("cell20"),
+		document.getElementById("cell21"),
+		document.getElementById("cell22"),
+		document.getElementById("cell23"),
+		document.getElementById("cell24")], 
+		[document.getElementById("cell30"),
+		document.getElementById("cell31"),
+		document.getElementById("cell32"),
+		document.getElementById("cell33"),
+		document.getElementById("cell34")],
+		[document.getElementById("cell40"),
+		document.getElementById("cell41"),
+		document.getElementById("cell42"),
+		document.getElementById("cell43"),
+		document.getElementById("cell44")]); 
+		
+	//loop that populates the maze with the background image
+		for (var i = 0; i < 5; i++)
+		{
+			document.getElementById("cell0" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+			document.getElementById("cell1" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+			document.getElementById("cell2" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+			document.getElementById("cell3" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+			document.getElementById("cell4" + i).innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+		}
+	//set the player location and place the image in that cell
+		playerLoc = cells[4][4];
+		playerLoc.innerHTML = ("<img src='../images/smallWizard2.jpg'/>");
+	//set the companion location and place the image in that cell
+		companionLoc = cells[0][0];
+		companionLoc.innerHTML = ("<img src='../images/smallWizard1.jpg'/>");
+	//Call the place pitfalls function to populate the maze with hazards
+		placePitfalls(pitfalls);
+	}
+	//Function that generates the pitfall locations
+	function placePitfalls(pitfalls) 						 
+	{	//I kept it to 3 pitfalls, since one of them will make the game start over
+		
+			//pitfall 1
+				var x = (Math.floor(Math.random()*5));
+				var y = (Math.floor(Math.random()*5));
+				pitfalls[0] = cells[x][y];
+			//pitfall 2
+				var x2 = (Math.floor(Math.random()*5));
+				var y2 = (Math.floor(Math.random()*5));
+				pitfalls[1] = cells[x2][y2];			
+			//pitfall 3
+				var x3 = (Math.floor(Math.random()*5));
+				var y3 = (Math.floor(Math.random()*5));
+				pitfalls[2] = cells[x3][y3];
+				
+			//Check that the pitfalls' placement is ok
+				checkPitfallPlacement(pitfalls, playerLoc, companionLoc);	
+	}
+	//Function that makes sure that the pitfalls do not fall on an illegal cell
+	function checkPitfallPlacement(pitfalls, playerLoc, companionLoc)
+	{		//while the pitfalls are duplicates
+			while ((pitfalls[0] == pitfalls [1]) || (pitfalls[0] == pitfalls [2]) || (pitfalls[2] == pitfalls [3]))
+			{placePitfalls(pitfalls);}
+			//while a pitfall matches the player location
+			while ( (pitfalls[0] == playerLoc)|| (pitfalls[1] == playerLoc) || (pitfalls[2] == playerLoc))
+			{placePitfalls(pitfalls);}
+			//while the pitfall matches the companion location
+			while( (pitfalls[0] == companionLoc)|| (pitfalls[1] == companionLoc) || (pitfalls[2] == companionLoc))
+			{placePitfalls(pitfalls);}	
+			
+			//handle impasses   
+			checkImpasses(pitfalls); 
+	}
+	//Function that checks that the pitfalls do not hem the player or companion in
+	function checkImpasses(pitfalls)
+	{
+		//cells[0][1], cells[1][0] 
+		while ( ( (pitfalls[0] == cells[0][1] )  &&  (pitfalls[1] == cells[1][0])) ||
+		(   (pitfalls[1] == cells[0][1]) && (pitfalls[2] == cells[1][0]) ) ||
+		( (pitfalls[0] == cells[1][0])  &&  (pitfalls[2] == cells[0][1]) ) )
+		{placePitfalls(pitfalls); }
+		
+		//cells[0][1], cells[1][0], cells[1][1] 
+		while ( ( (pitfalls[0] == cells[0][1] )  &&  (pitfalls[1] == cells[1][0]) && (pitfalls[2] == cells[1][1] ) ) ||
+		( (pitfalls[0] == cells[1][1] )  &&  (pitfalls[1] == cells[0][1]) && (pitfalls[2] == cells[1][0]) ) ||
+		( (pitfalls[0] == cells[1][0])  &&  (pitfalls[1] == cells[1][1] ) && (pitfalls[2] == cells[0][1]) )) 	
+		{placePitfalls(pitfalls); }
+			
+		//cells[0][1] , cells [1][1], cells[2][0]
+		while ( ( (pitfalls[0] == cells[0][1] )  &&  (pitfalls[1] == cells[1][1]) && (pitfalls[2] == cells[2][0] ) ) ||
+		( (pitfalls[0] == cells[2][0] )  &&  (pitfalls[1] == cells[0][1]) && (pitfalls[2] == cells[1][1]) ) ||
+		( (pitfalls[0] == cells[1][1])  &&  (pitfalls[1] == cells[2][0] ) && (pitfalls[2] == cells[0][1]) ) ) 
+		{placePitfalls(pitfalls); }
+				
+		//cells[0][2], cells[1][1], cells[2][0]
+		while ( ( (pitfalls[0] == cells[0][2] )  &&  (pitfalls[1] == cells[1][1]) && (pitfalls[2] == cells[2][0] ) ) ||
+		( (pitfalls[0] == cells[2][0] )  &&  (pitfalls[1] == cells[0][2]) && (pitfalls[2] == cells[1][1]) ) ||
+		( (pitfalls[0] == cells[1][1])  &&  (pitfalls[1] == cells[2][0] ) && (pitfalls[2] == cells[0][2]) ) ) 
+		{placePitfalls(pitfalls); }		
+		
+		//cells[2][4], cells[3][3], cells[2][4] 
+		while ( ( (pitfalls[0] == cells[4][2] )  &&  (pitfalls[1] == cells[3][3]) && (pitfalls[2] == cells[2][4]) ) ||
+		( (pitfalls[0] == cells[2][4] )  &&  (pitfalls[1] == cells[4][2]) && (pitfalls[2] == cells[3][3]) ) ||
+		( (pitfalls[0] == cells[3][3])  &&  (pitfalls[1] == cells[2][4] ) && (pitfalls[2] == cells[4][2]) ) ) 
+		{placePitfalls(pitfalls); }	
+				
+		//cells[4][3], cells[3][3], cells[3][4],
+		while ( ((pitfalls[0] == cells[4][3] )  &&  (pitfalls[1] == cells[3][3]) && (pitfalls[2] == cells[3][4])) ||
+		((pitfalls[0] == cells[3][4] )  &&  (pitfalls[1] == cells[4][3]) && (pitfalls[2] == cells[3][3])) ||
+		((pitfalls[0] == cells[3][3])  &&  (pitfalls[1] == cells[3][4] ) && (pitfalls[2] == cells[4][3])) ) 
+		{placePitfalls(pitfalls); }
+		
+		//cells[4][3], cells[3][4]
+		while ( ( (pitfalls[0] == cells[4][3])  &&  (pitfalls[1] == cells[3][4])) ||
+		((pitfalls[1] == cells[3][3]) && (pitfalls[2] == cells[3][4])) ||
+		( (pitfalls[0] == cells[3][4]  &&  (pitfalls[2] == cells[4][3])) ) )
+		{placePitfalls(pitfalls); }
+		
+		// cells[4][3], cells[3][3], cells[3][4]
+		while ( ((pitfalls[0] == cells[4][3] )  &&  (pitfalls[1] == cells[3][3]) && (pitfalls[2] == cells[3][4])) ||
+		((pitfalls[0] == cells[3][4] )  &&  (pitfalls[1] == cells[4][3]) && (pitfalls[2] == cells[3][3])) ||
+		((pitfalls[0] == cells[3][3])  &&  (pitfalls[1] == cells[3][4] ) && (pitfalls[2] == cells[4][3])) ) 
+		{placePitfalls(pitfalls); }
+	}
+	
+	/** Functions that are called during the game**/
+	//function that runs the game when a cell is clicked
+	function doClick(row, col)
+	{	//variable to hold the clicked cell
+		var clickedCell = cells[row][col];
+		//check that the clicked cell is not outside of the range, is adjacent to the player location, is not diagonal, and doesn't fall onto a pitfall
+		var top = row - 1;
+		var bottom = row +1;
+		var left = col -1;
+		var right = col + 1;
+		swapped = false;
+			
+		//move up
+		if((top != -1) && (cells[top][col] == playerLoc) && !checkForPitfall(clickedCell, pitfalls))
+			{
+				//swap location				
+				playerLoc = swap(playerLoc, clickedCell);
+				//check for win condition 
+				checkForCompanion(clickedCell, companionLoc);
+			}
+		//move right
+		else if((right != 5)&& (cells[row][right] == playerLoc) && !checkForPitfall(clickedCell, pitfalls))
+			{
+				//swap location
+				playerLoc = swap(playerLoc, clickedCell);
+				//check for win condition 
+				checkForCompanion(clickedCell, companionLoc);
+			}
+		//move down
+		else if((bottom != 5)&& (cells[bottom][col] == playerLoc) && !checkForPitfall(clickedCell, pitfalls))
+			{	
+				//swap location
+				playerLoc = swap(playerLoc, clickedCell);
+				//check for win condition 
+				checkForCompanion(clickedCell, companionLoc);
+			}
+		//move left
+		else if((left != -1) && (cells[row][left] == playerLoc) && !checkForPitfall(clickedCell, pitfalls))
+			{		
+				//swap location
+				playerLoc = swap(playerLoc, clickedCell);
+				//check for win condition 
+				checkForCompanion(clickedCell, companionLoc);
+			}			
+	}
+	//function that checks if the cell is the companion cell
+	function checkForCompanion(clickedCell, companionLoc)
+	{
+		if (clickedCell == companionLoc)
+		{
+			alert("Sucess!");
+			//change the player and companion images
+			companionLoc.innerHTML = ("<img src='../images/reunion.jpg'/>");
+			alert("You found your companion! Quick, use your magic to escape before the lich finds you!");
+			//Ask if the player would like to play again
+			var choice = prompt("Would you like to play again? (y/n)");
+			if ((choice == "y" )|| (choice == "Y"))
+			{setup();}
+			else
+			{alert("Bye!");}
+		}
+	}
+	//function that check if the cell is a pitfall
+	function checkForPitfall(clickedCell, pitfalls)
+	{	//pitfall 1
+		if (clickedCell == pitfalls[0])
+		{
+			alert("The floor is crumbling around a pitch black hole. It would be best to find another path.");
+			return true;
+		}
+		//pitfall 2
+		else if (clickedCell == pitfalls[1])
+		{
+			alert("You stumble upon a locked door, and a feeling of dread leeches off of it. You assume there is some kind of eldritch horror inside. It would be best to leave it be.");
+			return true;
+		}
+		//pitfall 3
+		else if (clickedCell == pitfalls[2])
+		{
+			pitfalls[2].innerHTML =("<img src='../images/lich.jpg'/>");
+			alert("Oh no! You stumbled upon the lich! Your vision begins to fade as you hear a low, broken chuckle.");
+			setup();
+			alert("It would seem that you must begin again");
+			return true;
+		}
+		else{return false;}
+	}
+	//function that swaps the player location
+	function swap(firstCell, secondCell)
+	{	
+		swapped = true;
+		// create function to swap values
+		playerLoc.innerHTML = ("<img src='../images/mazeBackGround.jpg'/>");
+		secondCell.innerHTML = ("<img src='../images/smallWizard2.jpg'/>");
+		playerLoc = secondCell;
+		return playerLoc;
+	}
+</script>
+</head>
+
+<body onload ="setup()">
+	<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+	<div id="content">
+		<p><input type="button" value = "Start the game" onclick="setup();"  /></p>
+		<p>You and your companion have been separated and trapped by a lich in a maze-like dungeon. 
+		Escape the maze before the lich finds you again.
+		You (black wizard) need to find your companion (grey wizard) and use your combined magic to escape.
+		You can move into an adjacent spot by moving up, down, right, or left. Diagonal moves are not allowed. 
+	   </p>
+		<table width = "60%" align = "center" id="maze">
+		<!-- create the 4 X 4 table with a call, in each cell, to the doClick(x,x) function -->
+			<!-- Create row 1-->
+			<tr> 
+				<td height = "60"><span onclick = "doClick(0,0)" id="cell00"></td>
+				<td><span onclick = "doClick(0,1)" id="cell01"></td>
+				<td><span onclick = "doClick(0,2)" id="cell02"></td>
+				<td><span onclick = "doClick(0,3)" id="cell03"></td>
+				<td><span onclick = "doClick(0,4)" id="cell04"></td>
+			</tr>
+			<!-- Create row 2-->
+			<tr> 
+				<td height = "60"><span onclick = "doClick(1,0)" id="cell10"></td>
+				<td><span onclick = "doClick(1,1)" id="cell11"></td>
+				<td><span onclick = "doClick(1,2)" id="cell12"></td>
+				<td><span onclick = "doClick(1,3)" id="cell13"></td>
+				<td><span onclick = "doClick(1,4)" id="cell14"></td>
+			</tr>
+			<!-- Create row 3-->
+			<tr> 
+				<td height = "60"><span onclick = "doClick(2,0)" id="cell20"></td>
+				<td><span onclick = "doClick(2,1)" id="cell21"></td>
+				<td><span onclick = "doClick(2,2)" id="cell22"></td>
+				<td><span onclick = "doClick(2,3)" id="cell23"></td>
+				<td><span onclick = "doClick(2,4)" id="cell24"></td>
+			</tr>
+			<!-- Create row 4-->
+			<tr> 
+				<td height = "60"><span onclick = "doClick(3,0)" id="cell30"></td>
+				<td><span onclick = "doClick(3,1)" id="cell31"></td>
+				<td><span onclick = "doClick(3,2)" id="cell32"></td>
+				<td><span onclick = "doClick(3,3)" id="cell33"></td>
+				<td><span onclick = "doClick(3,4)" id="cell34"></td>
+			</tr>
+			<tr> 
+				<td height = "60"><span onclick = "doClick(4,0)" id="cell40"></td>
+				<td><span onclick = "doClick(4,1)" id="cell41"></td>
+				<td><span onclick = "doClick(4,2)" id="cell42"></td>
+				<td><span onclick = "doClick(4,3)" id="cell43"></td>
+				<td><span onclick = "doClick(4,4)" id="cell44"></td>
+			</tr>
+		</table>
+	</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+</body></html>

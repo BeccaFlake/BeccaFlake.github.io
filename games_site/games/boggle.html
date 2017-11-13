@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Greg's Gambits | Greg's Boggle</title>
+<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+<!-- link to js page -->
+<script type="text/javascript" src="../JS/boggleWords.js"></script>
+<script>
+
+function boggle()
+{
+	// declare and initialize variables and arrays
+	var score = 0; var flag = 0;
+	var num = (Math.floor(Math.random()*5) + 1);
+	var compWords = new Array(); var notAword = new Array();
+	var playWords = new Array();	var play = "";	
+	//get a word
+	compWords = words(num);
+	var yourWord = compWords[0];
+	//get player entries
+		while(play != "Q")
+		{	//ask for a word
+			play = prompt("Letters: " +  yourWord + "     Enter a word or enter Q when done");
+			//add the word to the array of player worlds
+			playWords.push(play);
+			//End the round when the player enters 'Q'
+			if(play != "Q")
+			{
+				document.getElementById("entries").innerHTML = playWords.toString();
+			}
+		}
+	alert("End of Round!")
+	
+	//check winning score and list bad words
+	var complgth = compWords.length;
+	var playlgth = (playWords.length - 1);
+	//go through the player's words
+	for (var i = 0; i < playlgth; i ++)
+	{	flag = 0;
+		//the word is valid
+		for(var k = 0; k < complgth; k++)
+		{	//if the word is valid add one to the score
+			if(playWords[i] == compWords[k])
+			{
+				score++;
+				flag = 1;
+			}
+		}
+		//the word is not valid
+		if (flag == 0)
+		{notAword.push(playWords[i]);}
+	}
+	//display the list of invalid words
+	document.getElementById("result").innerHTML = ("Your score is " + score + ".<br /><br /> The following entries are not valid words: <br />" + notAword.toString());	
+}
+
+</script>
+</head>
+<body>
+<div id="container">
+	<!--Header-->
+	<header>
+		<h1 id="logo">[Title Pending] </h1>
+		<h2 align="center">Games for Everyone!</h2>
+		</header>
+	<!-- navigation menu-->	
+	<nav id="nav_menu">
+	  <ul>
+		  <li><a href="../index.html">Home</a></li>
+		  <li><a href="../about.html">About</a></li>
+		  <li><a href="../play_games.html">Games</a>
+		  <li><a href="../signin.html">Sign In</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../contact.html">Contact</a></li>
+	  </ul>
+	</nav>
+	<div id="content">
+	 <p>The object of the game is to create as many words as you can from the letters shown below. When you are ready to begin, click the button.</p>
+	 <!-- put in a button to begin the game -->
+	 <p><input type="button" value = "begin the game" onClick="boggle();" /></p>
+	 <!-- display words player enters -->
+	 <h2>Your words so far: <br>
+	 <div id="entries">&nbsp;</div><br/></h2>
+	 <!-- display results -->
+	 <h2>Results: <br>
+	 <div id="result">&nbsp;</div></h2>
+	</div>
+	<footer>
+		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+	</footer>
+	</div>
+</body>
+</html>
