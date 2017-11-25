@@ -1,15 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-	<title>Greg's Gambits | Greg's Tales</title>
-	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+	<title>Hall of Amusements | Write a Story</title>
+	<link href="../main.css" rel="stylesheet" type="text/css" />	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
 	<script type="text/javascript">
 	//function that starts the game
 	function startGame()
 	{
 		// initialize variables and prompt for information
 		var years = " "; 			//A variable to hold the number of years
-		var gender= "boy";		//A variable to hold the gender
+		var gender= "";		    //A variable to hold the gender
 		var name  = " ";			//A variable to hold the hero's name
 		var pronoun = " ";			//A variable to hold the hero's pronoun
 		var profession = " ";		//A variable to hold the hero's profession
@@ -25,9 +26,13 @@
 		var name2 = " ";			//A variable to hold the name of the main monster
 		var meal = " ";				//A variable to hold the meal the trio is invited to
 
+		//clear the page if the game has already been played
+		document.getElementById("storyPart1").innerHTML = "";
+		document.getElementById("storyPart2").innerHTML ="";
+		document.getElementById('storyBox').style.border = "none";	
 			//get the number of years
 		years = prompt("Enter a number greater than 0: ");
-		while (years <0)
+		while ((years <0) || (isNaN(parseInt(years))))
 		{
 			years = prompt("Enter a number greater than 0: ");
 		}
@@ -38,47 +43,60 @@
 		pronoun=(gender =="boy")?"he":"she";
 		
 			//get the name
+		do {
 		name = prompt("Enter the hero's name: ");
-		
+		} while ( !/^[a-zA-Z ]*$/g.test(name));
 			//get the profession
+		do{
 		profession = prompt("Enter a fantasy profession: ");	
-		
+		} while (!/^[a-zA-Z ]*$/g.test(profession));
 			//adjective describing the trip
+		do{
 		adj1 = prompt("Enter an adjective that describes a trip: ");
-		
+		} while (!/^[a-zA-Z ]*$/g.test(adj1));
 			//get the loot
-		loot = prompt("Enter something you search for: ");
-		
+		do{
+		loot = prompt("Enter an object you search for (gold, etc.) for: ");
+		} while (!/^[a-zA-Z ]*$/g.test(loot));
 			//get the type of monster
+		do{
 		monster = prompt("Enter a type of monster: ");	
-		
+		} ;
 			//get the type of monster
+		do{
 		monster2= prompt("Enter another type of monster (plural): ");	
-		
+		} while (!/^[a-zA-Z ]*$/g.test(monster2));
 			//get the number of monster2
 		num = prompt("Enter a number between 5 and 25: ");
-		while ((num <5) || (num >25))
+		while ((num <5) || (num >25) || (isNaN(parseInt(num))))
 		{
 			num = prompt("Enter a number between 5 and 25: ");
 		}
 			//get the verb
+		do{
 		verb1 = prompt("Enter a verb that ends with 'ing': ");
-		
+		} while (!/^[a-zA-Z ]*$/g.test(verb1));
 			//get a place
+		do{
 		place = prompt("Where did the hero set out from? ");	
-		
+		} while (!/^[a-zA-Z ']*$/g.test(place));
 			//get another adjective
+		do{
 		adj2=prompt("Enter an adjective that ends with 'ly'");
-		
+		} while (!/^[a-zA-Z ]*$/g.test(adj2));
 			//get a peace offering
-		offering = prompt("A peace offering: ");
-		
+		do{
+		offering = prompt("An object to be used as a peace offering: ");
+		} while (!/^[a-zA-Z ]*$/g.test(offering));
 			//get another name
+		do{
 		name2 = prompt("Enter another name: ");
-		
+		} while (!/^[a-zA-Z ]*$/g.test(name2));
 			//get a meal
+		do{
 		meal = prompt("Enter a meal: ");	
-			
+		} while (!/^[a-zA-Z ]*$/g.test(meal));
+		
 			//create the story
 		document.getElementById('storyBox').style.border = "1px solid #479889";	
 		document.getElementById("storyPart1").innerHTML =("<p>About " + years + " years ago, there was a " + gender +
@@ -101,7 +119,7 @@
 		//Add event handler
 		button.addEventListener ("click", function()
 		{
-			var choice = prompt("What do they do? A) Attacked the "+ monster +" and tried to take the " + loot  + " by force.   B) Tried to convince the " + monster + " to give it to them.");
+			var choice = prompt("What did they do? A) Attacked the "+ monster +" and tried to take the " + loot  + " by force.   B) Tried to convince the " + monster + " to give it to them.");
 			if ((choice == "A") || (choice =="a"))
 			{
 			option = "The trio rushed into the room, trying to intimidate the " + monster + " and its companions. The " + 
@@ -128,7 +146,7 @@
 
 	<!--Header-->
 	<header>
-		<h1 id="logo">[Title Pending] </h1>
+		<h1 id="logo">Hall of Amusements</h1>
 		<h2 align="center">Games for Everyone!</h2>
 		</header>
 	<!-- navigation menu-->	
@@ -138,15 +156,16 @@
 		  <li><a href="../about.html">About</a></li>
 		  <li><a href="../play_games.html">Games</a>
 		  <li><a href="../signin.html">Sign In</a></li>
-		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../aboutyou.php">Sign Up</a></li>
 		  <li><a href="../contact.html">Contact</a></li>
 	  </ul>
 	</nav>
 		<div id="content">	
 		<!--main content of the page-->
+		<h2>Story Telling</h2>
 		<h3>For this game, you will create a story by entering words as prompted. The story will change each time you run this game, as you enter different words.</h3>
 			<!-- code here to start game -->
-			<input type="button" value="click to begin" onclick="startGame()" class="centralButton"/>
+			<input type="button" value="Click to begin" onclick="startGame()" class="centralButton"/>
 			<div id="storyBox">
 				<div id="storyPart1">
 					<p>&nbsp;</p>
@@ -158,7 +177,7 @@
 			</div>
 		</div>		
 	<footer>
-		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+		<p>Copyright &copy; 2017 Hall of Amusements || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
 	</footer>
 		</div>
 	</body>

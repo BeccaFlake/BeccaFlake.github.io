@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Greg's Gambits | Unbreakable Secret Message Encoder</title>
+	<title>Hall of Amusements | Unbreakable Secret Message Encoder</title>
 	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
 <script type="text/javascript">
 function encodeIt()
@@ -46,8 +46,7 @@ function encodeIt()
 			//add each encoded character to the new message
 			newmsg = newmsg + " " + String.fromCharCode(newCode);
 		 }
-		 //display the encoded message on the web page
-		 document.getElementById("secret").innerHTML = ("<h2>" + newmsg + "</h2>");
+		 
 		 //decide if original message should be shown
 		 var choice = prompt("Do you want to see the encryption algorithm and key? Yes or No?", " ");
 		 if ((choice.charAt(0)== 'y') || (choice.charAt(0)== 'Y') )
@@ -55,6 +54,8 @@ function encodeIt()
 			document.getElementById("message").innerHTML = ("<p> The encryption algorithm is: <br><i> charCode + key - 1. </i><br>" + 
 			"If the original code is greater than 96, then: <i> charCode - key. </i> <br> The key is: " +  key + "</p>");
 		 }
+		// display the encoded message on the web page
+		 document.getElementById("secret").innerHTML = ("<h2>" + newmsg + "</h2>");
 }
 </script>
 </head>
@@ -63,7 +64,7 @@ function encodeIt()
 <div id="container">
 	<!--Header-->
 	<header>
-		<h1 id="logo">[Title Pending] </h1>
+		<h1 id="logo">Hall of Amusements</h1>
 		<h2 align="center">Games for Everyone!</h2>
 		</header>
 	<!-- navigation menu-->	
@@ -73,19 +74,21 @@ function encodeIt()
 		  <li><a href="../about.html">About</a></li>
 		  <li><a href="../play_games.html">Games</a>
 		  <li><a href="../signin.html">Sign In</a></li>
-		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../aboutyou.php">Sign Up</a></li>
 		  <li><a href="../contact.html">Contact</a></li>
 	  </ul>
 	</nav>
 	<div id="content">
 		 <h2>Write A Message and Encode It</h2>
-		<p><input type="button" id="encode" value="Enter your message" onclick="encodeIt();" /></p>
-	  <table cellpadding="2" width = "90%" align = "center" border="1">
-		<tr> <td align="center" id="secret"><p>encoded message</p></td> </tr> 
+		<p>The message encoder will encrypt your message by changing the ACII character code of each character. 
+		This encoder is more secure than the other because it uses a randomly generated key to make the changes.</p>
+		<p><input type="button" id="encode" value="Enter your message" onclick="encodeIt();" class="centralButton"/></p>
+	  <table cellpadding="2" align = "center" border="1" id="encoderTable" >
+		<tr> <td align="center" id="secret"><p></p></td> </tr> 
 		<tr> <td align="center" id="message">&nbsp;</td> </tr>  </table>
 	</div>
 	<footer>
-		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+		<p>Copyright &copy; 2017 Hall of Amusements || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
 	</footer>
 </body>
 </html>

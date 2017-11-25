@@ -2,70 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
-<title>Greg's Gambits | Madame Vadoma Can Tell Your Fortune</title>
+<title>Hall of Amusements | Madame Mitra Can Tell Your Fortune</title>
 <link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
+<script type="text/javascript" src="../JS/fortunes.js"></script>
 <script type="text/javascript">
-function startFortune()
+function startFortuneSmall()
+{
+		var num = (Math.floor(Math.random() * 9)) + 1;
+		fortune = smallFortunes(num);
+		document.getElementById("MVtext").innerHTML = fortune;
+		document.getElementById("MVtextBox").style.border = "1px solid #479889";	
+}
+
+function startFortuneLarge()
 {
 
- 	//initialize variables
-	var num = 0;
-	var question = " ";
-	var fortune1 = "I see a bright light in your future.";
-	var fortune2 = "Do not believe everything you read.";
-	var fortune3 = "Good fortune will smile upon you soon.";
-	var fortune4 = "You will meet an important person in the next year";
-	var fortune5 = "Your future is dark and clouded.";
-	var fortune6 = "I cannot see your future. A dark tiding indeed. ";
-	var fortune7 = "I see a ship sailing upon smooth waters.";
-	var fortune8 = "You are close to your goal, but you are missing what you need to break the barrier. ";
-	var fortune9 = "In this moment of crisis, remember: there is always a third option.";
-	var fortune10 = "You’re not ready to face what awaits you, but you must know its face.";
-	
-	num = (Math.floor(Math.random() * 10)) + 1;
-	switch(num)
-	{
-	 //Case 1
-		case 1: 
-			document.getElementById("MVcontent").innerHTML = fortune1;
-			break;
-	 //Case 
-	 case 2: 
-			document.getElementById("MVcontent").innerHTML = fortune2;
-			break;
-	 //Case 3
-	 case 3: 
-			document.getElementById("MVcontent").innerHTML = fortune3;
-			break;
-	 //Case 4
-	 case 4: 
-			document.getElementById("MVcontent").innerHTML = fortune4;
-			break;
-	 //Case 5
-	 case 5: 
-			document.getElementById("MVcontent").innerHTML = fortune5;
-			break;
-	 //Case 6
-	 case 6: 
-			document.getElementById("MVcontent").innerHTML = fortune6;
-			break;
-	 //Case 7
-	 case 7: 
-			document.getElementById("MVcontent").innerHTML = fortune7;
-			break;
-	 //Case 8
-	 case 8: 
-			document.getElementById("MVcontent").innerHTML = fortune8;
-			break;
-	 //Case 9
-	 case 9: 
-			document.getElementById("MVcontent").innerHTML = fortune9;
-			break;
-	 //Case 10
-	 case 10: 
-			document.getElementById("MVcontent").innerHTML = fortune10;
-			break;
-	}
+		var num = (Math.floor(Math.random() * 8)) + 1;
+		fortune = bigFortunes(num);
+		document.getElementById("MVtext").innerHTML = fortune;
+		document.getElementById("MVtextBox").style.border = "1px solid #479889";	
 }
 </script>
 </head>
@@ -73,7 +28,7 @@ function startFortune()
 	<div id="container">
 	<!--Header-->
 	<header>
-		<h1 id="logo">[Title Pending] </h1>
+		<h1 id="logo">Hall of Amusements</h1>
 		<h2 align="center">Games for Everyone!</h2>
 		</header>
 	<!-- navigation menu-->	
@@ -83,20 +38,27 @@ function startFortune()
 		  <li><a href="../about.html">About</a></li>
 		  <li><a href="../play_games.html">Games</a>
 		  <li><a href="../signin.html">Sign In</a></li>
-		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../aboutyou.php">Sign Up</a></li>
 		  <li><a href="../contact.html">Contact</a></li>
 	  </ul>
 	</nav>
 	<!--Main content of the page-->
 	<div id="MVcontent">
-		 <p class="floatright">Madame Vadoma<br /><br />
-		 <img src ="../images/madame.jpg" /></p>
-		 <p>&nbsp;</p>
-		 <p><input type="button" value = "Shall I tell you of your fate?" onclick="startFortune();" id="MVButton"/></p>
-		 <p>&nbsp;</p>
+		<h2>Fortune Teller</h2>
+		<p> You find yourself seated inside a dimly lit tent, full of knick knacks and baubles from different regions. 
+		Across from you sits a woman, draped in colorful fabrics and partially in shadow. 
+		She tells you her name is Mitra, and the sign outside the tent says she is a seer. Mitra offers to tell you your fortune, 
+		giving you the option of a large fortune or a small fortune.</p>
+		<div id="MVimg">
+		 <p>Madame Mitra<br /><br />
+		 <img src ="../images/madame.jpg" /></p></br>
+		 <p><input type="button" value = "Big Fortune" onclick="startFortuneLarge();" class="MVButton"/></p>
+		 <p><input type="button" value = "Small Fortune" onclick="startFortuneSmall();"class="MVButton"/></p>
+		 </div>
+		 <div id="MVtextBox"><p id="MVtext"></p></div>
 	</div>
 	<footer>
-		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+		<p>Copyright &copy; 2017 Hall of Amusements || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
 	</footer>
 </body>
 </html>

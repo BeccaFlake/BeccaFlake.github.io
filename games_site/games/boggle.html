@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Greg's Gambits | Greg's Boggle</title>
+<title>Hall of Amusements | Boggle</title>
 <link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
 <!-- link to js page -->
 <script type="text/javascript" src="../JS/boggleWords.js"></script>
@@ -17,20 +17,20 @@ function boggle()
 	compWords = words(num);
 	var yourWord = compWords[0];
 	//get player entries
-		while(play != "Q")
+		while((play != "Q"))
 		{	//ask for a word
 			play = prompt("Letters: " +  yourWord + "     Enter a word or enter Q when done");
 			//add the word to the array of player worlds
 			playWords.push(play);
 			//End the round when the player enters 'Q'
-			if(play != "Q")
+			if((play != "Q" ))
 			{
 				document.getElementById("entries").innerHTML = playWords.toString();
 			}
 		}
 	alert("End of Round!")
 	
-	//check winning score and list bad words
+	//check winning score and list invalid words
 	var complgth = compWords.length;
 	var playlgth = (playWords.length - 1);
 	//go through the player's words
@@ -59,7 +59,7 @@ function boggle()
 <div id="container">
 	<!--Header-->
 	<header>
-		<h1 id="logo">[Title Pending] </h1>
+		<h1 id="logo">Hall of Amusements</h1>
 		<h2 align="center">Games for Everyone!</h2>
 		</header>
 	<!-- navigation menu-->	
@@ -69,14 +69,14 @@ function boggle()
 		  <li><a href="../about.html">About</a></li>
 		  <li><a href="../play_games.html">Games</a>
 		  <li><a href="../signin.html">Sign In</a></li>
-		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../aboutyou.php">Sign Up</a></li>
 		  <li><a href="../contact.html">Contact</a></li>
 	  </ul>
 	</nav>
 	<div id="content">
 	 <p>The object of the game is to create as many words as you can from the letters shown below. When you are ready to begin, click the button.</p>
 	 <!-- put in a button to begin the game -->
-	 <p><input type="button" value = "begin the game" onClick="boggle();" /></p>
+	 <p><input type="button" value = "Begin the game" onClick="boggle();" class="centralButton"/></p>
 	 <!-- display words player enters -->
 	 <h2>Your words so far: <br>
 	 <div id="entries">&nbsp;</div><br/></h2>
@@ -85,7 +85,7 @@ function boggle()
 	 <div id="result">&nbsp;</div></h2>
 	</div>
 	<footer>
-		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+		<p>Copyright &copy; 2017 Hall of Amusements || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
 	</footer>
 	</div>
 </body>

@@ -1,8 +1,8 @@
 <html>
 <head>
-<title>Greg's Gambits | Hangman 2</title>
+<title>Hall of Amusements | Hangman</title>
 <link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
-<script type="text/javascript" src="mySource.js"></script>
+<script type="text/javascript" src="../JS/mySource.js"></script>
 <script>
 	function startHangman()
 	{
@@ -61,13 +61,15 @@
 		newWord += " ";
 		}
 		//change inner html
-		document.getElementById("noose").innerHTML = ("<img src='../images/hangman0.gif' />");
+		document.getElementById("noose").innerHTML = ("<img src='../images/hangman0.png' />");
 		document.getElementById("result").innerHTML = ("");
 		//while loop
 		while ((win == false) && (nooseCount < 10))
 		{
 			goodGuess = false;
-			guessLetter = prompt("Guess a letter");
+			guessLetter = prompt("Guess a letter. Enter 1 if you would like to quit.");
+			if (guessLetter == "1")
+			{break;}
 			//for loop
 			for(var j = 0; j < lgth; j++)
 			{
@@ -100,7 +102,7 @@
 				usedLetters += (guessLetter + " ");
 				document.getElementById("usedLetters").innerHTML = usedLetters;
 				document.getElementById("result").innerHTML = ("Oh no!");
-				document.getElementById("noose").innerHTML = ("<img src='../images/hangman" + nooseCount + ".gif' />");
+				document.getElementById("noose").innerHTML = ("<img src='../images/hangman" + nooseCount + ".png' />");
 				if (nooseCount == 10)
 				{document.getElementById("result").innerHTML = ("Better luck next time!");}
 				}
@@ -136,7 +138,7 @@
 	<div id="container">
 	<!--Header-->
 	<header>
-		<h1 id="logo">[Title Pending] </h1>
+		<h1 id="logo">Hall of Amusements</h1>
 		<h2 align="center">Games for Everyone!</h2>
 		</header>
 	<!-- navigation menu-->	
@@ -146,38 +148,40 @@
 		  <li><a href="../about.html">About</a></li>
 		  <li><a href="../play_games.html">Games</a>
 		  <li><a href="../signin.html">Sign In</a></li>
-		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../aboutyou.php">Sign Up</a></li>
 		  <li><a href="../contact.html">Contact</a></li>
 	  </ul>
 	</nav>
-		<div id="content" style="width: 600px; margin-left: auto; margin-right: auto;">
+		<div id="content" style="margin-left: auto; margin-right: auto;">
 			<!-- button-->
-			<p><input type="button" value="Start the game" onclick="startHangman()"/></p>
+			<p><input type="button" value="Start the game" onclick="startHangman()" class="centralButton"/></p>
 			<!-- image-->
-			<div id="noose" class="floatright"><img src="../images/hangman10.gif"/></div>
+			<div id="noose" class="floatright"><img src="../images/hangman10.png"/></div>
 			<!-- spacers-->
 			<div><p>&nbsp <br/>&nbsp </p></div>
 			<!-- game-->
-			<div id ="game">
-				<div id= "div0" style="float: left;"></div>
-				<div id= "div1" style="float: left; padding-left: .5em;"></div>
-				<div id= "div2" style="float: left; padding-left: .5em;"></div>
-				<div id= "div3" style="float: left; padding-left: .5em;" ></div>
-				<div id= "div4" style="float: left; padding-left: .5em;"></div>
-				<div id= "div5" style="float: left; padding-left: .5em;"></div>
-				<div id= "div6" style="float: left; padding-left: .5em;"></div>
-				<div id= "div7" style="float: left; padding-left: .5em;"></div>
+			<div id="hangman">
+				<div id ="game">
+					<div id= "div0" style="float: left;"></div>
+					<div id= "div1" style="float: left; padding-left: .5em;"></div>
+					<div id= "div2" style="float: left; padding-left: .5em;"></div>
+					<div id= "div3" style="float: left; padding-left: .5em;" ></div>
+					<div id= "div4" style="float: left; padding-left: .5em;"></div>
+					<div id= "div5" style="float: left; padding-left: .5em;"></div>
+					<div id= "div6" style="float: left; padding-left: .5em;"></div>
+					<div id= "div7" style="float: left; padding-left: .5em;"></div>
+				</div>
+				<!-- spacers-->
+				<div><p><br/>&nbsp </p></div>
+				<!-- result-->
+				<div id ="result"><p> &nbsp </p> </div>
+				<!--incorrect guesses-->
+				<h3>Incorrect Guesses:</h3>
+				<div id ="usedLetters"><p></p> </div>
 			</div>
-			<!-- spacers-->
-			<div><p><br/>&nbsp </p></div>
-			<!-- result-->
-			<div id ="result"><p> &nbsp </p> </div>
-			<!--incorrect guesses-->
-			<h3>Incorrect Guesses:</h3>
-			<div id ="usedLetters"><p></p> </div>
 		</div>
 	<footer>
-		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+		<p>Copyright &copy; 2017 Hall of Amusements || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
 	</footer>
 	</div>
 </body>

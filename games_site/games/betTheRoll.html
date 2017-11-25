@@ -6,7 +6,7 @@ alerts that would tell the user the information that would normally be updated w
 Both Firefox and Edge update the information on the page as the game is played.-->
 <html>
 <head>
-	<title>Greg's Gambits | Rolling Dice</title>
+	<title>Hall of Amusements | Rolling Dice</title>
 	<link href="../main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
 <script type="text/javascript">
 	function rollDice() 
@@ -46,7 +46,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 			var proceed = false;
 		
 		//start the betting
-			do {playerBet = parseInt(prompt("How much would you like to bet on winning the round?"));} while (playerBet <= 0);
+			do {playerBet = parseInt(prompt("How much would you like to bet on winning the round?"));} while ((playerBet <= 0) || (isNaN(parseInt(playerBet))));
 			kitty = playerBet;
 			document.getElementById("kitty").innerHTML= ("$" + kitty);
 			
@@ -57,14 +57,14 @@ Both Firefox and Edge update the information on the page as the game is played.-
 				//computer matches
 				if (compChoice == 1)
 				{	kitty += playerbet;
-					alert("The computer matches your bet. The kitty is now: " + kitty);
+					alert("The inn-keeper matches your bet. The kitty is now: " + kitty);
 					document.getElementById("kitty").innerHTML= ("$" + kitty);
 					proceed = true;
 				}
 				//computer folds 
 				else if (compChoice == 2)
 				{
-					alert("The computer folds.");
+					alert("The inn-keeper folds.");
 					proceed = true;
 					compFold = true; 
 				}
@@ -74,11 +74,11 @@ Both Firefox and Edge update the information on the page as the game is played.-
 					//get the rase amount
 					compRaise= Math.floor(Math.random()*(20)+1);
 					kitty += compRaise;
-					alert("The computer raised by "+ compRaise + ". The kitty is now " + kitty);				
+					alert("The inn-keeper raised by "+ compRaise + ". The kitty is now " + kitty);				
 					document.getElementById("kitty").innerHTML= ("$" + kitty);
 					proceed = false;
 					//get the player choice 
-					do {pChoice = parseInt(prompt("What would you like to do? 1: Match the bet, 2: Fold, or 3: Raise the bet?"));} while (pChoice <= 0);
+					do {pChoice = parseInt(prompt("What would you like to do? 1: Match the bet, 2: Fold, or 3: Raise the bet?"));} while ((pChoice <= 0) || (isNaN(parseInt(playerBet))));
 						if (pChoice == 1)
 					{	kitty += compRaise;
 						alert("You have matched the bet. The kitty is now: " + kitty);
@@ -95,7 +95,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 					//if the computer raises
 					else if (pChoice == 3)
 					{	
-						do{playerBet = parseInt(prompt("How much would you like to raise by?"));} while (playerBet <= 0);
+						do{playerBet = parseInt(prompt("How much would you like to raise by?"));} while ((playerBet <= 0) || (isNaN(parseInt(playerBet))));
 						kitty += playerBet;
 						alert("You raised by "+ playerBet + ". The kitty is now " + kitty);		
 						document.getElementById("kitty").innerHTML = ("$" + kitty);
@@ -112,7 +112,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 				document.getElementById("playerRoll").innerHTML= playerRoll;
 				
 				compRoll = rollDice();
-				alert("Computer roll:  " + compRoll);
+				alert("Inn-keeper roll:  " + compRoll);
 				document.getElementById("compRoll").innerHTML= compRoll;
 			}
 			alert("End of round!");
@@ -135,8 +135,8 @@ Both Firefox and Edge update the information on the page as the game is played.-
 				compScore += kitty;
 				document.getElementById("playerScore").innerHTML= playerScore;
 				document.getElementById("compScore").innerHTML= compScore;
-				document.getElementById("winner").innerHTML= ("The computer wins this round.");
-				alert("The computer wins this round.");
+				document.getElementById("winner").innerHTML= ("The inn-keeper wins this round.");
+				alert("The inn-keeper wins this round.");
 				}
 			//Tie
 				else if (playerRoll == compRoll)
@@ -167,7 +167,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 		else if (playerScore < compScore)
 			{
 				//dealer wins
-				document.getElementById("winner").innerHTML= ("The computer won this game. Better luck next time!");
+				document.getElementById("winner").innerHTML= ("The inn-keeper won this game. Better luck next time!");
 			}
 		else if (playerScore == compScore)
 		{
@@ -189,7 +189,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 	<div id="container">
 	<!--Header-->
 	<header>
-		<h1 id="logo">[Title Pending] </h1>
+		<h1 id="logo">Hall of Amusements</h1>
 		<h2 align="center">Games for Everyone!</h2>
 		</header>
 	<!-- navigation menu-->	
@@ -199,45 +199,43 @@ Both Firefox and Edge update the information on the page as the game is played.-
 		  <li><a href="../about.html">About</a></li>
 		  <li><a href="../play_games.html">Games</a>
 		  <li><a href="../signin.html">Sign In</a></li>
-		  <li><a href="../aboutyou.html">Sign Up</a></li>
+		  <li><a href="../aboutyou.php">Sign Up</a></li>
 		  <li><a href="../contact.html">Contact</a></li>
 	  </ul>
 	</nav>
 		<div id="content">
-
-			<p>The first player will player will make a bet on the roll before it occurs. The second player (computer) will then
-			choose if they will match the bet, fold, or raise the bet. If the second player raises the bet, the first player must decide 
-			to match, fold, or raise. If the player raises the process repeats.</p>
-			<p>If a player folds, their current bet goes to the other player, who wins that round.</p>	
-			<p>Each player will roll two 6 sided die to get a total. The player with a higher roll wins that round. 
+			<h2>Dice Game</h2>
+			<p>You have been challenged to a dice game by a weathered inn-keeper. You each have two six-sided dice that you will roll.
+			Each player will their roll two 6 sided die to get a total. The player with a higher roll wins that round. </p>
+			<p>You will make a bet on the roll before it occurs. The inn-keeper will then
+			choose if they will match the bet, fold, or raise the bet. If the inn-keeper raises the bet, the you must decide 
+			to match, fold, or raise. If you raise the process repeats. If a player folds, their current bet goes to the other player, who then wins that round.
 			The game will end when a player gets $100 or the player chooses to end the game.</p>
-		  <table width = "85%" cellpadding="5" cellspacing="0" border = "0">
+		  <table cellpadding="5" cellspacing="0" border = "0" id="betTable">		
+		  <tr><td colspan = 2><input type="button" id="21button" value="Start the game" onclick="beginGame();" class="centralButton" /> </td></tr>	
 			 <tr>
-			  <td><span class="style1">Player Roll: </span></td>
-			  <td><span class="style1">Computer Roll: </span></td>
+			  <td><h3 >Player Roll: </h3></td>
+			  <td><h3 >Inn-keeper Roll: </h3></td>
 			 </tr>
 			 
-			 <tr><td id = "playerRoll" span class="style1"> 0 </span></td>
-			  <td id = "compRoll" span class="style1">0</span></td></tr>
+			 <tr><td><p id = "playerRoll"> 0 </p></td>
+			  <td><p id = "compRoll">0</h3></p></tr>
 				<tr>
-			  <tr><td colspan = 2><span class="style1">The kitty is:</span></td></tr>
-			<tr><td colspan = 2 id="kitty" align = "center" class="style1">$0 </td></tr>
+			  <tr><td colspan = 2><h3>The kitty is:</h3></td></tr>
+			<tr><td colspan = 2 id="kitty" align = "center" ><p>$0</p> </td></tr>
 			 <tr>
-				<td><span class="style1">Player Score: </span></td> 
-				<td><span class="style1">Computer Score:</span></td>
+				<td><h3>Player Score: </h3></td> 
+				<td><h3>Inn-keeper Score:</h3></td>
 			</tr>  
-			<tr><td class="style1" id = "playerScore">0</td> 
-			<td class="style1" id = "compScore">0</td></tr>
+			<tr><td> <p id = "playerScore">0</p></td> 
+			<td> <p id = "compScore">0</p></td></tr>
 			
-			<tr><td colspan = 2><span class="style1">The winner is:</span></td></tr>
-			<tr><td colspan = 2 id="winner" align = "center" class="style1">&nbsp;</td></tr>
-			<tr>
-			<td colspan = 2><input type="button" id="21button" value="Start the game" class="battleButton" onclick="beginGame();" /> </td></tr>	
-			
+			<tr><td colspan = 2><h3 class="style1">The winner is:</h3></td></tr>
+			<tr><td colspan = 2> <p id="winner" align = "center" >&nbsp;</p></td></tr>
 		</table>
 		</div>
 	<footer>
-		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+		<p>Copyright &copy; 2017 Hall of Amusements || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
 	</footer>
 		</div>
 </body>
