@@ -9,18 +9,9 @@
 	<!-- link to js page -->
 	<script type="text/javascript" src="JS/mySource.js"></script>
 	<script type="text/javascript">
-	//add in validation and then move to the JS file
-	function getPassword(password)
-	{	
-		var password = document.getElementById(password).value;
-		var hiddenPassword  = " ";
-		for (var i = 0; i< password.length; i++)
-		{	hiddenPassword += "*";}
-		document.getElementById('hidden_password').innerHTML = hiddenPassword;
-	}
 	</script>
 </head>
-<!--Page body-->
+
 <body>
 	<div id="container">
 	<!--Header-->
@@ -40,15 +31,13 @@
 	  </ul>
 	</nav>
 		<!--Main content of the page-->
-		<main>
 		<div id="content">
 			<h2><br/>Tell Us About You</h2>
 			<h3>Your Information and Inventory</h3>
-			<p>Enter your information below and then double check it before submitting it to the database. Your password must be bwteen 8 and 15 characters long, and can include upper and lower 
-			case letters and digits 0-9.</p>
+			<p>Enter your information below and then double check it before submitting it to the database.</p>
 			<div>
 			<!--Form-->	
-			<form name = "inventory"  method="post">
+			<form name = "inventory" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 					<div></div>
 					<!--Avatar selection-->
 					<div>
@@ -112,15 +101,9 @@
 						</p>
 						<!--points-->
 						<p>
-							<label for="email"> Your email<br/></label>
+							<label for="email"> Your Email<br/></label>
 							<input type="email" id="email" size="29" value=""/>
 							<input type="button"onclick="getEmail('email')" value="ok"></button>
-						</p>
-						<!--password-->
-						<p>
-							<label for="password"> Your password<br/></label>
-							<input type="password" id="password" name="password" size="29" value="" maxlength= "15"/>
-							<input type="button" onclick="getPassword('password')" value="ok"></button>
 						</p>
 					</fieldset></div>
 				<!--Weapon Selection-->
@@ -184,7 +167,6 @@
 					<h3>Last Name: </h3><p id="last_name">&nbsp;</p> <br/>
 					<h3>Username: </h3><p id="user_name">&nbsp;</p> <br/>
 					<h3>Email: </h3><p id="email_address">&nbsp;</p> <br/>
-					<h3>Password: </h3><p id="hidden_password">&nbsp;</p> <br/>
 					<h3>Avatar: </h3><p id="my_avatar">&nbsp;</p> <span id="avatar_img">&nbsp;</span><br/><br/>
 					
 					<h3>Weapons: </h3><br/>
@@ -199,9 +181,8 @@
 						<p id="supply_five"></p> <br/>
 					</h3>
 				</div>
-		</div>
-		<div style = "clear:both;"></div>
-	</main>
+				
+		</div><div style = "clear:both;"></div>
 	<footer>
 		<p>Copyright &copy; 2017 Hall of Amusements || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
 	</footer>

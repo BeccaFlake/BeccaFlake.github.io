@@ -87,10 +87,14 @@ header h2{padding-bottom: 0; margin-bottom: 0; }
 	/*border: medium solid #637d37;*/
 	line-height: 135%;
 }
-#MVButton {
-	float: left;
+.MVButton {
 	width: 35%;
 	padding: 1% 2%;} 
+	
+#MVimg {float: left; width: 30%;}
+#MVtextBox{float: right; width: 55%; margin-top: 2em;}
+#MVtext {float: left; padding: 1em;}
+
 /*styles for the footer*/
 footer{
 	height: 1.5em;
@@ -170,7 +174,7 @@ span {
 #contactForm label {margin: 1em;}
 #contactText{width: 98%; height: 10em; padding: .5em;}
 #contactName{margin: .5em 0;}
-#formSubmit {width: 20%; margin: 2% 40%; font-size: 1.05em; padding: .2em; border-radius: 2px; background-color: #584b57;}
+#formSubmit {width: 20%; margin: 2% 40%; font-size: 1.05em; padding: .2em; border-radius: 2px; background-color: #584b57; color: #c9c9ba;}
 
 
 table { 
@@ -183,15 +187,23 @@ td {
 	color: #2c3518;
 }
 td img{width: 30%; margin: 0 35%;}
-td a {height: 1em; color: #20536D; margin-top: 0; margin-bottom: .2em; font-size: 1em; } 
-#gamesTable {background-color: #AED6C1;}
-#supriseButton {width: 16%; margin: 2% 42%; font-size: .9em; padding: .2em; border-radius: 2px; background-color: #584b57;}
+td a {height: 1em; color: #383037; margin-top: 0; margin-bottom: .2em; font-size: 1em; } 
+#gamesTable {background-color: #C3F0D8;}
+#supriseButton {width: 16%; margin: 2% 42%; font-size: .9em; padding: .2em; border-radius: 2px; background-color: #584b57; color: #c9c9ba;}
 
-.sInAvatar td img{max-width: 100px;}
+.sInAvatar td img{max-width: 100px; margin-left:0;}
 .sInAvatar td input {width: 100%; magin: auto;}
 
 form {width: 100%;}
-#itemsDiv, #weaponsDiv {margin-left: 2.65em; margin-top: 1em;}
+#itemsDiv, #weaponsDiv {margin-left: 2.68em; margin-top: 1em; float: left;}
+#itemsDiv input[type="button"], #weaponsDiv input[type="button"] {width: 50%; margin: .2em 25%;}
+#info {margin: 1em 5%; border: 1px solid #479889; width: 80%;}
+#info p{text-indent: 1em;}
+#info img{margin: 1em 3em; }
+#basicInfo input[type="text"]{width: 80%;}
+#weapons {margin-left: .5em;}
+
+
 
 #basicInfo { width: 25%; padding-left: 1em; float: left; padding-top: 0;  margin-top: 1em;}
 #items {padding-left: 1em; float: left; padding-top: 0;}
@@ -202,17 +214,39 @@ form {width: 100%;}
 #headerRow {height: 1em;}
 #headerRow h3 {padding: 0; margin:0;}
 
-#basicInfo input[type="text"]{width: 80%;}
+#battleTable1 td, #battlegroundTable td{width: 30%;}
+#battleTable1 h3{text-align: center; margin: 0;}
+#battleTable1 img{width: 60%; margin: 0 15%;}
+
+#battlegroundTable  img{width: 40%; margin: 0 30%;}
+#battlegroundTable input {width: 60%; margin: 1% 20%;}
+#battlegroundTable h3, #betTable h3, #21Table h3 {margin: 0;}
+
+
+#encoderTable{width: 70%; margin: 1em 15%;}
+#betTable{width: 70%; margin: 1em 15%;}
+#Table21{width: 70%; margin: 1em 15%;}
+
+
 #ticTacToeGame {margin: auto;}
 .nobdr {
 	border: none;
 	padding: 2em;
 }
+#hangman {width: 40%; float: right; margin-bottom: 2em;}
+#game {float:left; width: 60%;}
+#hangman h3{padding-left: 0; margin-left: 0;}
+#noose {width: 40%; float: right; margin-bottom: 2em;}
+#noose img{width: 50%; float: left;}
+
+
+#tictactoebox {	border: 2px solid #114E4A; margin: 1em 15%; width: 70%;}
 #ticTacToeGame input[type="text"]{width: 4em; height: 2em;}
-#tttReset {width: 20%; margin-left:40%;}
+#tttReset {width: 20%; margin-left: 40%;}
 
 #matchingGame td {width: 100px; height: 120px;}
-#matchingGame img {max-height: 120px; width: 120px; padding:0;}
+#matchingGame img {max-height: 120px; width: 120px; padding:0;margin: 0;}
 
+#maze {margin-bottom: 1em; width: 50%}
 #maze td {width: 100px; height: 100px;}
-#maze img {max-width: 120px; padding:0;}
+#maze img {width: 100%; padding:0 ;margin: 0;}

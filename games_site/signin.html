@@ -3,7 +3,7 @@
 
 
 <head>
-	<title>Greg's Gambits | Sign In</title>
+	<title>Hall of Amusements | Sign In</title>
 	<link href="main.css" rel="stylesheet" type="text/css" />	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Catamaran">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,36 +11,24 @@
 		//function that gets the real name of the user
 		function getName()
 		{	
-			var name = prompt("Please enter your name"," ");
-			document.getElementById('myname').innerHTML = name;
+			var firstName = prompt("Please enter your first name"," ");
+	
+			var lastName = prompt("Please enter your last name"," ");
+			document.getElementById('myname').innerHTML = (firstName + " " + lastName);
 		}
 		//function that gets the username
 		function getUsername()
 		{	
-			var username = prompt("Please enter your desired username"," ");
+			var username = prompt("Please your username"," ");
 			document.getElementById('myusername').innerHTML = username;
 		}
-		//function that opens the page with the avatars in a new tab
-		function getAvatar()
-		{
-			window.open('avatars.html');
-		}
-		//function that lets the user choose the avatar by typing the name
-			function pickAvatar()
+		function getPassword()
 		{	
-			var avatar = prompt("Enter the avatar you want","Bunny");
-			document.getElementById('myavatar').innerHTML = avatar;
-		}
-		//function that opens the page with the homes in a new tab
-			function getHome()
-		{
-			window.open('homes.html');
-		}
-		//function that lets the user choose the home by typing the name 
-			function pickHome()
-		{	
-			var home = prompt("Enter the home you want","Meadow");
-			document.getElementById('myhome').innerHTML = home;
+			var password = prompt("Please your password"," ");
+			var hiddenPassword  = " ";
+			for (var i = 0; i< password.length; i++)
+			{	hiddenPassword += "*";}
+			document.getElementById('password').innerHTML = hiddenPassword;
 		}
 	</script>
 </head>
@@ -49,7 +37,7 @@
 	<div id="container">
 	<!--Header-->
 	<header>
-		<h1 id="logo">[Title Pending] </h1>
+		<h1 id="logo">Hall of Amusements</h1>
 		<h2 align="center">Games for Everyone!</h2>
 		</header>
 	<!-- navigation menu-->	
@@ -66,24 +54,27 @@
 		<!--Main content of the page-->
 		<div id="content">
 			<!--Button that allows the user to enter their name. Calls the getName() function-->
-			<p><button type="button" onclick="getName()">Enter your name</button> Hi there, <span id = "myname" ></span></p>
+			<p>
+				<button type="button" onclick="getName()">Enter your name</button>
+				Hi there, <p id = "myname" ></p>
+			</p>
 			<!--Button that allows the user to set a username. Calls the getUsername() function -->
-			<p><button type="button" onclick="getUsername()">Enter your desired username</button> Username: <span id = "myusername" ></span></p>
-			<!-- Button that opens the avatar options in a new tab. Calls the getAvatar() function-->
-			<p><button type="button" onclick="getAvatar()">See the avatar choices</button></p>
-			<!--Button that allows the user to enter the name of the avatar they want. Calls the pickAvatar() function -->				
-			<p><button type="button" onclick="pickAvatar()">Select your avatar</button> 
-					<br />The avatar you selected is: <span id = "myavatar" ></span></p>
-			<!-- Button that opens the homes page in a new tab. Calls the getHome() function. -->				
-			<p><button type="button" onclick="getHome()">See the home choices</button> </p>
-			<!--Button that allows the user to enter the name of the home they want. Calls the pickHome() function -->
-			<p><button type="button" onclick="pickHome()">Select your avatar's home</button> 
-					<br />The home you selected is: <span id = "myhome" > </span></p>
+			<p>
+				<button type="button" onclick="getUsername()">
+				Enter your desired username</button> Username: 
+				<p id = "myusername" ></p>
+			</p>
+			<!--Button that allows the user to enter a password. Calls the getPassword() function -->
+			<p>
+				<button type="button" onclick="getPassword()">
+				Enter your password</button> Password: 
+				<p id = "password" ></p>
+			</p>
 			<p>Forget your usename? <a href="greg_hints.php">Find Username</a></p>
 			<p>&nbsp;</p>
 		</div>
 	<footer>
-		<p>Copyright &copy; 2017 [Title Pending] || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
+		<p>Copyright &copy; 2017 Hall of Amusements || <a href="mailto:rebecca.c.rebecca@my.sfcollege.edu">rebecca.c.rebecca@my.sfcollege.edu</a></p>
 	</footer>
 	</div>
 </body>
