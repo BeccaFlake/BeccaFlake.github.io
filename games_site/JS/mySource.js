@@ -40,6 +40,8 @@ function checkWord(x,y)
 		spell = false;
 	return spell;
 }
+
+
 function buildTable(rows, cols, fill, style)
 {	
 	var rows; var cols; var fill; var ranNum;
@@ -70,3 +72,239 @@ function buildTable(rows, cols, fill, style)
 	}
 	document.write("</table> </div>");
 }
+/*Function that checks for the inpasses in the maze game*/
+function checkImpasses(pitfalls)
+	{
+		//cells[0][1], cells[1][0] 
+		while ( ( (pitfalls[0] == cells[0][1] )  &&  (pitfalls[1] == cells[1][0])) ||
+		(   (pitfalls[1] == cells[0][1]) && (pitfalls[2] == cells[1][0]) ) ||
+		( (pitfalls[0] == cells[1][0])  &&  (pitfalls[2] == cells[0][1]) ) )
+		{placePitfalls(pitfalls); }
+		
+		//cells[0][1], cells[1][0], cells[1][1] 
+		while ( ( (pitfalls[0] == cells[0][1] )  &&  (pitfalls[1] == cells[1][0]) && (pitfalls[2] == cells[1][1] ) ) ||
+		( (pitfalls[0] == cells[1][1] )  &&  (pitfalls[1] == cells[0][1]) && (pitfalls[2] == cells[1][0]) ) ||
+		( (pitfalls[0] == cells[1][0])  &&  (pitfalls[1] == cells[1][1] ) && (pitfalls[2] == cells[0][1]) )) 	
+		{placePitfalls(pitfalls); }
+			
+		//cells[0][1] , cells [1][1], cells[2][0]
+		while ( ( (pitfalls[0] == cells[0][1] )  &&  (pitfalls[1] == cells[1][1]) && (pitfalls[2] == cells[2][0] ) ) ||
+		( (pitfalls[0] == cells[2][0] )  &&  (pitfalls[1] == cells[0][1]) && (pitfalls[2] == cells[1][1]) ) ||
+		( (pitfalls[0] == cells[1][1])  &&  (pitfalls[1] == cells[2][0] ) && (pitfalls[2] == cells[0][1]) ) ) 
+		{placePitfalls(pitfalls); }
+				
+		//cells[0][2], cells[1][1], cells[2][0]
+		while ( ( (pitfalls[0] == cells[0][2] )  &&  (pitfalls[1] == cells[1][1]) && (pitfalls[2] == cells[2][0] ) ) ||
+		( (pitfalls[0] == cells[2][0] )  &&  (pitfalls[1] == cells[0][2]) && (pitfalls[2] == cells[1][1]) ) ||
+		( (pitfalls[0] == cells[1][1])  &&  (pitfalls[1] == cells[2][0] ) && (pitfalls[2] == cells[0][2]) ) ) 
+		{placePitfalls(pitfalls); }		
+		
+		//cells[2][4], cells[3][3], cells[2][4] 
+		while ( ( (pitfalls[0] == cells[4][2] )  &&  (pitfalls[1] == cells[3][3]) && (pitfalls[2] == cells[2][4]) ) ||
+		( (pitfalls[0] == cells[2][4] )  &&  (pitfalls[1] == cells[4][2]) && (pitfalls[2] == cells[3][3]) ) ||
+		( (pitfalls[0] == cells[3][3])  &&  (pitfalls[1] == cells[2][4] ) && (pitfalls[2] == cells[4][2]) ) ) 
+		{placePitfalls(pitfalls); }	
+				
+		//cells[4][3], cells[3][3], cells[3][4],
+		while ( ((pitfalls[0] == cells[4][3] )  &&  (pitfalls[1] == cells[3][3]) && (pitfalls[2] == cells[3][4])) ||
+		((pitfalls[0] == cells[3][4] )  &&  (pitfalls[1] == cells[4][3]) && (pitfalls[2] == cells[3][3])) ||
+		((pitfalls[0] == cells[3][3])  &&  (pitfalls[1] == cells[3][4] ) && (pitfalls[2] == cells[4][3])) ) 
+		{placePitfalls(pitfalls); }
+		
+		//cells[4][3], cells[3][4]
+		while ( ( (pitfalls[0] == cells[4][3])  &&  (pitfalls[1] == cells[3][4])) ||
+		((pitfalls[1] == cells[3][3]) && (pitfalls[2] == cells[3][4])) ||
+		( (pitfalls[0] == cells[3][4]  &&  (pitfalls[2] == cells[4][3])) ) )
+		{placePitfalls(pitfalls); }
+		
+		// cells[4][3], cells[3][3], cells[3][4]
+		while ( ((pitfalls[0] == cells[4][3] )  &&  (pitfalls[1] == cells[3][3]) && (pitfalls[2] == cells[3][4])) ||
+		((pitfalls[0] == cells[3][4] )  &&  (pitfalls[1] == cells[4][3]) && (pitfalls[2] == cells[3][3])) ||
+		((pitfalls[0] == cells[3][3])  &&  (pitfalls[1] == cells[3][4] ) && (pitfalls[2] == cells[4][3])) ) 
+		{placePitfalls(pitfalls); }
+		//cells[0][1], cells[1][0], cells[1][1]  cells[4][3], cells[3][3], cells[3][4]
+		while (	(pitfalls[4] == cells[0][1] )  || (pitfalls[4] == cells[1][0]) || (pitfalls[4] == cells[1][1]) || (pitfalls[4] == cells[4][3] ) || (pitfalls[4] == cells[3][3] ) || (pitfalls[4] == cells[3][4]))
+		{placePitfalls(pitfalls); }
+	}
+	
+	/*Sign up page */
+	//function that sets the avatar
+	function pickAvatar(picked)
+	{
+		var avatar = document.getElementById(picked).value;
+		document.getElementById('my_avatar').innerHTML = avatar;
+		avatar = avatar.toLowerCase();
+		document.getElementById('avatar_img').innerHTML = ("<img src='images/" + avatar + ".jpg'/>"); 
+	}
+	//function that sets the real name
+	function getFirstName(firstname)
+	{
+		var firstname = document.getElementById(firstname).value;
+		document.getElementById('first_name').innerHTML = firstname;
+	}
+		//function that sets the real name
+	function getLastName(lastname)
+	{
+		var lastname = document.getElementById(lastname).value;
+		document.getElementById('last_name').innerHTML = lastname;
+	}
+	//function that sets the username
+	function getUsername(username)
+	{
+		var user = document.getElementById(username).value;
+		document.getElementById('user_name').innerHTML = user;
+	}
+	//function that sets the user email
+	function getEmail(email)
+	{
+		var email = document.getElementById(email).value;
+		document.getElementById('email_address').innerHTML = email;
+	}
+	//function that sets the user password
+
+	
+
+	//functions that sets the three weapons
+	function pickWeapons()
+	{
+		var i = 0; var j = 0; var k=0;
+		var weapon1 = ""; var weapon2 = "";  var weapon3 = ""; 
+		//set the first weapon
+		for (i=0; i <=9; i++)
+		{
+			if (document.getElementById("w"+ i).checked==true)
+			{
+				weapon1 = document.getElementById("w"+i).value;
+				document.getElementById('weapon_one').innerHTML = weapon1;
+				break;
+			}
+		}
+		//set the second weapon
+		for (j=(i+1); j<=9; j++)
+		{
+			if (document.getElementById("w"+ j).checked==true)
+			{
+				weapon2 = document.getElementById("w"+j).value;
+				document.getElementById('weapon_two').innerHTML = weapon2;
+				break;
+			}
+		}
+		//set the third weapon
+		for (k=(j+1); k <=9; k++)
+		{
+			if (document.getElementById("w"+ k).checked==true)
+			{
+				weapon3 = document.getElementById("w"+k).value;
+				document.getElementById('weapon_three').innerHTML = weapon3;
+				break;
+			}
+		}
+	}
+	//function that sets the five supplies
+	function pickSupplies()
+	{
+		var i = 0; var j = 0; var k=0; var m=0; var p = 0; 
+		var supply1 = ""; var supply2 = "";  var supply3 = "";   var supply4 = "";  var supply5 = "";
+		//Get the first item
+		for (i =0; i <=9; i++)
+		{
+			if (document.getElementById("s" + i).checked == true)
+			{
+				supply1 = document.getElementById("s"+i).value;
+				document.getElementById('supply_one').innerHTML = supply1;
+				break;
+			}
+		}
+		//get the second item
+		for (j =(i +1); j <=9; j++)
+		{
+			if (document.getElementById("s" + j).checked == true)
+			{
+				supply2 = document.getElementById("s"+j).value;
+				document.getElementById('supply_two').innerHTML = supply2;
+				break;
+			}
+		}
+		//get the third item
+		for (k =(j+1); j <=9; k++)
+		{
+			if (document.getElementById("s" + k).checked == true)
+			{
+				supply3 = document.getElementById("s"+k).value;
+				document.getElementById('supply_three').innerHTML = supply3;
+				break;
+			}
+		}
+		
+		for (m =(k +1); j <=9; m++)
+		{
+			if (document.getElementById("s" + m).checked == true)
+			{
+				supply4 = document.getElementById("s"+m).value;
+				document.getElementById('supply_four').innerHTML = supply4;
+				break;
+			}
+		}
+		
+		for (p =(m +1); j <=9; p++)
+		{
+			if (document.getElementById("s" + p).checked == true)
+			{
+				supply5 = document.getElementById("s"+p).value;
+				document.getElementById('supply_five').innerHTML = supply5;
+				break;
+			}
+		}
+
+	}
+	//Function that clears the entered information from the display when the reset button is clicked
+	function resetInfo()
+	{
+	document.getElementById('my_avatar').innerHTML = "";
+	document.getElementById('avatar_img').innerHTML = "";
+	document.getElementById('first_name').innerHTML = "";
+	document.getElementById('last_name').innerHTML = "";
+	document.getElementById('user_name').innerHTML = "";
+	document.getElementById('email_address').innerHTML = "";
+	
+	document.getElementById('weapon_one').innerHTML = "";
+	document.getElementById('weapon_two').innerHTML = "";
+	document.getElementById('weapon_three').innerHTML = "";
+	
+	document.getElementById('supply_one').innerHTML = "";
+	document.getElementById('supply_two').innerHTML = "";
+	document.getElementById('supply_three').innerHTML = "";
+	document.getElementById('supply_four').innerHTML = "";
+	document.getElementById('supply_five').innerHTML = "";
+	}
+	
+		//Script to get the username
+	//str is passed to the function by the onkeyup event
+	function showHint(str)
+	{ 
+		//if nothing is typed, nothing is returned
+		if(str.length==0)
+		{
+			document.getElementById("txtHint").innerHTML="";
+			return;
+		}
+		//handle older browsers
+		if (window.XMLHttpRequest)					//new browser
+		{var xmlhttp = new XMLHttpRequest();}
+		else														//old browser
+		{var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+		
+	//onreadystatechange triggers whenthe readyState changes
+		xmlhttp.onreadystatechange = function()
+		{
+			//check that the request is finished and the page is found
+			if ((xmlhttp.readyState == 4) && (xmlhttp.status ==200))
+			{
+				//get the server responce as a string
+				document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET", "getName.php?q="+str, true);
+		//execute the request
+		xmlhttp.send();
+	}
