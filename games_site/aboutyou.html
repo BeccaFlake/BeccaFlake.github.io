@@ -9,15 +9,6 @@
 	<!-- link to js page -->
 	<script type="text/javascript" src="JS/mySource.js"></script>
 	<script type="text/javascript">
-	//add in validation and then move to the JS file
-	function getPassword(password)
-	{	
-		var password = document.getElementById(password).value;
-		var hiddenPassword  = " ";
-		for (var i = 0; i< password.length; i++)
-		{	hiddenPassword += "*";}
-		document.getElementById('hidden_password').innerHTML = hiddenPassword;
-	}
 	</script>
 </head>
 <!--Page body-->
@@ -35,7 +26,7 @@
 		  <li><a href="about.html">About</a></li>
 		  <li><a href="play_games.html">Games</a>
 		  <li><a href="signin.html">Sign In</a></li>
-		  <li><a href="aboutyou.php">Sign Up</a></li>
+		  <li><a href="aboutyou.html">Sign Up</a></li>
 		  <li><a href="contact.html">Contact</a></li>
 	  </ul>
 	</nav>
@@ -45,10 +36,10 @@
 			<h2><br/>Tell Us About You</h2>
 			<h3>Your Information and Inventory</h3>
 			<p>Enter your information below and then double check it before submitting it to the database. Your password must be bwteen 8 and 15 characters long, and can include upper and lower 
-			case letters and digits 0-9.</p>
+			case letters and digits 0-9. Items with an * are required.</p>
 			<div>
 			<!--Form-->	
-			<form name = "inventory"  method="post">
+			<form name = "inventory" action="mailto:rebecca.c.rebecca@my.sfcollege.edu" method ="post" enctype="text/plain">
 					<div></div>
 					<!--Avatar selection-->
 					<div>
@@ -56,7 +47,7 @@
 					<table  width ="45% "border="2" class="sInAvatar" id="avatarTable"> <br/>
 					<!--Header-->
 					<tr> 
-						<td colspan="5" class="nobdr" id="headerRow"><h3>Your Avatar:</h3></td>
+						<td colspan="5" class="nobdr" id="headerRow"><h3>*Your Avatar:</h3></td>
 					</tr>
 					<!--Images-->
 					<tr> 
@@ -74,15 +65,15 @@
 					<!--Radio buttons-->
 					<tr>
 						<!--Bunny -->
-						<td class="nobdr"><input type="radio" name="avatar" id="bunny" value="Bunny" onclick="pickAvatar('bunny')"></td>
+						<td class="nobdr"><input type="radio" name="avatar" id="bunny" value="Bunny" onclick="pickAvatar('bunny')" required /></td>
 						<!--Elf-->
-						<td class="nobdr"><input type="radio" name="avatar" id="elf" value="Elf" onclick="pickAvatar('elf')"></td>
+						<td class="nobdr"><input type="radio" name="avatar" id="elf" value="Elf" onclick="pickAvatar('elf')" required /></td>
 						<!--Ghost-->
-						<td class="nobdr"><input type="radio" name="avatar" id="ghost" value="Ghost" onclick="pickAvatar('ghost')"></td>
+						<td class="nobdr"><input type="radio" name="avatar" id="ghost" value="Ghost" onclick="pickAvatar('ghost')" required /></td>
 						<!--Princess-->
-						<td class="nobdr"><input type="radio" name="avatar" id="princess" value="Princess" onclick="pickAvatar('princess')"></td>
+						<td class="nobdr"><input type="radio" name="avatar" id="princess" value="Princess" onclick="pickAvatar('princess')" required /></td>
 						<!--Wizard-->
-						<td class="nobdr"><input type="radio" name="avatar" id="wizard" value="Wizard" onclick="pickAvatar('wizard')"></td>
+						<td class="nobdr"><input type="radio" name="avatar" id="wizard" value="Wizard" onclick="pickAvatar('wizard')" required /></td>
 					</tr>
 					</table>
 					</fieldset>
@@ -95,33 +86,34 @@
 					<h3> Enter the following information: </h3>
 						<!--Name-->
 						<p>
-							<label for="firstname"> Your first name:<br/></label>
-							<input type="text" id="firstname" size="40" value=""/>
+							<label for="firstname"> *Your first name:<br/></label>
+							<input type="text" id="firstname" size="40" value="" required />
 							<input type="button" onclick="getFirstName('firstname')" value="ok"></button>
 						</p>
 						<p>
-							<label for="lastname"> Your last name:<br/></label>
-							<input type="text" id="lastname" size="40" value=""/>
+							<label for="lastname"> *Your last name:<br/></label>
+							<input type="text" id="lastname" size="40" value="" required />
 							<input type="button" onclick="getLastName('lastname')" value="ok"></button>
 						</p>
 						<!--username-->
 						<p>
-							<label for="username"> Your username:<br/></label>
-							<input type="text" id="username" size="40" value=""/>
+							<label for="username"> *Your username:<br/></label>
+							<input type="text" id="username" size="40" value="" required />
 							<input type="button"  onclick="getUsername('username')" value="ok"></button>
 						</p>
 						<!--points-->
 						<p>
-							<label for="email"> Your email<br/></label>
-							<input type="email" id="email" size="29" value=""/>
+							<label for="email"> *Your email<br/></label>
+							<input type="email" id="email" size="29" value=""  required/>
 							<input type="button"onclick="getEmail('email')" value="ok"></button>
 						</p>
 						<!--password-->
 						<p>
-							<label for="password"> Your password<br/></label>
-							<input type="password" id="password" name="password" size="29" value="" maxlength= "15"/>
+							<label for="password"> *Your password<br/></label>
+							<input type="password" id="password" name="password" size="29" value="" maxlength= "15"  required/>
 							<input type="button" onclick="getPassword('password')" value="ok"></button>
 						</p>
+						
 					</fieldset></div>
 				<!--Weapon Selection-->
 					<div style="width:31%; float:left;" id="weaponsDiv"><fieldset id="weapons">
