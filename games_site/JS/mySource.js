@@ -161,8 +161,21 @@ function checkImpasses(pitfalls)
 		document.getElementById('email_address').innerHTML = email;
 	}
 	//function that sets the user password
-
-	
+		function getPassword(password)
+	{	
+		var password = document.getElementById(password).value;
+		if ( (password.length < 8) || (password.length > 15))
+		{
+			alert("Please enter a password that is between 8 and 15 characters");
+		}
+		else
+		{
+			var hiddenPassword  = " ";
+			for (var i = 0; i< password.length; i++)
+			{	hiddenPassword += "*";}
+			document.getElementById('hidden_password').innerHTML = hiddenPassword;
+		}
+	}
 
 	//functions that sets the three weapons
 	function pickWeapons()
@@ -266,6 +279,7 @@ function checkImpasses(pitfalls)
 	document.getElementById('last_name').innerHTML = "";
 	document.getElementById('user_name').innerHTML = "";
 	document.getElementById('email_address').innerHTML = "";
+	document.getElementById("hidden_password").innerHTML ="";
 	
 	document.getElementById('weapon_one').innerHTML = "";
 	document.getElementById('weapon_two').innerHTML = "";
@@ -307,4 +321,46 @@ function checkImpasses(pitfalls)
 		xmlhttp.open("GET", "getName.php?q="+str, true);
 		//execute the request
 		xmlhttp.send();
+	}
+	
+	
+	/*function to get the picture array for the memory game*/
+	
+	function getPictures(num)
+	{
+
+		var pictures;
+		switch(num)
+		{
+			case 0:
+			{ pictures =	new Array(["castle", "horse", "smallWizard2", "elf"],
+										  ["ghost", "lich", "ghost", "smallWizard1"],
+										  ["flowers", "smallWizard2", "horse", "castle"],
+										  ["smallWizard1", "flowers", "elf", "lich"]);
+				break;
+			}
+			case 1:
+			{ pictures =	new Array(["smallWizard1", "horse", "smallWizard2", "elf"],
+								  ["ghost", "lich", "flowers", "castle"],
+								  ["flowers", "smallWizard2", "horse", "castle"],
+								  ["lich", "ghost", "elf", "smallWizard1"]);
+				break;
+			}
+			case 2:
+			{ pictures =	new Array(["flowers", "smallWizard2", "horse", "castle"],
+								  ["smallWizard1", "lich", "ghost", "ghost"],
+								  ["castle", "horse", "smallWizard2", "elf"],
+								  ["smallWizard1", "flowers", "elf", "lich"]);
+				break;				  
+			}
+			case 3: 
+			{ pictures =	new Array(["castle", "horse", "smallWizard2", "elf"],
+								  ["flowers", "smallWizard2", "horse", "castle"],
+								  ["smallWizard1", "flowers", "elf", "lich"],
+								  ["ghost", "lich", "ghost", "smallWizard1"]);
+				break;
+			}
+		}
+		return pictures;
+
 	}
