@@ -14,29 +14,30 @@ Both Firefox and Edge update the information on the page as the game is played.-
 			//initialize variables
 			var heroPlay= 0; var monsterPlay = 0;
 			var heroPts= 100; var monsterPts= 100;
-			var tome = "tome"; var sword= "sword"; var arrow= "bow and arrow";
+			var tome = "TOME"; var sword= "SWORD"; var arrow= "BOW AND ARROW";
 			var heroChoice = " "; var monsterChoice= " ";
 
 			//fill HTML page
 			document.getElementById("monsterPts").innerHTML = (monsterPts);
 			document.getElementById("heroPts").innerHTML = (heroPts);
 			document.getElementById("playerWeapon").innerHTML = ("Your weapon: ");
-			document.getElementById("monsterWeapon").innerHTML = ("The [Monster Pending]'s weapon: ");
+			document.getElementById("monsterWeapon").innerHTML = ("The troll's weapon: ");
 			document.getElementById("winner").innerHTML = ("&nbsp;");
 			//loop repeats until monster or player get 130 points
 			while ((monsterPts < 130) && (heroPts < 130)) 
-			{	//while loop that makes sure the player input is a digit between 1 and 4
-				do{
+			{	
+				
 					// get player's weapon
-					heroPlay = parseInt(prompt("What weapon would you like to use? Enter the number for your choice. (1: Tome)  (2: Sword) (3: Bow and Arrows)  (4: Exit the game)", " "));
-					if (heroPlay == 4) 
-					{
-						document.getElementById("winner").innerHTML=("Sometimes a tactical retreat is best.");
-						break;
-					}
-				}while ( (heroPlay != 1) || (heroPlay != 2) || (heroPlay != 3) || (heroPlay != 4));
-				
-				
+				do{				
+						heroPlay = parseInt(prompt("What weapon would you like to use? Enter the number for your choice. (1: Tome)  (2: Sword) (3: Bow and Arrows)  (4: Exit the game)", " "));
+					}while ((heroPlay > 4) || (isNaN(parseInt(heroPlay))))
+					
+				//end the game if the input is 4
+				if (heroPlay == 4) 
+				{
+					document.getElementById("winner").innerHTML=("Sometimes a tactical retreat is best.");
+					break;
+				}
 				// get monster's weapon
 				monsterPlay = Math.floor(Math.random() * 3 + 1);
 				// assign weapon to player and monster
@@ -54,8 +55,8 @@ Both Firefox and Edge update the information on the page as the game is played.-
 					{heroChoice = arrow;}
 				//display weapon selections
 				document.getElementById("playerWeapon").innerHTML= ("Your weapon: " + heroChoice);
-				document.getElementById("monsterWeapon").innerHTML= ("The [Monster Pending]'s weapon: " + monsterChoice);
-				alert("Battle round begin! You have chosen " + heroChoice + " and the [Monster Pending] has chosen " + monsterChoice);
+				document.getElementById("monsterWeapon").innerHTML= ("The troll's weapon: " + monsterChoice);
+				alert("Battle round begin! You have chosen " + heroChoice + " and the troll has chosen " + monsterChoice);
 				//find the winner
 				
 				//monster wins
@@ -66,7 +67,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 					heroPts = heroPts -10;
 					document.getElementById("monsterPts").innerHTML=(monsterPts);
 					document.getElementById("heroPts").innerHTML=(heroPts);
-					alert("The [Monster Pending] won this round. The points are: " + heroPts + " to " + monsterPts);
+					alert("The troll won this round. The points are: " + heroPts + " to " + monsterPts);
 				}
 				//hero Wins
 				if(((heroPlay==1)&&(monsterPlay==3)) || ((heroPlay==2)&&(monsterPlay==1)) || ((heroPlay==3)&&(monsterPlay==2)))
@@ -88,13 +89,14 @@ Both Firefox and Edge update the information on the page as the game is played.-
 			//display the final winner
 			if (monsterPts >= 130)
 			{
-				document.getElementById("winner").innerHTML=("You faught well, but the [monster pending] bested you. Go home and nurse your wounds.");
+				document.getElementById("winner").innerHTML=("You faught well, but the troll bested you. Go home and nurse your wounds.");
 			}
 			if (heroPts >= 130)
 			{
-				document.getElementById("winner").innerHTML=("Congratulations! You bested the [monster pending]. ");
+				document.getElementById("winner").innerHTML=("Congratulations! You bested the troll. ");
 			}
 	}
+
 </script>
 
 <style type="text/css">
@@ -127,11 +129,11 @@ Both Firefox and Edge update the information on the page as the game is played.-
 		  <table width = "70%" cellpadding="5" cellspacing="0" border = "0" id="battlegroundTable">
 			 <tr>
 				  <td><img src="../images/wizard.jpg" /></td>
-				  <td><img src="../images/monster.jpg" /></td>
+				  <td><img src="../images/troll.jpg" /></td>
 			 </tr>
 			 <tr>
 			  <td><h3>You use: </h3></td>
-			  <td><h3>[Monster Pending] uses: </h3></td>
+			  <td><h3>Troll uses: </h3></td>
 			 </tr>
 			 <tr><td id = "playerWeapon" p >???</p></td>
 			  <td id = "monsterWeapon" p >???</p></td></tr>
@@ -139,12 +141,12 @@ Both Firefox and Edge update the information on the page as the game is played.-
 			 <tr><td colspan = 2 id="winner" align = "center">???</tr>
 			 <tr>
 				<td><h3>Your points: </h3></td> 
-				<td><h3>[Monster Pending] points:</h3></td>
+				<td><h3>Troll points:</h3></td>
 			</tr>  
 			<tr><td id = "heroPts">100</td> <td id = "monsterPts">100</td></tr>
 			<tr>
 				<td><input type="button" id="battle" value="Let the battle begin!"  onclick="battleIt();" /> </td>
-				<td><input type="button" id="return" value="Return to battle instructions"  onclick="location.href = 'greg_battle.html';" /></td><tr/>
+				<td><input type="button" id="return" value="Return to battle instructions"  onclick="location.href = 'monster_battle.html';" /></td><tr/>
 		</table>
 		</div>
 	<footer>

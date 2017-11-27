@@ -56,7 +56,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 				
 				//computer matches
 				if (compChoice == 1)
-				{	kitty += playerbet;
+				{	kitty += playerBet;
 					alert("The inn-keeper matches your bet. The kitty is now: " + kitty);
 					document.getElementById("kitty").innerHTML= ("$" + kitty);
 					proceed = true;
@@ -78,7 +78,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 					document.getElementById("kitty").innerHTML= ("$" + kitty);
 					proceed = false;
 					//get the player choice 
-					do {pChoice = parseInt(prompt("What would you like to do? 1: Match the bet, 2: Fold, or 3: Raise the bet?"));} while ((pChoice <= 0) || (isNaN(parseInt(playerBet))));
+					do {pChoice = parseInt(prompt("What would you like to do? 1: Match the bet, 2: Fold, or 3: Raise the bet?"));} while ((pChoice <= 0) || (isNaN(parseInt(pChoice))));
 						if (pChoice == 1)
 					{	kitty += compRaise;
 						alert("You have matched the bet. The kitty is now: " + kitty);
@@ -99,7 +99,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 						kitty += playerBet;
 						alert("You raised by "+ playerBet + ". The kitty is now " + kitty);		
 						document.getElementById("kitty").innerHTML = ("$" + kitty);
-						proceed = false;
+						proceed = true;
 					}
 				}
 			}while (proceed == false);
@@ -199,7 +199,7 @@ Both Firefox and Edge update the information on the page as the game is played.-
 		  <li><a href="../about.html">About</a></li>
 		  <li><a href="../play_games.html">Games</a>
 		  <li><a href="../signin.html">Sign In</a></li>
-		  <li><a href="../aboutyou.php">Sign Up</a></li>
+		  <li><a href="../aboutyou.html">Sign Up</a></li>
 		  <li><a href="../contact.html">Contact</a></li>
 	  </ul>
 	</nav>
