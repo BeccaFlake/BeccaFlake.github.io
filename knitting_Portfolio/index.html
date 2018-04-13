@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--
+	Rebecca Flake
+	4/6/2018
+	HTML5
+	-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Knitting Portfolio</title>
+	<link rel="shortcut icon" href="images/favicon.ico" >
+	<link rel="stylesheet" href="styles/normalize.css">
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Jaldi">
+	<!--SlickNav-->
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="styles/slicknav.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+		<!--SlickNav Function-->
+	<script type="text/javascript">
+		$(document).ready(function(){
+				$('#nav_menu').slicknav({prependTo:"#mobilemenu"});
+			});
+    </script>
+	<!-- Flickity -->
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+</head>
+
+<body>
+	<header>
+	<!--Header image and image map-->
+		<img src="images/headerImg.jpg" alt="headerImg" height= 380>
+	</header>
+	
+	<!-- Mobile Navigation Menu-->
+	<nav id="mobilemenu"></nav>
+	<!-- Main Navigation Menu -->
+	<nav id="nav_menu">
+		<ul>
+			<li><a>Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a>Project Gallery</a></li>
+			<li><a>Contact</a></li>
+		</ul>
+	</nav>
+	
+<!--Page Content -->
+	<main>
+			<!--Section 1: Featured WIP--> 
+			<section id = "featuredWIP"> 
+				<h2>Featured Work in Progress</h2>
+				<!-- Image slideshow -->
+				<div class="mini-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true }'>
+						<div class="carousel-cell-sq"><img src="images/wip/baby_sweater(1).jpg" alt="Featured WIP" ></div>
+						<div class="carousel-cell-sq"><img src="images/wip/baby_sweater(2).jpg" alt="Featured WIP" ></div>
+						<div class="carousel-cell-sq"> <img src="images/wip/baby_sweater(3).jpg" alt="Featured WIP" ></div>
+						<div class="carousel-cell-sq"><img src="images/wip/baby_sweater(4).jpg" alt="Featured WIP" ></div>
+				</div>
+			<!-- Featured work in progress text -->
+				<div id="featuredProjectText">
+					<h3>Cabled Baby Sweater</h3>
+					<p> This little cardigan/vest is a gift for an expecting friend. I haven't worked with 100% cotton in a 
+					while and am having to re-learn the tension that works best for me with it. It's my current project that 
+					gets dragged around with me to keep my hands busy before class starts. Something I really wanted to try
+					with it was having the cable wrap up around the back of the neck as one piece. I keep running into the fear
+					of running out of yarn so it may turn into a little vest. The shoulders are grafted togther and then the cable
+					continues around the back while picking up along the bound off edge to attach it. I'm really loving it so far, 
+					and it's the first sweater I've written the pattern for.</p>
+				</div>
+			</section>
+			<!--Section 1: About--> 
+			<section id = "about">
+				<h2>About</h2>
+				<div id="aboutImg">
+					<img src = "images/headshot.jpg " alt="Rebecca Flake">
+					<h3>Rebecca Flake</h3>
+				</div>
+			<!-- About Text -->
+				<div id="aboutText">
+					<p>  I'm a knitter and programmer currently living in the very green, sub-tropical city of Gainesville, Florida.
+						   I also enjoy dabbling in sewing and gardening when I'm not knitting or writing up lines of code.
+						   Because one only needs so many sweaters, hats, and scarves when they live in a place with no real winter
+						   most of my knitting either gets handed off to friends and family or popped into my online shop. I frequently 
+						   have comissioned baby gifts on the needles, which are great fun to design and make. 
+					</p>
+					<p>	       I lean towards minimal design in cool, moody colors. My love of flowers and cute things has resulted in pastels 
+						   creeping into my work recently. All of this bleeds over into my programming work as well, as I'm a sucker for a 
+						   minimal, intuative interface. I also like playing with textures, especaially moss-stitch, and letting my love of art history
+						   and architecture inform my designs. 
+					</p>
+
+				</div>
+			</section>
+			<!--Section 1: Project Slide show--> 
+			<section id = "projects">
+				<h2>Featured Projects</h2>
+			<!-- Featured project slideshow images -->
+				<h3><a>See the Full project gallery</a></h3>
+
+				<!-- Image Slide Show-->
+				<div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true }'>
+					<div class="carousel-cell-thin"><img src="images/project_gallery/bunnies.jpg" alt="Knit rabbits"></div>
+					<div class="carousel-cell-wide"><img src="images/project_gallery/elephant.jpg" alt="elephant"></div>
+					<div class="carousel-cell-thin"><img src="images/project_gallery/elephant2.jpg"alt="elephant"></div>
+					<div class="carousel-cell"><img src="images/project_gallery/blanketanimals.jpg"alt="blanket animals"></div>
+					<div class="carousel-cell-thin"><img src="images/project_gallery/lamb3.jpg" alt="lamb"></div>
+					<div class="carousel-cell"><img src="images/project_gallery/imperiumVault.jpg"alt="mitt and hat"></div>
+					<div class="carousel-cell-mid"><img src="images/project_gallery/giraffe.jpg"alt="giraffe"></div>
+					<div class="carousel-cell"><img src="images/project_gallery/swellInverse.jpg"alt="cowls"></div>
+					<div class="carousel-cell-mid"><img src="images/project_gallery/Yishu.jpg"alt="Yishu"></div>
+					<div class="carousel-cell"><img src="images/project_gallery/undercurrent.jpg"alt="cowl"></div>
+					<div class="carousel-cell"><img src="images/project_gallery/undercurrents.jpg"alt="cowl"></div>
+				</div>
+				
+			</section>
+	</main>
+	
+	<footer>
+	<p>&copy; 2018 Rebecca Flake || rebeccacflake@gmail.com</p>
+	</footer>
+</body>
+</html>

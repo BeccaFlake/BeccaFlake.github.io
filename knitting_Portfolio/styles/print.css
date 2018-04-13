@@ -1,0 +1,28 @@
+/*
+	Name: Rebecca Flake
+	Current Date: 7/17/2017
+	Class.section: CGS1821.CM1
+	Assignment: Final Project 
+	Language: CSS3
+	Purpose: Stylesheet for formatting the pattern pages for printing
+	Linked to: hat_pattern_html, scarf_pattern.html,
+	*/
+	/*Styles for the body, header, section, and footer*/
+	body{
+		color: #000000;
+		font-family: "Spectral", Times, serif;
+		width: auto;
+		background-color: #FFFFFF;
+		}
+	header {border-bottom: 1px solid #000000;}
+	section h1, section h2, section h3{font-family: Jaldi, Arial, Helvatica, sans-serif}
+	section figure img {display: none;}	
+	footer {border-top: 1px solid #000000;}
+	/*Styles for the navigation menu*/
+	#nav_menu {display: none}
+	/*Styles for the divs*/
+	#terms{border-top: 1px solid #000000;} 
+	#method {border-top: 1px solid #000000;}
+	#method ul{page-break-inside: avoid}
+	/*Print button styles*/
+	#printButton {display: none;}

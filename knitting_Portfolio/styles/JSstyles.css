@@ -1,0 +1,22 @@
+/*
+	Name: Rebecca Flake
+	Current Date: 5/17/2017
+	Class.section: CGS1821.CM1
+	Assignment: Week 3 Project 3
+	Language: CSS3
+	Stylesheet for the JS on the site
+	Linked to: 
+
+
+.parallaxie img{
+position: absolute;
+display: none;
+}
+#sladetext , #harbortext, #octotext, #vaulttext{
+	width: 50%;
+	float: right;
+	}
+#capratext, #mittstext, #animaltext{
+	width: 50%;
+	float: left;	
+} */
