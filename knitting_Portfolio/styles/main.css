@@ -143,16 +143,16 @@ section #featuredProjectText p{width: 90%; padding: 1em .5em; text-indent: 1em; 
 section #aboutImg{float:right; width: 40%;  background-color: #597164;  margin: .5em;}
 section #aboutImg img{width:96%; padding: 2%; margin: 0; opacity: 1;}
 section #aboutImg h3{font-size: 90%;}
-section #aboutText{float:left; width: 55%;  background-color: #597164;  margin: 8em .5em .5em; }
+section #aboutText{float:left; width: 55%;  background-color: #597164;  margin: 5em .5em .5em; }
 section #aboutText p{width: 90%; padding: 1em .5em; text-indent: 1em; font-size: 120%;}
 
 .carousel-cell {
-  width: 28%;
+  width: 30%;
   height: 400px;
 }
-.carousel-cell-thin{width: 21%;  height: 400px;}
-.carousel-cell-mid{width: 22%;  height: 400px;}
-.carousel-cell-wide{width:42%;  height: 400px;}
+.carousel-cell-thin{width: 23%;  height: 400px;}
+.carousel-cell-mid{width: 25%;  height: 400px;}
+.carousel-cell-wide{width:44%;  height: 400px;}
 .carousel-cell-sq{width:100%;  height: 450px;}
 
 .main-carousel {
