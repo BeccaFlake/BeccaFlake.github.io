@@ -1,0 +1,590 @@
+/*
+	*/
+
+
+/*the styles for the elements*/
+html{background-color: #E5E5E4;}
+
+* {
+	margin: 0;
+	padding: 0; }
+	
+/*styles for the body*/
+body {
+	font-family: Jaldi, Arial, Helvatica, sans-serif;
+	font-size: 100%;
+	margin: .5em auto;
+	width: 100%;
+	max-width: 100%; 
+	background-color: #FAFAFA;
+}
+
+/*styles for the links*/
+a {color: #2C4124; line-height: 1em; text-decoration: none;}
+a:focus, a:hover {color: #59173D;;}
+
+/******************************/
+/*styles for the header*/
+header{
+	background-color: #C76076;
+	height: 15%;
+}
+header img{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+header h1 {
+	font-family: "Spectral";
+	font-size: 320%;
+	color: #EDEDEC;
+	padding: .65em 0 0 2.8em;
+	line-height: .4em;
+	text-shadow: .04em .04em #194152;
+ }
+ header h2 {
+	font-family: "Spectral";
+	font-size: 125%;
+	color: #194152;
+	padding: 0 9em;
+	line-height: .4em;
+	font-style: italic;
+	text-shadow: .03em .03em #28698A;
+ }
+/*styles for the navigation menu*/
+#nav_menu{height:15%;}
+#nav_menu ul {
+	list-style-type: none;
+	position: relative;
+	width: 100%;
+}
+#nav_menu ul li {
+	width: 25%;
+	float: left;
+}	
+#nav_menu ul li a {
+    display: block;
+    text-align: center;
+	padding: .8em 0;
+    text-decoration: none;
+    background-color: #59173D;
+    font-weight: normal;
+	color: white;
+	width: 100%;
+}
+
+#nav_menu ul ul {
+	width: 100%;
+    overflow: hidden;
+	max-height: 0;
+    position: absolute;
+	top: 100%;
+	z-index: 999;
+		/*transition so the dropdown menus appear gradually*/
+	-webkit-transition: max-height 1s ease-in-out;
+    -moz-transition: max-height 1s ease-in-out;
+    -o-transition: max-height 1s ease-in-out;
+    transition: max-height 1s ease-in-out;
+}
+#nav_menu ul ul li {float: none;}
+#nav_menu a.current {color: #85EDCA;}
+#nav_menu ul li:hover > ul, #nav_menu ul li:focus > ul{max-height: 600%;}
+#nav_menu > ul::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+#nav_menu ul li a:hover, #nav_menu ul li a:focus {background-color: #C76076; opacity: .8;}
+
+/******************************/
+main{
+	clear: left;
+	padding: .5em 2em;
+	height: 75%;
+}
+main h1{
+	font-family: "Spectral";
+	text-align: center;
+	font-size: 160%;
+	color: #59173D;
+}
+section {padding: 2em 1em; clear:both; height: 25%:}
+/**styles for the section**/
+section h1 {
+	font-family: "Spectral";
+	text-align: center;
+	font-size: 140%;
+	color: #59173D;
+}
+section h2 {
+	font-family: "Spectral";
+	text-align: center;
+	font-size: 120%;
+	padding-top: 1em;
+	color: #59173D;
+}
+section h3{
+	font-size: 100%;
+	padding-bottom: .3em;
+	text-align: center;
+	font-family: "Spectral";
+}
+section p{
+	width: 100%;
+	margin: auto;
+	font-size: 90%;
+	padding-bottom: 2em;	
+	padding: 1.5em;
+	line-height: 1.4em;
+	text-indent: 1em;
+	clear: both;
+}
+.animalImg {padding: .75em; float: left;}
+
+#wip_Images {float:left; width: 35%; background-color: #597164; border-radius: 5px;  margin: .5em;}
+#wip_Images img{width:100%; padding: 0; margin: 0;}
+
+#PGAnimalImgs{float:left; width: 70%; background-color: #597164; border-radius: 5px;  margin:.5em;}
+
+#PGAnimalTxt{float:right; width: 25%; margin: .5em .5em .5em; color: white;}
+#PGAnimalTxt p{
+	width: 90%; 
+	padding: 1em; 
+	text-indent: 1em; 
+	font-size: 110%; 
+	background-color: #597164; 
+	margin-top: 2em; 
+	margin-bottom: 5em; 
+	}
+
+#featuredProjectText{float:right; width: 55%; background-color: #597164; border-radius: 5px;  margin: 5em .5em .5em;}
+#featuredProjectText h3{padding-top: 1em; text-align: center;}
+#featuredProjectText p{width: 90%; padding: 1em .5em; text-indent: 1em; font-size: 120%; }
+ 
+
+#aboutImg{float:right; width: 30%;  background-color: #597164; border-radius: 5px;  margin: .5em;}
+#aboutImg img{width:96%; padding: 2%; margin: 0; opacity: 1;}
+#aboutImg h3{font-size: 90%;}
+#aboutText{float:left; width: 55%;  background-color: #597164; border-radius: 5px;  margin: 1em .5em; }
+#aboutText p{width: 90%; padding: 1em .5em; text-indent: 1em; font-size: 120%;  }
+
+
+.carousel-cell-txt {
+  width:30%;
+  height: 400px;
+}
+.carousel-cell-txt-thin {
+  width:15%;
+  height: 400px;
+}
+.carousel-cell-txt-wide {width:35%; }
+
+
+.carousel-cell-txt p, .carousel-cell-txt-thin p, .carousel-cell-txt-wide p{
+  width:90%;
+  font-size: 110%;
+  color: white;
+}
+
+.carousel-cell {
+  width: 32%;
+  height: 400px;
+}
+.carousel-cell-thin{width: 24%;  height: 400px;}
+.carousel-cell-mid{width: 26%;  height: 400px;}
+.carousel-cell-wide{width:46%;  height: 400px;}
+.carousel-cell-sq{width:100%;  height: 450px;}
+
+.main-carousel, .caption-carousel {
+  background-color: #597164;
+  width: 100%;
+  margin: auto;
+}
+.mini-carousel{float:left; width: 35%; margin: .5em;}
+
+.carousel-cell img, .carousel-cell-wide img, 
+.carousel-cell-thin img, .carousel-cell-mid img,  .carousel-cell-sq img{
+ height: 100%;
+}
+.caption-carousel .carousel-cell img, .caption-carousel .carousel-cell-wide img, 
+.caption-carousel .carousel-cell-thin img, .caption-carousel .carousel-cell-mid img,  
+.caption-carousel .carousel-cell-sq img {height: 90%;}
+
+.caption-carousel .carousel-cell {
+  width: 28%;
+}
+.caption-carousel .carousel-cell-thin{width: 21%;  height: 400px;}
+.caption-carousel .carousel-cell-mid{width: 24%;  height: 400px;}
+.caption-carousel .carousel-cell-wide{width:44%;  height: 400px;}
+.caption-carousel .carousel-cell-sq{width:100%;  height: 450px;}
+
+
+#email, #instagram, #twitter, #ravelry {background-color: #597164; width: 21%; margin: 2%; border-radius: 5px; float: left;}
+#email a h3 {width: 90%; padding-top: 0; text-align: left;}
+#instagram a h3, #twitter a h3, #ravelry a h3{width: 90%; padding-top: .5em; text-align: left;}
+#email img , #instagram img, #twitter img, #ravelry img { width: 15%; margin: 0 10% 1%; float: left;}
+
+#shopContact p{color: white; text-align: center;}
+#shopContact a h2{text-align: center;}
+#shopContact iframe{float: left; margin: 4.25%;}
+
+#customContact{background-color: #597164; border-radius: 5px; height: 100%;}
+#customContact h3{padding: 1% 0 0; }
+#customContact iframe{border-radius: 5px; width: 100%; margin-bottom: 1%;}
+******************/
+/*styles for the footer*/
+footer{
+	height: 5%;
+	padding: .5em 0;
+	margin-top: 0;
+	border-top: 1px solid #318578;
+}
+footer p{
+	font-family: Spectral;
+	font-size: 70%;
+	color: #030D11;	
+	text-align: center;
+	border-top: 1px ;
+}
+
+.slicknav_menu {display: none;}
+/*************************************
+*styles for the responsive web design*
+
+**************************************/
+/* tablet portrait to standard */
+@media only screen and (max-width: 1024px) {
+	body {font-size: 100%;}	
+	main {margin: .5em 0;}	
+	section {
+	float: none;		
+	margin-left: 0;
+	}
+	section p {padding: 1.5em 0;}
+		header{
+	background-color: #FAFAFA;
+	height: 15%;
+	}
+	main{margin: 0 ; padding: 0;}
+
+	section{padding: 1em 0; }	
+	main h1{font-size: 270%;}
+	section h2{font-size: 200%;}
+	section h3{font-size: 150%;}
+	footer {font-size: 200%;}
+	.slicknav_menu {
+	display: block;
+	background-color: #59173D !important;}
+	#nav_menu{display:none;}
+	
+	.animalR {margin: 0; clear: both;}
+	.animalRM {margin: 0 ; clear: both;}
+	.animalImg {padding: .5em 1.2em; width: 45%; }
+
+	#wip_Images { width: 90%; background-color: #597164; border-radius: 5px;  margin: .5em;}
+	#wip_Images img{width: 90%; padding: 0; margin: .5em; }
+	
+	#aboutImg{clear: both; width: 60%;  background-color: #597164; border-radius: 5px;  margin: .5em 20%;}
+	#aboutImg img{width:96%; padding: 2%; margin: 0; opacity: 1;}
+	#aboutImg h3{font-size: 150%;}
+	
+	#aboutText{clear: both; width: 90%;  background-color: #597164; border-radius: 5px;  margin: 1em 5%; }
+	#aboutText p{width: 90%; padding: 1em .5em; text-indent: 1em; font-size: 200%;  }
+
+	#featuredProjectText{width: 90%; background-color: #597164; border-radius: 5px; padding: 0;  margin: 5em 5%;}
+	#featuredProjectText h3{padding-top: 1em; text-align: center;  font-size: 200%; }
+	#featuredProjectText p{width: 90%; padding: 1em .5em; text-indent: 1em; font-size: 200%; }
+		
+	#PGAnimalImgs{float: left; width: 90%; background-color: #597164; border-radius: 5px;  margin:.5em 5%;}
+	#PGAnimalImgs img{float:left; width: 100%;}
+	
+	#PGAnimalTxt{clear: both; width: 90%; margin:.5em 5%; color: white;}
+	#PGAnimalTxt p{
+		width: 90%; 
+		font-size: 200%; 
+		}
+	
+	#email, #instagram, #twitter, #ravelry {background-color: #597164; width: 70%; margin: 5% 15%; border-radius: 5px; clear: both; }
+	#email h3, #instagram h3, #twitter h3, #ravelry h3{font-size: 200%;}
+	#email a h3 {width: 90%; padding-top: 0; text-align: left; font-size: 200%; line-height: 2em;}
+	#instagram a h3, #twitter a h3, #ravelry a h3{width: 90%; padding-top: .5em; text-align: left; font-size: 250%; line-height: 1.5em;}
+	#instagram img, #twitter img, #ravelry img { width: 15%; margin: 0 10% 5%; clear: both; }
+	
+
+	#shopContact p{color: white; text-align: center;}
+	#shopContact a h2{text-align: center;}
+	#shopContact iframe{ margin: 2% 9.5%; }
+
+	#customContact{background-color: #597164; border-radius: 5px; height: 100%;}
+	#customContact h3{padding: 2%; }
+	#customContact iframe{border-radius: 5px; width: 100%; margin-bottom: 1%;}
+
+	.main-carousel, .caption-carousel {
+	  background-color: #597164;
+	  width: 100%;
+	  margin: auto;
+	}
+	.mini-carousel{ width: 100%; margin:auto;}
+
+	.caption-carousel h3{line-height: 1em;}
+	
+	.carousel-cell-txt {
+	  width:50%;
+	  height: 715px;
+	}
+	.carousel-cell-txt-thin {
+	  width: 50%;
+	  height: 715px;
+	}
+	.carousel-cell-txt-wide {width:50%; }
+
+	.carousel-cell-txt p, .carousel-cell-txt-thin p, .carousel-cell-txt-wide p{
+	  width:80%;
+	  font-size: 200%;
+	  color: white;
+	}
+
+	.carousel-cell {
+	  width: 70%;
+	 height: 715px;
+	}
+	.carousel-cell-thin{width: 50%;  height: 715px;}
+	.carousel-cell-mid{width: 60%;  height: 715px;}
+	.carousel-cell-wide{width:100%;  height: 715px;}
+	.carousel-cell-sq{width: 70%;  height: 715px;}
+
+	.carousel-cell img, .carousel-cell-wide img, 
+	.carousel-cell-mid img,  .carousel-cell-sq img, .carousel-cell-thin img{}
+	.flickity-prev-next-button{display: none;}
+
+	.caption-carousel .carousel-cell img, .caption-carousel .carousel-cell-wide img, 
+	.caption-carousel .carousel-cell-thin img, .caption-carousel .carousel-cell-mid img,  
+	.caption-carousel .carousel-cell-sq img {height: 95%;}
+	.caption-carousel .carousel-cell {
+	  width: 100%;
+	}
+	.caption-carousel .carousel-cell{width: 66%;  height: 715px;}
+	.caption-carousel .carousel-cell-thin{width: 48%;  height: 715px;}
+	.caption-carousel .carousel-cell-mid{width: 56%;  height: 715px;}
+	.caption-carousel .carousel-cell-wide{width:100%;  height: 715px;}
+	.caption-carousel .carousel-cell-sq{width: 66%;  height: 715px;}
+		
+	
+}
+
+
+
+
+/* tablet portrait to standard */
+@media only screen and (max-width: 800px) {
+	body {font-size: 100%;}	
+	main {margin: .5em 0;}	
+	section {
+	float: none;		
+	margin-left: 0;
+	}
+	section p {padding: 1.5em 0;}
+	
+	
+	.carousel-cell, .carousel-cell-sq{width: 90%;  height: 715px;}
+	.carousel-cell-thin{width: 67%;  height: 715px;}
+	.carousel-cell-mid{width: 80%;  height: 715px;}
+	.carousel-cell-wide{width:120%;  height: 715px;}
+	.carousel-cell-txt {
+		  width:80%;
+		  height: 715px;
+	}
+	
+	.caption-carousel .carousel-cell{width: 85%;  height: 715px;}
+	.caption-carousel .carousel-cell-thin{width: 64%;  height: 715px;}
+	.caption-carousel .carousel-cell-mid{width: 75%;  height: 715px;}
+	.caption-carousel .carousel-cell-wide{width:120%;  height: 715px;}
+	.caption-carousel .carousel-cell-sq{width: 85%;  height: 715px;}
+	
+	.animalImg {padding: .5em 2.5%; width: 45%; }
+	
+	#PGAnimalTxt p{ margin-bottom: 2em;}
+	#email, #instagram, #twitter, #ravelry {width: 78%; margin: 5% 10%; }
+	#shopContact iframe{ margin: 2% 5.5%; }
+	#instagram a h3, #email a h3 {width: 90%; padding-top: 0; text-align: left; font-size: 210%; line-height: 2em;}
+
+	
+	
+}
+/* iPad and iPad mini portrait */
+@media only screen and (max-width: 768px){
+	.carousel-cell, .carousel-cell-sq{width: 90%;  height: 690px;}
+	.carousel-cell-thin{width: 67%;  height: 690px;}
+	.carousel-cell-mid{width: 80%;  height: 690px;}
+	.carousel-cell-wide{width:120%;  height: 690px;}
+	.carousel-cell-txt {
+		  width:80%;
+		  height: 690px;
+	}
+	
+	.caption-carousel .carousel-cell{width: 85%;  height: 690px;}
+	.caption-carousel .carousel-cell-thin{width: 64%;  height: 690px;}
+	.caption-carousel .carousel-cell-mid{width: 75%;  height: 690px;}
+	.caption-carousel .carousel-cell-wide{width:120%;  height: 690px;}
+	.caption-carousel .carousel-cell-sq{width: 85%;  height: 690px;}
+	
+	.animalImg {padding: .5em 2.5%; width: 45%; }
+	
+	#shopContact iframe{margin: 2% 4.25%;}
+
+}
+/* iPad and iPad mini portrait */
+@media only screen and (max-width: 720px){
+	.carousel-cell, .carousel-cell-sq{width: 100%;  height:720px;}
+	.carousel-cell-thin{width: 75%;  height: 720px;}
+	.carousel-cell-mid{width: 89%;  height: 720px;}
+	.carousel-cell-wide{width:130%;  height: 720px;}
+
+	
+	.caption-carousel .carousel-cell{width: 95%;  height: 720px;}
+	.caption-carousel .carousel-cell-thin{width: 71%;  height: 720px;}
+	.caption-carousel .carousel-cell-mid{width: 85%;  height: 720px;}
+	.caption-carousel .carousel-cell-wide{width:130%;  height: 720px;}
+	.caption-carousel .carousel-cell-sq{width: 95%;  height: 720px;}
+	
+	.animalImg {padding: .5em 2.5%; width: 45%; }
+	
+	#shopContact iframe{margin: 2% 4.25%;}
+	#aboutImg{clear: both; width: 80%;  background-color: #597164; border-radius: 5px;  margin: .5em 10%;}
+
+}	
+
+/* iPhone 6 & Galaxy S6 landscape */
+@media only screen and (max-width: 667px){
+
+}
+
+
+
+@media only screen and (max-width: 414px) {
+
+	#featuredProjectText p, #aboutText p, #PGAnimalTxt p{ font-size: 150%;}
+	#PGAnimalTxt {clear: both; width: 80%; margin:.5em 12%; color: white;}
+	.carousel-cell, .carousel-cell-sq{width: 100%;  height: 415px;}
+	.carousel-cell-thin{width: 75%;  height: 415px;}
+	.carousel-cell-mid{width: 89%;  height: 415px;}
+	.carousel-cell-wide{width:150%;  height: 415px;}
+
+	.caption-carousel .carousel-cell img, .caption-carousel .carousel-cell-wide img, 
+	.caption-carousel .carousel-cell-thin img, .caption-carousel .carousel-cell-mid img,  
+	.caption-carousel .carousel-cell-sq img {height: 92%;}
+	.caption-carousel h3{font-size: 110%;}
+	.caption-carousel .carousel-cell{width: 94%;  height: 450px;}
+	.caption-carousel .carousel-cell-thin{width: 70%;  height: 450px;}
+	.caption-carousel .carousel-cell-mid{width: 84%;  height: 450px;}
+	.caption-carousel .carousel-cell-wide{width:129%;  height: 450px;}
+	.caption-carousel .carousel-cell-sq{width: 93%;  height: 450px;}
+	
+	.carousel-cell-txt p, .carousel-cell-txt-thin p, .carousel-cell-txt-wide p{
+	  font-size: 140%;
+	}
+		.carousel-cell-txt {
+	  width:100%;
+	  height: 415px;
+	}
+	.carousel-cell-txt-thin {
+	  width: 100%;
+	  height: 415px;
+	}
+	.carousel-cell-txt-wide {width:100%; height: 415px;}
+	#email h3, #instagram h3, #twitter h3, #ravelry h3{font-size: 120%;}
+	#email a h3, #instagram a h3, #twitter a h3, #ravelry a h3{font-size: 115%;}
+	#shopContact iframe{margin: 2% 12%;}
+}
+/* iPhone 6 & Galaxy S6 portrait */
+@media only screen and (max-width: 375px) {
+	section{padding: 1em 0; }	
+	main h1{font-size: 170%;}
+	section h2{font-size: 120%;}
+	section h3{font-size: 150%;}
+	footer {font-size: 100%;}
+	#shopContact iframe{margin: 2% 8%;}
+	#customContact h3{font-size: 100%; }
+	#featuredProjectText h3 , #aboutText h3, #PGAnimalTxt h3{ font-size: 100%;}
+	#featuredProjectText p, #aboutText p, #PGAnimalTxt p{ font-size: 100%;}
+	#PGAnimalTxt {clear: both; width: 80%; margin:.5em 12%; color: white;}
+	.carousel-cell, .carousel-cell-sq{width: 100%;  height: 375px;}
+	.carousel-cell-thin{width: 75%;  height: 375px;}
+	.carousel-cell-mid{width: 89%;  height: 375px;}
+	.carousel-cell-wide{width:150%;  height: 375px;}
+
+	.caption-carousel .carousel-cell img, .caption-carousel .carousel-cell-wide img, 
+	.caption-carousel .carousel-cell-thin img, .caption-carousel .carousel-cell-mid img,  
+	.caption-carousel .carousel-cell-sq img {height: 92%;}
+	.caption-carousel h3{font-size: 110%;}
+	.caption-carousel .carousel-cell{width: 94%;  height: 395px;}
+	.caption-carousel .carousel-cell-thin{width: 70%;  height: 395px;}
+	.caption-carousel .carousel-cell-mid{width: 84%;  height: 395px;}
+	.caption-carousel .carousel-cell-wide{width:129%;  height: 395px;}
+	.caption-carousel .carousel-cell-sq{width: 93%;  height: 395px;}
+	
+	.carousel-cell-txt p, .carousel-cell-txt-thin p, .carousel-cell-txt-wide p{
+	  font-size: 120%;
+	}
+		.carousel-cell-txt {
+	  width:100%;
+	  height: 375px;
+	}
+	.carousel-cell-txt-thin {
+	  width: 100%;
+	  height: 375px;
+	}
+	.carousel-cell-txt-wide {width:100%; height: 375px;}
+	#email h3, #instagram h3, #twitter h3, #ravelry h3{font-size: 120%;}
+	#email a h3, #instagram a h3, #twitter a h3, #ravelry a h3{font-size: 115%;}
+	#shopContact iframe{margin: 2% 8%;}
+}
+
+
+/* iPhone 5 & Galaxy S5 portrait */
+@media only screen and (max-width: 320px) {
+	section{padding: 1em 0; }	
+	main h1{font-size: 170%;}
+	section h2{font-size: 120%;}
+	section h3{font-size: 150%;}
+	footer {font-size: 100%;}
+	#shopContact iframe{margin: 2% 8%;}
+	#customContact h3{font-size: 100%; }
+	#featuredProjectText h3 , #aboutText h3, #PGAnimalTxt h3{ font-size: 100%;}
+	#featuredProjectText p, #aboutText p, #PGAnimalTxt p{ font-size: 100%;}
+	#PGAnimalTxt {clear: both; width: 80%; margin:.5em 12%; color: white;}
+	.carousel-cell, .carousel-cell-sq{width: 100%;  height: 320px;}
+	.carousel-cell-thin{width: 75%;  height: 320px;}
+	.carousel-cell-mid{width: 89%;  height: 320px;}
+	.carousel-cell-wide{width:150%;  height: 320px;}
+
+	.caption-carousel .carousel-cell img, .caption-carousel .carousel-cell-wide img, 
+	.caption-carousel .carousel-cell-thin img, .caption-carousel .carousel-cell-mid img,  
+	.caption-carousel .carousel-cell-sq img {height: 92%;}
+	.caption-carousel h3{font-size: 110%;}
+	.caption-carousel .carousel-cell{width: 94%;  height: 340px;}
+	.caption-carousel .carousel-cell-thin{width: 70%;  height: 340px;}
+	.caption-carousel .carousel-cell-mid{width: 84%;  height: 340px;}
+	.caption-carousel .carousel-cell-wide{width:129%;  height: 340px;}
+	.caption-carousel .carousel-cell-sq{width: 93%;  height: 340px;}
+	
+	.carousel-cell-txt p, .carousel-cell-txt-thin p, .carousel-cell-txt-wide p{
+	  font-size: 120%;
+	}
+		.carousel-cell-txt {
+	  width:100%;
+	  height: 320px;
+	}
+	.carousel-cell-txt-thin {
+	  width: 100%;
+	  height: 320px;
+	}
+	.carousel-cell-txt-wide {width:100%; height: 320px;}
+	#email h3, #instagram h3, #twitter h3, #ravelry h3{font-size: 120%;}
+	#email a h3, #instagram a h3, #twitter a h3, #ravelry a h3{font-size: 115%;}
+	#shopContact iframe{margin: 2% 8%;}
+}
+
+
